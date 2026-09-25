@@ -24,7 +24,9 @@ export default function NovidadesNaHome() {
         rotuloDoLink="ver todas"
       />
 
-      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {/* `grid-cols-1` pelo mesmo motivo do EstreiasNaHome: coluna automatica
+          cresce ate o conteudo e vaza da tela do celular. */}
+      <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {novidades.map((n) => (
           <li
             key={n.slug}

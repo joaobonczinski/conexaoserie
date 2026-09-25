@@ -3,10 +3,12 @@ import type { Item } from "@/lib/tipos";
 import { traduzirGenero } from "@/lib/generos";
 import {
   DIAS,
+  DIAS_CURTOS,
   FUSO_PADRAO,
   dataLocal,
   dataPorExtenso,
   diaDaSemanaDaData,
+  diaEMes,
   formatarHora,
 } from "@/lib/horario";
 import { rotuloDeEstreia, rotuloDoLancamento } from "@/lib/rotulos";
@@ -42,9 +44,21 @@ export function agruparPorDia(itens: Item[]): { dia: string; itens: Item[] }[] {
     .map(([dia, lista]) => ({ dia, itens: lista }));
 }
 
-export function LinhaDeEstreia({ item }: { item: Item }) {
+export function LinhaDeEstreia({
+  item,
+  comDia = false,
+}: {
+  item: Item;
+  /**
+   * Mostra o dia acima da hora. A /estreias/ nao precisa — la as linhas vem
+   * embaixo do titulo do dia —, mas a home lista estreias de dias diferentes
+   * sem titulo nenhum, e "22:00" sozinho nao diz de QUAL dia.
+   */
+  comDia?: boolean;
+}) {
   const { serie, lancamento } = item;
   const generos = serie.generos.slice(0, 2).map(traduzirGenero).join(" · ");
+  const dia = diaEmBrasilia(item);
 
   return (
     <li className="flex items-center gap-3 rounded-xl border border-linha bg-cartao px-3 py-2.5">
@@ -84,6 +98,11 @@ export function LinhaDeEstreia({ item }: { item: Item }) {
         <p className="text-[11px] font-semibold uppercase tracking-wide text-acento">
           {rotuloDeEstreia(lancamento)}
         </p>
+        {comDia ? (
+          <p className="numero mt-0.5 text-[11px] text-fraco">
+            {DIAS_CURTOS[diaDaSemanaDaData(dia)]} {diaEMes(dia)}
+          </p>
+        ) : null}
         <p className="numero mt-0.5 text-[15px] font-semibold text-tinta">
           {lancamento.airingAt !== null
             ? formatarHora(lancamento.airingAt, FUSO_PADRAO)

@@ -28,13 +28,19 @@ function medalha(posicao: number): string | null {
   return null;
 }
 
-export default function RankingNoAr({ series }: { series: SerieNaTela[] }) {
+export default function RankingNoAr({ series: todas }: { series: SerieNaTela[] }) {
   const { trilho, podeVoltar, podeAvancar, aoRolar, rolar } =
     useCarrossel<HTMLUListElement>();
 
+  // SO QUEM TEM NOTA, e aqui diverge do anime de proposito. La quase todo anime
+  // no ar tem nota; aqui, na semana de 25/09/2026, eram 19 com nota e 37 sem —
+  // serie nova leva semanas para ganhar nota no TVmaze. Um carrossel chamado
+  // "Mais bem avaliadas" com dois tercos de "sem nota" contradiz o proprio
+  // titulo. A lista inteira, com as sem nota no fim, continua na /ranking/.
+  const series = todas.filter((s) => s.nota !== null);
   if (series.length === 0) return null;
 
-  const quantosComNota = series.filter((s) => s.nota !== null).length;
+  const quantosComNota = series.length;
 
   return (
     <section className="mt-16">

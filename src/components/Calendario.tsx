@@ -122,12 +122,16 @@ export default function Calendario({ itens, hojeDoBuild, comBusca = false }: Pro
 
   // No dia de hoje, o que JA saiu vai para o fim: quem abre o site a noite quer
   // ver o que ainda vem, e nao uma fileira de "saiu ha 6h".
-  const doDia = useMemo(() => {
+  const { doDia, jaSairam } = useMemo(() => {
     const lista = porDia.get(diaAtivo) ?? [];
-    if (agora === null || diaAtivo !== hoje) return lista;
+    if (agora === null || diaAtivo !== hoje) return { doDia: lista, jaSairam: 0 };
     const jaSaiu = (i: Item) =>
       i.lancamento.airingAt !== null && i.lancamento.airingAt <= agora;
-    return [...lista.filter((i) => !jaSaiu(i)), ...lista.filter(jaSaiu)];
+    const passados = lista.filter(jaSaiu);
+    return {
+      doDia: [...lista.filter((i) => !jaSaiu(i)), ...passados],
+      jaSairam: passados.length,
+    };
   }, [porDia, diaAtivo, agora, hoje]);
 
   // --- As setas da fita ------------------------------------------------------
@@ -453,7 +457,18 @@ export default function Calendario({ itens, hojeDoBuild, comBusca = false }: Pro
       ) : (
         // UMA FITA ROLAVEL, e nao uma grade: o card cortado na borda e o jeito
         // que qualquer pessoa entende que a fila continua.
+        //
+        // A `key` RECRIA A FITA QUANDO A ORDEM MUDA, e sem ela o dia de hoje
+        // abria no FIM da fila. A fita tem scroll-snap, e o navegador,
+        // quando os filhos mudam de lugar, volta a encaixar no MESMO card em
+        // que estava — so que o card da borda, na hidratacao, e justamente o
+        // que ja saiu e foi mandado para o fim. Medido em 25/09/2026:
+        // `scrollLeft` 920 (cinco cards de 184px) logo depois de carregar,
+        // mostrando os episodios das 4h e escondendo os da noite. Fita nova
+        // nasce do comeco. Acontece uma vez na carga e uma vez por episodio
+        // que sai com a pagina aberta.
         <ul
+          key={`${diaAtivo}|${jaSairam}`}
           ref={guardarFaixa}
           onScroll={(e) => medir(e.currentTarget)}
           tabIndex={0}

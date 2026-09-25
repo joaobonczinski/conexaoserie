@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/fix-segment-prefetch.mjs",
+    "serve": "node scripts/servir-out.mjs --open",
+    "preview": "npm run build && node scripts/servir-out.mjs --open",
+    "icone": "node scripts/gerar-icone.mjs",
     "start": "next start",
     "lint": "eslint",
     "fetch": "node scripts/fetch-agenda.mjs",

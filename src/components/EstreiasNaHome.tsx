@@ -28,9 +28,17 @@ export default function EstreiasNaHome({ itens }: { itens: Item[] }) {
         href="/estreias/"
         rotuloDoLink="ver todas"
       />
-      <ol className="grid gap-2 md:grid-cols-2">
+      {/* `grid-cols-1` NAO E REDUNDANTE: sem ele a coluna do celular e
+          automatica e cresce ate o titulo mais longo (o corte com reticencias
+          nunca chega a agir). Medido em 25/09/2026: linha de 383px numa tela
+          de 375, e a pagina inteira ficava 24px mais larga que o celular. */}
+      <ol className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {proximas.map((item) => (
-          <LinhaDeEstreia key={`${item.serie.id}-${item.lancamento.temporada}`} item={item} />
+          <LinhaDeEstreia
+            key={`${item.serie.id}-${item.lancamento.temporada}`}
+            item={item}
+            comDia
+          />
         ))}
       </ol>
     </section>

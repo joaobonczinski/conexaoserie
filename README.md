@@ -9,6 +9,23 @@ Site estático (Next.js + Tailwind, `output: "export"`) servido pela Cloudflare.
 Sem login, sem banco, sem API própria — decisão da primeira versão (25/09/2026).
 Login, lista e shoutbox podem vir depois, trazidos do anime.
 
+## O atalho da área de trabalho
+
+O atalho **"Conexão Série"** abre o site no navegador com dois cliques, sem
+janela de terminal (`scripts/conexao-serie.vbs` → `scripts/lancador.mjs`):
+
+- traz do GitHub a agenda que o bot atualizou (só avanço rápido — se houver
+  qualquer coisa local no caminho, ele não mexe e segue com o que tem);
+- recompila só se algo mudou desde o último build, com uma página
+  "Compilando…" que recarrega sozinha;
+- deixa o servidor em segundo plano em `http://localhost:4330/`, e clicar de
+  novo só abre o navegador.
+
+Para desligar: `http://localhost:4330/__lancador/`. Estado e logs em
+`.lancador/`. Se o atalho sumir, ele aponta para `wscript.exe` com o
+argumento `"C:\Users\Admin\Desktop\conexao-serie\scripts\conexao-serie.vbs"` e
+o ícone `scripts\conexao-serie.ico` (gerado por `npm run icone`).
+
 ## O dia a dia
 
 ```bash
@@ -16,7 +33,8 @@ npm run dev                # site em http://localhost:3000
 npm run fetch              # busca a agenda no TVmaze
 npm run admin              # painel de ajustes em http://localhost:4331
 npm run conferir:horarios  # confere a conta de horários contra casos conhecidos
-npm run build              # gera o site estático em out/
+npm run build              # gera o site estático em out/ (sempre por aqui, nunca `next build`)
+npm run preview            # compila e serve o out/ como a Cloudflare, na 4330
 ```
 
 O GitHub Actions roda o `fetch` todo dia às 6h de Brasília

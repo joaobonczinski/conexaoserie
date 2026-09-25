@@ -22,7 +22,18 @@ npm run build
 
 Depois, veja no navegador de verdade (`.claude/launch.json`: `producao` serve o
 `out/` com o wrangler, como a Cloudflare; `dev` é o `next dev`; `admin` é o
-painel local).
+painel local). Dirija os campos, não só olhe.
+
+**Sessão aberta em outra pasta** (o Clickverse, por exemplo): o
+`preview_start` por nome lê o `launch.json` DAQUELA pasta e sobe o servidor
+errado — aconteceu duas vezes em 25/09/2026, e trocar a pasta da sessão no
+meio não resolveu. Nesse caso, sirva o `out/` em segundo plano e abra a URL com
+`preview_start {url}`, ou abra a sessão já nesta pasta.
+
+**O atalho da área de trabalho** roda `scripts/lancador.mjs` sem janela. Porta
+4330 (a 4321 é do Clickverse; a 4331, do admin), estado em `.lancador/`,
+desligar em `http://localhost:4330/__lancador/`. Para testar sem abrir o
+navegador do João: `CONEXAO_SEM_NAVEGADOR=1`.
 
 ## Armadilhas
 
@@ -49,6 +60,19 @@ painel local).
   igual.
 - **Não existe fonte com japonês aqui**: a M PLUS 2 baixa só o `latin`. Se um
   dia entrar título em alfabeto não latino, o subconjunto precisa mudar.
+- **Sempre `npm run build`, nunca `npx next build`**: no Windows o Next 16.2
+  grava o prefetch como pasta (`__next.ranking/__PAGE__.txt`) e o navegador
+  pede arquivo (`__next.ranking.__PAGE__.txt`) — 404 em todo prefetch.
+  `scripts/fix-segment-prefetch.mjs` conserta, e só roda pelo `npm run build`.
+- **`EBUSY` no build** é o `out/` travado por um servidor servindo a pasta (o
+  wrangler que sobreviveu ao fim do shell, inclusive). E um build que morreu no
+  meio pode deixar o `.next` corrompido: o erro seguinte é um incompreensível
+  "next/font/google queries have exactly one entry". Apague `.next` e `out`.
+- **Fita com scroll-snap reencaixa no mesmo card** quando os filhos mudam de
+  lugar: na hidratação, o dia de hoje abria rolado até o fim da fila. Por isso
+  a fita do calendário tem `key` que muda com a ordem.
+- **Grid sem colunas explícitas vaza no celular**: a coluna automática cresce
+  até o título mais longo (o `truncate` nunca age). Use `grid-cols-1`.
 
 ## Como trabalhar aqui
 

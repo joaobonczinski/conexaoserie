@@ -8,6 +8,9 @@
 # cloudflare — estado local do `wrangler dev`. Nada aqui e fonte de nada.
 /.wrangler/
 
+# Estado e logs do lancador do atalho da area de trabalho.
+/.lancador/
+
 # Variaveis e segredos locais. Fora do git SEMPRE: segredo commitado num
 # repositorio publico continua valendo depois de apagado — o historico guarda.
 .dev.vars

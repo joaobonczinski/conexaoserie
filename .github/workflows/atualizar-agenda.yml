@@ -1,0 +1,43 @@
+name: Atualizar agenda
+
+# Roda todo dia de manha e sempre que voce quiser (botao "Run workflow").
+# Busca a agenda nova no TVmaze e, se algo mudou, faz commit sozinho. O
+# Cloudflare ve o commit e republica o site — voce nao precisa fazer nada.
+on:
+  schedule:
+    - cron: "0 9 * * *" # 09:00 UTC = 06:00 no horario de Brasilia
+  workflow_dispatch:
+
+# Necessario para o job conseguir fazer commit de volta no repositorio.
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Buscar a agenda no TVmaze
+        run: node scripts/fetch-agenda.mjs
+
+      - name: Fazer commit se houver mudanca
+        run: |
+          # Olha os DOIS arquivos, e o `git add` lista os mesmos dois: caminho
+          # explicito no add deixa de fora o que nao esta na lista, e um arquivo
+          # gerado que nunca e commitado e o defeito mais silencioso que existe
+          # — o script grava, o CI descarta, e ninguem ve erro nenhum. (Licao do
+          # Conexão Anime.)
+          if git diff --quiet -- src/data/agenda.json src/data/titulos-br.json; then
+            echo "Nada mudou no TVmaze hoje."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/agenda.json src/data/titulos-br.json
+          git commit -m "chore: atualiza a agenda de series"
+          git push

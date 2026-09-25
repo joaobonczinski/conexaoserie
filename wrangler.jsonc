@@ -1,0 +1,25 @@
+{
+  // Deploy no Cloudflare Workers, SO COM ARQUIVOS ESTATICOS.
+  //
+  // Nao ha `main` (codigo de Worker) aqui, e isso e a primeira versao inteira:
+  // sem login, sem banco e sem API, o site e a pasta `out/` servida pela borda.
+  // No dia em que entrar login, o `main` e o D1 voltam, como no Conexão Anime.
+  //
+  // Nao usa o adaptador OpenNext nem o preset "Next.js" do painel: o site e
+  // `output: "export"`, e aquele preset assume SSR e quebra procurando uma pasta
+  // `.next/standalone` que nunca vai existir aqui.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "conexaoserie",
+  "compatibility_date": "2026-09-25",
+
+  "assets": {
+    "directory": "./out",
+    // O next.config.ts usa `trailingSlash: true`; isto faz /ranking e /ranking/
+    // cairem no mesmo arquivo.
+    "html_handling": "auto-trailing-slash",
+    // Serve o out/404.html em vez de uma pagina de erro generica.
+    "not_found_handling": "404-page"
+  },
+
+  "observability": { "enabled": true }
+}

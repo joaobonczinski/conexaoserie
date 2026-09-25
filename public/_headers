@@ -1,0 +1,37 @@
+# Cabecalhos das paginas do site, aplicados pela Cloudflare na borda.
+#
+# O site e todo estatico e nao ha codigo nosso rodando no servidor — este
+# arquivo e a unica porta para acrescentar cabecalho. Ele nasce em `public/`
+# porque o Next copia essa pasta para `out/`, e nao fica publico em /_headers.
+#
+# Os de seguranca sao os do Conexão Anime, e pelos mesmos motivos.
+
+/*
+  # Impede o navegador de "adivinhar" o tipo de um arquivo pelo conteudo.
+  X-Content-Type-Options: nosniff
+
+  # Ninguem pode por este site dentro de um iframe (a fraude de sobrepor
+  # botoes invisiveis por cima dos nossos).
+  X-Frame-Options: DENY
+
+  # A versao moderna da linha acima, mais tres que custam zero. NAO HA
+  # `script-src`, de proposito: o site tem script inline legitimo (o
+  # antipiscada do tema e os do Next), e uma regra com 'unsafe-inline' seria o
+  # mesmo que nao ter regra.
+  Content-Security-Policy: frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'
+
+  # Quem recebe o clique para fora sabe que veio daqui, sem saber de qual pagina.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+  # HTTPS obrigatorio por um ano. Sem `includeSubDomains` e sem `preload`: os
+  # dois valem para o dominio inteiro e sao praticamente irreversiveis.
+  Strict-Transport-Security: max-age=31536000
+
+# O CARTAO DE COMPARTILHAMENTO SAI SEM EXTENSAO (`out/opengraph-image`), e
+# hospedagem estatica decide o Content-Type pela extensao. Sem esta linha ele
+# sairia como arquivo generico e o WhatsApp e o Discord nao mostrariam imagem
+# nenhuma — e o build passaria igual. (Licao do Clickverse.)
+/opengraph-image
+  Content-Type: image/png

@@ -1,0 +1,122 @@
+{
+  "_leiame": [
+    "O mapa de CANAL (como o TVmaze chama) para PLATAFORMA NO BRASIL, e a que horas ela libera o episodio aqui.",
+    "So entra no site serie de canal que esta nesta lista. Canal fora dela (Tencent, BBC iPlayer...) nem e baixado pelo `npm run fetch`.",
+    "`plataforma: null` quer dizer 'canal conhecido, mas sem casa fixa no Brasil': a serie e baixada e aparece no admin, e so vai para o site quando alguem escolher a plataforma dela na mao.",
+    "`horario.tipo`: 'exibicao' usa o horario da TV americana, que o TVmaze da exato; 'regra' ignora o horario do TVmaze (streaming quase nunca tem) e usa a hora fixa da plataforma, no fuso dela, no dia do episodio ou na vespera.",
+    "A regra no FUSO DA PLATAFORMA, e nao em Brasilia, e o que acerta o horario de verao americano sozinho: meia-noite de Los Angeles e 4h aqui de marco a novembro e 5h no resto do ano.",
+    "`conferido` e a data em que o horario foi confirmado numa fonte brasileira, e `fonte` diz qual. Regra sem `conferido` e o padrao da plataforma nos EUA, ainda nao visto no Brasil."
+  ],
+  "canais": [
+    {
+      "canal": "Netflix",
+      "tipo": "web",
+      "id": 1,
+      "plataforma": "Netflix",
+      "horario": { "tipo": "regra", "hora": "00:00", "fuso": "America/Los_Angeles", "vespera": false },
+      "conferido": "2026-09-25",
+      "fonte": "TechTudo, nov/2025: 'o horario de lancamento e as 5h da manha' (era inverno nos EUA)"
+    },
+    {
+      "canal": "Prime Video",
+      "tipo": "web",
+      "id": 3,
+      "plataforma": "Prime Video",
+      "horario": { "tipo": "regra", "hora": "00:00", "fuso": "America/Los_Angeles", "vespera": false },
+      "conferido": "2026-09-25",
+      "fonte": "Exame e Omelete sobre The Boys T5: episodios as 4h de Brasilia, meia-noite de Los Angeles"
+    },
+    {
+      "canal": "Disney+",
+      "tipo": "web",
+      "id": 287,
+      "plataforma": "Disney+",
+      "horario": { "tipo": "regra", "hora": "00:00", "fuso": "America/Los_Angeles", "vespera": false },
+      "conferido": "2026-09-25",
+      "fonte": "Guia Disney+ Brasil: lancamentos as 4h (5h fora do horario de verao americano). Marvel e Star Wars costumam sair na vespera as 22h: corrija essas no admin"
+    },
+    {
+      "canal": "Hulu",
+      "tipo": "web",
+      "id": 2,
+      "plataforma": "Disney+",
+      "horario": { "tipo": "regra", "hora": "00:00", "fuso": "America/Los_Angeles", "vespera": false },
+      "conferido": null,
+      "fonte": "Padrao da Hulu nos EUA. No Brasil o catalogo da Hulu vive dentro do Disney+"
+    },
+    {
+      "canal": "FX",
+      "tipo": "net",
+      "id": 13,
+      "plataforma": "Disney+",
+      "horario": { "tipo": "exibicao" },
+      "conferido": "2026-09-25",
+      "fonte": "Guia Disney+ Brasil: The Drop (FX) sai no Disney+ as segundas, 22h, junto com a exibicao americana"
+    },
+    {
+      "canal": "FXX",
+      "tipo": "net",
+      "id": 47,
+      "plataforma": "Disney+",
+      "horario": { "tipo": "exibicao" },
+      "conferido": null,
+      "fonte": "Mesmo grupo do FX; assumido igual a ele"
+    },
+    {
+      "canal": "HBO",
+      "tipo": "net",
+      "id": 8,
+      "plataforma": "HBO Max",
+      "horario": { "tipo": "exibicao" },
+      "conferido": "2026-09-25",
+      "fonte": "Canaltech e Exame sobre Lanternas: HBO e HBO Max ao mesmo tempo, domingo 22h (23h fora do horario de verao americano)"
+    },
+    {
+      "canal": "HBO Max",
+      "tipo": "web",
+      "id": 329,
+      "plataforma": "HBO Max",
+      "horario": { "tipo": "regra", "hora": "21:00", "fuso": "America/New_York", "vespera": false },
+      "conferido": "2026-09-25",
+      "fonte": "O Tempo sobre Stuart Nao Consegue Salvar o Universo: episodios as quintas, 22h de Brasilia"
+    },
+    {
+      "canal": "Apple TV",
+      "tipo": "web",
+      "id": 310,
+      "plataforma": "Apple TV",
+      "horario": { "tipo": "regra", "hora": "21:00", "fuso": "America/New_York", "vespera": true },
+      "conferido": null,
+      "fonte": "Deadline e TVLine: episodios na noite ANTERIOR a data oficial, 21h de Nova York"
+    },
+    {
+      "canal": "Paramount+",
+      "tipo": "web",
+      "id": 107,
+      "plataforma": "Paramount+",
+      "horario": { "tipo": "regra", "hora": "00:00", "fuso": "America/Los_Angeles", "vespera": false },
+      "conferido": null,
+      "fonte": "Central de ajuda da Paramount+ nos EUA: meia-noite do Pacifico"
+    },
+    { "canal": "Adult Swim", "tipo": "net", "id": 10, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "AMC", "tipo": "net", "id": 20, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "STARZ", "tipo": "net", "id": 17, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "MGM+", "tipo": "web", "id": 503, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "Peacock", "tipo": "web", "id": 347, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "National Geographic", "tipo": "net", "id": 42, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "ABC", "tipo": "net", "id": 3, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "CBS", "tipo": "net", "id": 2, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "NBC", "tipo": "net", "id": 1, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "FOX", "tipo": "net", "id": 4, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "The CW", "tipo": "net", "id": 5, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null }
+  ],
+  "plataformas": {
+    "Netflix": { "cor": "#E50914", "dominios": ["netflix.com"] },
+    "Prime Video": { "cor": "#00A8E1", "dominios": ["primevideo.com"] },
+    "Disney+": { "cor": "#0063E5", "dominios": ["disneyplus.com"] },
+    "HBO Max": { "cor": "#5A2BE7", "dominios": [] },
+    "Apple TV": { "cor": "#8E8E93", "dominios": ["tv.apple.com"] },
+    "Paramount+": { "cor": "#0064FF", "dominios": [] },
+    "Globoplay": { "cor": "#FB0234", "dominios": ["globoplay.globo.com"] }
+  }
+}

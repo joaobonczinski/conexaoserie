@@ -1,0 +1,27 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# cloudflare — estado local do `wrangler dev`. Nada aqui e fonte de nada.
+/.wrangler/
+
+# Variaveis e segredos locais. Fora do git SEMPRE: segredo commitado num
+# repositorio publico continua valendo depois de apagado — o historico guarda.
+.dev.vars
+.dev.vars.*
+.env*
+
+# Arquivo temporario do gravar-json.mjs, se o processo morrer no meio.
+*.tmp
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

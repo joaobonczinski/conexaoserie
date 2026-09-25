@@ -1,0 +1,1019 @@
+@import "tailwindcss";
+
+/* ===========================================================================
+   CONEXÃO SÉRIE — O SISTEMA DE DESIGN
+
+   E O DO CONEXÃO ANIME (v2, 05/09/2026), e isso e de proposito: os dois sites
+   sao da mesma familia e precisam se reconhecer. O que separa um do outro e o
+   ACENTO — coral la, indigo aqui — e ele e um token so, no bloco da paleta.
+   Os comentarios abaixo contam a historia do anime, e continuam valendo porque
+   as pecas sao as mesmas.
+
+   O QUE MUDOU EM RELACAO AO ARQUIVO ANTIGO, e e a razao de ele ter sido
+   reescrito em vez de ajustado:
+
+   A v1 pintava tudo com `text-white/50`, `bg-white/5`, `border-white/10` —
+   741 usos de `text-white` medidos em 04/09. Isso funcionava enquanto o site
+   era so escuro. Quando o tema claro entrou, cada um desses tons precisou de
+   um remendo proprio, e o arquivo terminou com ~400 linhas de
+   `:root[data-tema="claro"] .text-white\/35 { ... }`, uma por degrau de
+   opacidade, mais uma lista de excecoes para os acentos.
+
+   AQUI A COR NAO TEM LADO. Nenhum componente escreve "branco" nem "preto":
+   ele escreve o PAPEL da cor (`text-tinta`, `text-suave`, `bg-cartao`,
+   `border-linha`) e a paleta decide o valor conforme o tema. Trocar de tema e
+   trocar ~20 variaveis num bloco so, e um componente novo nasce certo nos dois
+   temas sem ninguem lembrar de nada.
+
+   O preco: a escala de cinza do Tailwind (`neutral-800`, `white/40`) nao deve
+   ser usada em componente novo. Se aparecer, e um vazamento — e o tema claro
+   volta a precisar de remendo.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   A PALETA CRUA.
+
+   O tema CLARO e o padrao e mora no `:root` — decisao do Joao em 04/09/2026
+   ("deixa o claro como padrao, assim como nos outros sites"), mantida aqui. O
+   escuro e um atributo na raiz, escrito pelo antipiscada antes da primeira
+   pintura.
+
+   NAO E BRANCO PURO NEM PRETO PURO, nos dois lados, e isso e escolha e nao
+   descuido. Branco puro com texto quase-preto vibra em paragrafo longo (o site
+   tem artigos), e preto puro atras de capa de anime engole a arte em vez de
+   emoldura-la. O claro e um papel levemente quente; o escuro e uma ardosia com
+   um resto de violeta, que e o que faz as capas — quase todas saturadas —
+   parecerem acesas em cima dele.
+   --------------------------------------------------------------------------- */
+:root {
+  /* Superficies, do fundo para a frente. */
+  --p-fundo: #faf8f5;
+  --p-cartao: #ffffff;
+  --p-realce: #f1ece4;
+  --p-linha: #e7e0d6;
+  --p-linha-forte: #d3cabc;
+
+  /* A tinta, em tres degraus. TRES E O LIMITE de proposito: com cinco, a
+     escolha vira chute e o site perde hierarquia em vez de ganhar. */
+  --p-tinta: #17151c;
+  --p-suave: #57515f;
+  --p-fraco: #857e90;
+
+  /* O ACENTO E INDIGO, e nao o coral do anime.
+     E a unica peca que separa os dois sites da familia, e por isso precisava
+     ser uma cor de outra faixa, e nao um coral mais claro ou mais escuro. Poster
+     de serie puxa para o escuro e o frio (azul, petroleo, preto), e o indigo e
+     saturado o bastante para se separar deles por intensidade — o mesmo
+     argumento que escolheu o coral contra as capas de anime.
+     O indigo 600 da 6,3:1 sobre o papel: passa como cor de texto de link. */
+  --p-acento: #4f46e5;
+  --p-acento-forte: #4338ca;
+  --p-sobre-acento: #ffffff;
+
+  /* O SEGUNDO ACENTO E DA COMUNIDADE: nivel, XP, conquista, forum. Ter uma cor
+     so para "o site" e outra para "a turma" e o que impede a pagina de perfil
+     de parecer a mesma coisa que o calendario. */
+  --p-iris: #6d4aff;
+  --p-ouro: #b45309;
+  --p-ok: #047857;
+  --p-erro: #be123c;
+
+  /* O AZUL EXISTE POR CAUSA DOS CINCO STATUS DA /minha-lista/.
+     Assistindo, concluido, pausado, dropado e planejado precisam ser
+     distinguiveis de relance, e sao cinco — com quatro cores duas viram a
+     mesma. Ele nao e o acento e nao chama clique; e cor de INFORMACAO. */
+  --p-info: #0369a1;
+
+  /* Cores de estado que aparecem em fundo proprio (selo, chip, medalha). O par
+     `-fundo`/`-tinta` existe para o contraste ser decidido AQUI, uma vez, e nao
+     em cada componente. */
+  --p-ouro-fundo: #fdf3e3;
+  --p-ouro-tinta: #92400e;
+  --p-ok-fundo: #e7f6ef;
+  --p-erro-fundo: #fdeaee;
+  --p-iris-fundo: #f0ecff;
+
+  /* A sombra e mais escura no claro do que se esperaria: sobre papel quente,
+     sombra cinza-neutra parece sujeira. Esta puxa para o marrom da propria
+     paleta. */
+  --p-sombra: 23 21 28;
+
+  /* O vidro do cabecalho e das barras grudadas. */
+  --p-vidro: rgb(250 248 245 / 0.82);
+
+  /* ---- O CHIP ABERTO: o dia no calendario, a tela na prateleira de baixo. ---
+     ERA `--p-tinta` NOS DOIS TEMAS, e no claro isso dava um bloco PRETO no meio
+     de uma tira de chips claros. Funcionava — ninguem erra qual esta aberto —
+     mas gritava: numa tira de cinco itens, um deles virava a coisa mais escura
+     da tela inteira, com mais peso que o proprio titulo da pagina.
+
+     No claro o par vira CINZA CLARO com tinta escura; no escuro segue claro
+     sobre escuro, que ja era o certo la (e o que ele pediu: *"no tema escuro
+     pode deixar o efeito branco"*).
+
+     Sao dois tokens e nao um porque o CONTRASTE tem que virar junto: trocar so
+     o fundo deixaria a tinta clara sobre cinza claro, que e o defeito dos selos
+     da /comunidade/ de novo. */
+  /* O ITEM ABERTO RECEBE A COR DA OUTRA SUPERFICIE — pedido dele: *"troque a
+     cor do sub-menu para esse bege do proprio fundo do site, e no menu do
+     calendario altere para branco"*, depois *"estende pros outros chips
+     tambem"*.
+
+     O SITE TEM DUAS SUPERFICIES SO: a pagina, bege (`--p-fundo`), e o cartao,
+     branco (`--p-cartao`). O aberto pega a que NAO esta debaixo dele: na pagina
+     bege ele fica branco, como um cartao levantado; na barra branca fica bege,
+     como um recorte mostrando a pagina atras.
+
+     O PADRAO E O BRANCO PORQUE E ONDE QUASE TUDO VIVE. Medido no site inteiro:
+     a tira de dias, o alternador do ranking, as estacoes da radio e o menu do
+     admin ficam sobre a pagina bege; so o sub-menu do cabecalho fica sobre uma
+     barra branca. Por isso ele e a excecao com nome (`.chip-sobre-branco`) e
+     nao o contrario.
+
+     O PREENCHIMENTO SOZINHO NAO DIZ NADA, e isto foi medido e nao suposto:
+     branco sobre bege da 1,06:1 de contraste — some no celular ao sol, no
+     monitor mal calibrado e para quem enxerga pouco contraste.
+
+     ENTAO O ESTADO E CARREGADO POR OUTRAS TRES COISAS, nesta ordem: a TINTA
+     (17 a 18:1 no aberto contra 7,2 a 7,6:1 nos outros), o PESO (600 contra
+     500) e o CONTORNO, que troca do fio claro `--p-linha` para o
+     `--p-linha-forte`. O preenchimento e o acabamento, e nao a informacao — e
+     esse e o unico jeito honesto de usar uma cor tao proxima da vizinha. */
+  --p-aceso-fundo: var(--p-cartao);
+  --p-aceso-tinta: var(--p-tinta);
+  --p-aceso-contorno: var(--p-linha-forte);
+  --p-aceso-sobre-branco: var(--p-fundo);
+  /* O PESO TAMBEM E TOKEN, e nao um `font-weight` fixo na regra. Ele so faz
+     sentido aqui: no claro o preenchimento quase nao aparece e o negrito e um
+     dos tres sinais que sobram. No escuro nada disso e preciso — e mexer la
+     seria mudar um tema que ele nao pediu para mudar. */
+  --p-aceso-peso: 600;
+
+  color-scheme: light;
+}
+
+:root[data-tema="escuro"] {
+  --p-fundo: #0d0c11;
+  --p-cartao: #16151c;
+  --p-realce: #201e29;
+  --p-linha: #272531;
+  --p-linha-forte: #3a3747;
+
+  --p-tinta: #f6f4f8;
+  --p-suave: #a9a3b6;
+  --p-fraco: #7c7589;
+
+  /* O acento SOBE de tom no escuro. E a mesma cor: o coral 600 que se le sobre
+     papel vira uma mancha sem brilho sobre ardosia, e o 400 e onde ele volta a
+     acender. Nao ha decisao de gosto nova nisto — ha a curva de luminancia, que
+     nao e simetrica. */
+  --p-acento: #8b93ff;
+  --p-acento-forte: #a8aeff;
+  --p-sobre-acento: #0e0d1f;
+
+  --p-iris: #a78bfa;
+  --p-ouro: #fbbf24;
+  --p-ok: #34d399;
+  --p-erro: #fb7185;
+  --p-info: #7dd3fc;
+
+  --p-ouro-fundo: #2a1f0c;
+  --p-ouro-tinta: #fcd34d;
+  --p-ok-fundo: #08251c;
+  --p-erro-fundo: #2b0f16;
+  --p-iris-fundo: #1c1435;
+
+  --p-sombra: 0 0 0;
+  --p-vidro: rgb(13 12 17 / 0.82);
+
+  /* No escuro o chip aberto continua sendo o claro sobre o escuro — aqui a
+     inversao ja era a leitura certa, e o `--p-tinta` do tema escuro E o quase
+     branco. Ver o comentario no bloco claro. */
+  --p-aceso-fundo: var(--p-tinta);
+  --p-aceso-tinta: var(--p-fundo);
+
+  /* NO ESCURO A LOGICA DA "OUTRA SUPERFICIE" NAO VALE, e isso e escolha dele:
+     *"no tema escuro pode deixar o efeito branco"*. As duas superficies aqui
+     sao #0d0c11 e #16151c — pintar o item aberto com uma delas seria escuro
+     sobre escuro, invisivel de verdade e nao so discreto. O quase-branco
+     continua sendo a leitura certa, inclusive no sub-menu, e o contorno
+     acompanha para nao sobrar um fio de outra cor em volta. */
+  --p-aceso-contorno: var(--p-tinta);
+  --p-aceso-sobre-branco: var(--p-tinta);
+  /* 500, que e o peso normal do `.chip`: o escuro fica EXATAMENTE como estava.
+     Ver o comentario do `--p-aceso-peso` no bloco claro. */
+  --p-aceso-peso: 500;
+
+  /* O ANEL DO SELO DE REDE VOLTA A EXISTIR AQUI, e esta linha faltava desde que
+     a variavel nasceu (1ffae54) — o comentario dela no bloco claro sempre
+     descreveu este `initial`, mas ele nunca foi escrito. Resultado: `transparent`
+     valia nos DOIS temas e o anel nunca apareceu em lugar nenhum.
+
+     `initial` devolve a variavel ao valor invalido, e ai o
+     `var(--anel-do-selo, <cor calculada>)` do `SeloDeRede` cai no fallback, que
+     e a cor que o `cores-de-marca.ts` calculou. E assim que o tema apaga o anel
+     sem precisar saber a cor de marca nenhuma.
+
+     SO APARECEU AGORA porque so agora doeu: o unico selo que dependia dele era
+     o X (contraste 1,11 contra o fundo escuro), e um X sem aro ainda se le pelo
+     desenho. Com o TikTok no rodape (1,05, e um logo de nota musical bem mais
+     fino) a caixa preta sobre pagina preta some como FORMA — que e exatamente o
+     que o anel existe para resolver. */
+  --anel-do-selo: initial;
+
+  color-scheme: dark;
+}
+
+/* ---------------------------------------------------------------------------
+   A PONTE COM O TAILWIND.
+
+   `@theme inline` e a peca central: com ele o utilitario emitido carrega
+   `var(--p-...)` em vez de copiar o valor, entao `bg-cartao` num elemento
+   qualquer passa a valer o que a raiz disser NAQUELE momento. Sem o `inline`, o
+   Tailwind congelaria a cor do tema claro no CSS e o atributo na raiz nao
+   mudaria nada.
+
+   As variantes de opacidade continuam funcionando (`bg-acento/10` vira
+   `color-mix(...)` em cima da variavel), e sao elas que dispensam ter um tom
+   "fraco" declarado para cada cor.
+   --------------------------------------------------------------------------- */
+@theme inline {
+  --color-fundo: var(--p-fundo);
+  --color-cartao: var(--p-cartao);
+  --color-realce: var(--p-realce);
+  --color-linha: var(--p-linha);
+  --color-linha-forte: var(--p-linha-forte);
+
+  /* O PAR DO ITEM ABERTO. Existe como token do Tailwind, e nao so dentro do
+     `.chip`, porque a tira de dias do calendario nao usa `.chip` — ela desenha
+     o dia aberto na propria marcacao. Sem o token, os dois lugares que dizem
+     "este esta aberto" divergiriam na primeira mudanca, que foi exatamente o
+     que aconteceu: o `.chip` foi ajustado uma vez e a tira ficou preta. */
+  --color-aceso: var(--p-aceso-fundo);
+  --color-sobre-aceso: var(--p-aceso-tinta);
+  /* So a tira de dias do calendario usa este — ela nao e `.chip`, desenha o dia
+     aberto na propria marcacao, e por isso precisa do contorno em utilitario. */
+  --color-contorno-aceso: var(--p-aceso-contorno);
+
+  --color-tinta: var(--p-tinta);
+  --color-suave: var(--p-suave);
+  --color-fraco: var(--p-fraco);
+
+  --color-acento: var(--p-acento);
+  --color-acento-forte: var(--p-acento-forte);
+  --color-sobre-acento: var(--p-sobre-acento);
+
+  --color-iris: var(--p-iris);
+  --color-ouro: var(--p-ouro);
+  --color-ok: var(--p-ok);
+  --color-erro: var(--p-erro);
+  --color-info: var(--p-info);
+
+  --color-ouro-fundo: var(--p-ouro-fundo);
+  --color-ouro-tinta: var(--p-ouro-tinta);
+  --color-ok-fundo: var(--p-ok-fundo);
+  --color-erro-fundo: var(--p-erro-fundo);
+  --color-iris-fundo: var(--p-iris-fundo);
+
+  /* AS CORES QUE FICAM SOBRE A ARTE, e que NAO tem tema.
+
+     Tudo que e desenhado por cima da capa de um anime (o horario, o episodio, a
+     estrela, a contagem) vive sobre um adesivo escuro — ver `.adesivo`. Esse
+     adesivo e escuro nos DOIS temas, porque o que esta atras dele e uma
+     ilustracao colorida e clara, e nao a superficie da pagina.
+
+     Entao a tinta desses elementos tambem nao pode acompanhar o tema: no claro,
+     `--p-ouro` e um ambar escuro (certo sobre papel, invisivel sobre preto). Foi
+     exatamente esse o defeito que fez a estrela sumir no tema claro da v1.
+     Estas tres sao constantes de proposito. */
+  --color-arte: #ffffff;
+  --color-arte-ouro: #fbbf24;
+  --color-arte-erro: #fb7185;
+
+  /* AS TRES FAMILIAS. Ver o comentario no `layout.tsx` para o porque de cada
+     uma; em resumo: a display escreve os titulos, a de texto desenha o japones
+     (que e o titulo principal de todo card), e a mono e so para NUMERO —
+     horario, contagem regressiva, placar. */
+  --font-display:
+    var(--fonte-display), ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-sans:
+    var(--fonte-texto), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--fonte-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* O RAIO SOBE em relacao a v1 (que vivia em 8px). Card de capa de anime tem
+     proporcao alta e canto muito vivo faz a arte parecer recortada com tesoura;
+     14px arredonda o suficiente para emoldurar sem virar bolha. */
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1.125rem;
+}
+
+/* ---------------------------------------------------------------------------
+   MEDIDAS QUE MAIS DE UM LUGAR PRECISA CONCORDAR.
+   --------------------------------------------------------------------------- */
+:root {
+  /* O ANEL DO SELO DE REDE.
+
+     O `SeloDeRede` desenha um aro so nas marcas escuras que sumiriam contra o
+     fundo — hoje, so o X. Esse aro e um dispositivo do TEMA ESCURO: sobre papel
+     claro, a caixa quase preta do X ja se separa sozinha e o aro so suja.
+
+     `transparent` no claro (que e o padrao) e `initial` no escuro, e o `initial`
+     e a peca esperta: ele devolve a variavel ao valor invalido, e ai o
+     `var(--anel-do-selo, <cor calculada>)` do componente cai no fallback — que
+     e a cor que o proprio `cores-de-marca.ts` calculou. Assim o tema apaga o
+     anel sem precisar saber a cor de nenhuma marca. */
+  --anel-do-selo: transparent;
+
+  /* A altura do cabecalho fixo. Dela desce a barra `sticky` do site — a tira
+     de dias do calendario. Sem isto ela gruda ATRAS do cabecalho e some.
+
+     UMA LINHA SO, contra as duas da v1: 3.5rem + 1px de borda. O menu deixou de
+     ter 12 itens permanentes (ver o Cabecalho) e coube numa fita so. */
+  --altura-cabecalho: calc(3.5rem + 1px);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--p-fundo);
+  color: var(--p-tinta);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* O ESPACO DA BARRA DE ABAS do celular, que e `fixed` e ficaria por cima da
+     ultima linha da pagina — que e justamente onde mora o rodape. 3.5rem da
+     barra mais a faixa segura do aparelho (o risco do iPhone).
+
+     Mora no `body` e nao em cada `main`: pagina nova nasce certa sem ninguem
+     lembrar, e o rodape tambem esta coberto. */
+  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
+}
+@media (min-width: 1024px) {
+  /* No desktop a barra de abas nao existe (`lg:hidden`), entao o espaco
+     reservado para ela seria um buraco no fim de toda pagina. */
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* Titulo e a display, sempre. Declarado por elemento em vez de por classe para
+   nao depender de alguem lembrar de escrever `font-display` em cada `h1`. */
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.021em;
+}
+
+/* O foco visivel do site inteiro, num lugar so.
+
+   `:focus-visible` e nao `:focus`: o segundo acende tambem no clique de mouse,
+   e um anel piscando a cada clique ensina a pessoa a ignorar o anel. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--p-acento);
+  outline-offset: 2px;
+  border-radius: 0.35rem;
+}
+
+/* A selecao de texto tambem e da marca. Detalhe barato e ninguem faz. */
+::selection {
+  background: color-mix(in srgb, var(--p-acento) 26%, transparent);
+  color: var(--p-tinta);
+}
+
+/* ===========================================================================
+   PECAS REUTILIZAVEIS
+
+   Sao classes de COMPONENTE, e a regra para uma coisa morar aqui em vez de
+   virar utilitario no JSX e sempre a mesma: ou o efeito precisa de dois estados
+   do mesmo seletor, ou de uma cor que so existe em tempo de execucao, ou se
+   repete tanto que a linha de classes deixaria de ser legivel.
+   =========================================================================== */
+
+/* --- O CARTAO: a superficie de qualquer bloco de conteudo. --------------- */
+.painel {
+  background: var(--p-cartao);
+  border: 1px solid var(--p-linha);
+  border-radius: var(--radius-xl);
+}
+
+/* --- A ETIQUETA: texto miudo, caixa alta, para rotular secao. ------------
+   O `tracking` largo nao e enfeite: em caixa alta e 11px, letra colada vira
+   mancha. */
+.etiqueta {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--p-fraco);
+}
+
+/* --- NUMERO: horario, contagem, placar. ---------------------------------
+   `tabular-nums` para o numero nao dancar enquanto a contagem regressiva anda —
+   sem isso, "1d 09h 59m" e "1d 10h 00m" tem larguras diferentes e a linha
+   inteira treme a cada segundo. */
+.numero {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* --- BOTOES -------------------------------------------------------------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.botao:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.botao-cheio {
+  background: var(--p-acento);
+  color: var(--p-sobre-acento);
+}
+.botao-vazio {
+  border: 1px solid var(--p-linha-forte);
+  color: var(--p-tinta);
+}
+.botao-fantasma {
+  color: var(--p-suave);
+}
+
+@media (hover: hover) {
+  .botao-cheio:hover {
+    background: var(--p-acento-forte);
+    transform: translateY(-1px);
+  }
+  .botao-vazio:hover {
+    background: var(--p-realce);
+    border-color: var(--p-fraco);
+  }
+  .botao-fantasma:hover {
+    background: var(--p-realce);
+    color: var(--p-tinta);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .botao,
+  .botao-cheio:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* --- CAMPOS DE FORMULARIO ------------------------------------------------ */
+.campo {
+  width: 100%;
+  border: 1px solid var(--p-linha);
+  border-radius: var(--radius-lg);
+  background: var(--p-fundo);
+  padding: 0.55rem 0.8rem;
+  font-size: 0.875rem;
+  color: var(--p-tinta);
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+.campo::placeholder {
+  color: var(--p-fraco);
+}
+.campo:focus {
+  border-color: var(--p-acento);
+  background: var(--p-cartao);
+  outline: none;
+}
+
+/* --- CHIP: filtro, aba, genero, selo. ----------------------------------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--p-linha);
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--p-suave);
+  white-space: nowrap;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+@media (hover: hover) {
+  .chip:hover {
+    border-color: var(--p-linha-forte);
+    color: var(--p-tinta);
+  }
+}
+.chip[aria-current="page"],
+.chip[aria-pressed="true"],
+.chip-aceso {
+  background: var(--p-aceso-fundo);
+  /* `border` E NAO SO `border-color`: o `.chip-aceso` do menu do admin nao e um
+     `.chip` — nasce sem contorno nenhum, e sem esta linha ele ficaria branco
+     sobre bege, sem forma. Nos `.chip` de verdade a largura e a mesma que ja
+     estava, entao nada se mexe de lugar. */
+  border: 1px solid var(--p-aceso-contorno);
+  color: var(--p-aceso-tinta);
+  font-weight: var(--p-aceso-peso);
+}
+
+/* A UNICA TIRA QUE VIVE SOBRE BRANCO: o sub-menu do cabecalho. Recebe o bege da
+   pagina, pelo mesmo motivo que os outros recebem o branco — a cor da superficie
+   que NAO esta debaixo dele. Ver o bloco de `--p-aceso-fundo`.
+
+   O NOME DIZ A CONDICAO, e nao o lugar: quem puser outra tira dentro de um
+   cartao branco amanha sabe qual classe usar sem precisar ler este arquivo. */
+.chip-sobre-branco[aria-current="page"],
+.chip-sobre-branco[aria-pressed="true"] {
+  background: var(--p-aceso-sobre-branco);
+}
+
+/* ===========================================================================
+   O CARD DE SERIE (o card de anime do Conexão Anime)
+
+   Tres coisas acontecem aqui e cada uma tem um motivo diferente:
+
+   1. A COR DA PLATAFORMA (`--cor`, escrita pelo componente). No anime era a
+      cor dominante da capa, que a AniList entrega; o TVmaze nao entrega, e a
+      da plataforma ainda diz algo — o fio vermelho e Netflix antes de qualquer
+      palavra. Plataforma sem cor no mapa cai no acento.
+
+   2. O FIO NA BASE E A UNICA PARTE QUE APARECE SEM HOVER. Isso e deliberado: a
+      grade fica PARADA a maior parte da visita, e no toque nao existe hover —
+      metade dos acessos veriam efeito nenhum. O fio e o efeito inteiro no
+      celular.
+
+   3. TUDO QUE DEPENDE DO MOUSE FICA ATRAS DE `hover: hover`. No toque o
+      `:hover` GRUDA depois do toque: sem a guarda, tocar um card para abrir a
+      estrela o deixaria levantado e brilhando ate alguem tocar noutro lugar.
+   =========================================================================== */
+.card {
+  --cor: var(--p-acento);
+  transition: transform 280ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.card-capa {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--p-realce);
+  box-shadow: 0 0 0 1px var(--p-linha);
+  transition: box-shadow 280ms ease;
+}
+.card-arte {
+  transition: transform 620ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.card-nome {
+  transition: color 200ms ease;
+}
+
+/* O FIO DE COR VIROU BARRA DE PROGRESSO nesta versao, e essa e a ideia nova do
+   card: ele mostra quanto da serie ja foi ao ar.
+
+   Na v1 o fio era decoracao — uma linha da cor da capa, sempre cheia. Ele ja
+   era a melhor parte do efeito (e a unica que existe sem hover, ou seja, a
+   unica que o celular ve), entao valia mais faze-lo CARREGAR DADO do que so
+   pintar. O trecho aceso e `episodioAtual / episodios`; o resto fica na mesma
+   cor, apagada.
+
+   QUANDO NAO HA TOTAL o componente manda 100%, e o fio volta a ser exatamente o
+   que era. Serie longa sem fim anunciado (One Piece, Conan) e o caso comum
+   disso, e uma barra "quase vazia para sempre" seria pior que barra nenhuma.
+
+   `height` e nao `border` para nao empurrar o layout. */
+.card-fio {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 3px;
+  background: color-mix(in srgb, var(--cor) 22%, transparent);
+  transition: height 280ms ease;
+}
+.card-fio-parte {
+  display: block;
+  height: 100%;
+  background: var(--cor);
+  opacity: 0.9;
+  transition: opacity 280ms ease;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  .card:hover .card-arte {
+    transform: scale(1.06);
+  }
+  .card:hover .card-capa {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--cor) 60%, transparent),
+      0 20px 40px -22px color-mix(in srgb, var(--cor) 70%, transparent),
+      0 6px 16px -12px rgb(var(--p-sombra) / 0.5);
+  }
+  .card:hover .card-nome {
+    color: var(--cor);
+  }
+  .card:hover .card-fio {
+    height: 5px;
+  }
+  .card:hover .card-fio-parte {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card-capa,
+  .card-arte,
+  .card-nome,
+  .card-fio,
+  .card-fio-parte {
+    transition: none;
+  }
+  .card:hover,
+  .card:hover .card-arte {
+    transform: none;
+  }
+}
+
+/* O adesivo sobre a capa (horario, episodio, contagem).
+
+   O FUNDO E ESCURO NOS DOIS TEMAS, de proposito, e nao acompanha a paleta: ele
+   fica POR CIMA da arte, que e colorida e clara no tema claro tambem. Um selo
+   que virasse branco no tema claro perderia o texto. */
+.adesivo {
+  background: rgb(9 8 12 / 0.72);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  border-radius: 0.5rem;
+}
+
+/* O card que a busca acabou de achar.
+
+   O EFEITO TERMINA: o anel entra, segura e sai em 2,6s (o mesmo tempo que o
+   componente usa para remover a classe). Destaque permanente viraria um estado
+   de selecao que ninguem pediu. `outline` e nao `border` para nao mudar o
+   tamanho do card e empurrar os vizinhos da faixa. */
+.achado {
+  border-radius: var(--radius-xl);
+  outline: 2px solid var(--p-acento);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .achado {
+    animation: achado-pulso 2.6s ease-out;
+  }
+}
+@keyframes achado-pulso {
+  0% {
+    outline-color: transparent;
+  }
+  12% {
+    outline-color: var(--p-acento);
+  }
+  70% {
+    outline-color: var(--p-acento);
+  }
+  100% {
+    outline-color: transparent;
+  }
+}
+
+/* ===========================================================================
+   O CORPO DOS ARTIGOS (Novidades, guias de temporada)
+
+   O HTML vem do markdown, entao nao ha onde pendurar classe: a estilizacao
+   acontece por seletor de elemento dentro do escopo `.artigo`.
+   =========================================================================== */
+.artigo {
+  color: var(--p-suave);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.artigo > * + * {
+  margin-top: 1.15rem;
+}
+.artigo h2 {
+  margin-top: 2.5rem;
+  font-size: 1.375rem;
+  color: var(--p-tinta);
+}
+.artigo h3 {
+  margin-top: 2rem;
+  font-size: 1.0625rem;
+  color: var(--p-tinta);
+}
+.artigo a {
+  color: var(--p-acento);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.artigo a:hover {
+  text-decoration-thickness: 2px;
+}
+.artigo strong {
+  font-weight: 600;
+  color: var(--p-tinta);
+}
+.artigo ul,
+.artigo ol {
+  padding-left: 1.25rem;
+}
+.artigo ul {
+  list-style: disc;
+}
+.artigo ol {
+  list-style: decimal;
+}
+.artigo li + li {
+  margin-top: 0.4rem;
+}
+.artigo blockquote {
+  border-left: 3px solid var(--p-acento);
+  padding-left: 1rem;
+  color: var(--p-suave);
+  font-style: italic;
+}
+.artigo code {
+  border-radius: 0.3rem;
+  background: var(--p-realce);
+  padding: 0.1rem 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+.artigo hr {
+  border-color: var(--p-linha);
+}
+
+/* A imagem flutua e o texto corre ao lado: e a diagramacao de guia de
+   temporada (miniatura a esquerda, ficha tecnica ao lado). Sem o float, um guia
+   com 20 animes vira uma rolagem interminavel de imagem, texto, imagem. */
+.artigo img {
+  border-radius: var(--radius-lg);
+  float: left;
+  width: 8rem;
+  margin: 0.25rem 1.25rem 0.75rem 0;
+}
+@media (min-width: 640px) {
+  .artigo img {
+    width: 10rem;
+  }
+}
+/* Escape para a imagem unica e grande: `![](/x.jpg "grande")` no markdown. */
+.artigo img[title="grande"] {
+  float: none;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+/* Sem isto o texto do proximo anime sobe e se encaixa ao lado da imagem do
+   anterior quando a ficha e curta — o defeito que faz um guia parecer quebrado. */
+.artigo hr,
+.artigo h2,
+.artigo h3 {
+  clear: both;
+}
+.artigo::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ===========================================================================
+   O INTERRUPTOR DE TEMA
+
+   E uma chave de verdade (`role="switch"`), entao ela parece uma chave: um
+   trilho, uma bolinha que atravessa, e os DOIS icones sempre montados com a
+   opacidade decidindo qual aparece. Trocar o elemento faria o icone sumir e
+   nascer no meio da transicao, e o olho pega isso como um piscar.
+   =========================================================================== */
+.chave-tema {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 3.25rem;
+  height: 1.75rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--p-linha);
+  background: var(--p-realce);
+  color: var(--p-fraco);
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease;
+}
+.chave-tema:hover {
+  border-color: var(--p-linha-forte);
+}
+.chave-tema:disabled {
+  opacity: 0.5;
+}
+.chave-icone {
+  position: relative;
+  z-index: 1;
+  transition: opacity 220ms ease;
+}
+.chave-sol {
+  opacity: 1;
+}
+.chave-lua {
+  opacity: 0.35;
+}
+:root[data-tema="escuro"] .chave-sol {
+  opacity: 0.35;
+}
+:root[data-tema="escuro"] .chave-lua {
+  opacity: 1;
+  color: var(--p-tinta);
+}
+.chave-bolinha {
+  position: absolute;
+  top: 50%;
+  left: 0.2rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: var(--p-cartao);
+  box-shadow: 0 1px 3px rgb(var(--p-sombra) / 0.35);
+  transform: translateY(-50%);
+  transition: transform 260ms cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+:root[data-tema="escuro"] .chave-bolinha {
+  transform: translate(1.5rem, -50%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .chave-bolinha,
+  .chave-icone {
+    transition: none;
+  }
+}
+
+/* ===========================================================================
+   O MENU: o indicador que segue o item
+
+   Um indicador unico por barra, que percorre o caminho entre um item e outro em
+   vez de piscar de um para o outro, e que segue o item sob o MOUSE — voltando
+   para a pagina atual quando o mouse sai.
+
+   DUAS ARMADILHAS que valem estar escritas:
+
+   1. O SUBLINHADO CSS COBRE O INSTANTE ANTES DA MEDICAO. O site e estatico: o
+      HTML chega pronto e o indicador so existe depois que o JavaScript mede as
+      posicoes. Sem o sublinhado, o menu apareceria sem marca nenhuma e ela
+      pularia para dentro na hidratacao. `menu-medido` e a chave que troca um
+      pelo outro.
+
+   2. O INDICADOR SO ENTRA A PARTIR DE `lg`. Abaixo disso o menu vira uma fita
+      rolavel e um indicador que so sabe `left` e `width` pousaria errado.
+   =========================================================================== */
+.menu-trilho {
+  position: relative;
+}
+.menu-item {
+  position: relative;
+}
+.menu-item[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.55rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--p-acento);
+}
+.menu-trilho.menu-medido .menu-item[aria-current="page"]::after {
+  display: none;
+}
+.menu-indicador {
+  position: absolute;
+  bottom: -0.55rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--p-acento);
+  opacity: 0;
+  transition:
+    transform 320ms cubic-bezier(0.2, 0.7, 0.3, 1),
+    width 320ms cubic-bezier(0.2, 0.7, 0.3, 1),
+    opacity 220ms ease;
+  pointer-events: none;
+}
+.menu-indicador.menu-aceso {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-indicador {
+    transition: opacity 220ms ease;
+  }
+}
+
+/* As medalhas do podio. Gradiente e nao cor chapada: metal sem brilho parece
+   um chip colorido qualquer. */
+.medalha-ouro {
+  background: linear-gradient(140deg, #f5c451, #b8860b);
+  color: #2a1c00;
+}
+.medalha-prata {
+  background: linear-gradient(140deg, #dfe3e8, #9aa4ae);
+  color: #22262b;
+}
+.medalha-bronze {
+  background: linear-gradient(140deg, #dd9a6a, #98552c);
+  color: #2b1508;
+}
+
+/* ===========================================================================
+   A FITA ROLAVEL — usada pelo calendario, pelos carrosseis e pela tira de dias.
+
+   A barra de rolagem fica fina e discreta em vez de escondida: escondida, num
+   trackpad, ninguem descobre que a fila continua. O card cortado na borda faz
+   metade do trabalho e a barra faz a outra.
+   =========================================================================== */
+.fita {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--p-linha-forte) transparent;
+  scroll-snap-type: x mandatory;
+}
+.fita > * {
+  scroll-snap-align: start;
+}
+.fita::-webkit-scrollbar {
+  height: 6px;
+}
+.fita::-webkit-scrollbar-thumb {
+  background: var(--p-linha-forte);
+  border-radius: 999px;
+}
+.fita::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* A barra grudada no topo (tira de dias, barras de acao). Um lugar so para o
+   vidro e a borda, porque tres telas usam o mesmo desenho. */
+.barra-grudada {
+  position: sticky;
+  z-index: 20;
+  background: var(--p-vidro);
+  backdrop-filter: blur(12px) saturate(140%);
+  border-bottom: 1px solid var(--p-linha);
+}
+
+/* ===========================================================================
+   O PULSO — o ponto que respira ao lado de "no ar agora" e de quem esta online.
+
+   Duas camadas: o ponto solido e um anel que expande e apaga. Sem o anel, um
+   ponto colorido parado nao diz "ao vivo", diz "status".
+   =========================================================================== */
+.pulso {
+  position: relative;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--p-ok);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .pulso::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: var(--p-ok);
+    animation: pulso-onda 2s ease-out infinite;
+  }
+}
+@keyframes pulso-onda {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}

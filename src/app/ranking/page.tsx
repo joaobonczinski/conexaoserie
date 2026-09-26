@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { INSTANTE_DO_BUILD } from "@/lib/build";
 import CabecalhoDePagina from "@/components/CabecalhoDePagina";
 import SeloDePlataforma from "@/components/SeloDePlataforma";
 import { metadadosDaPagina } from "@/lib/metadados";
+import { LINK_QUE_COBRE, enderecoDaSerie } from "@/lib/enderecos";
 import { traduzirGenero } from "@/lib/generos";
 import { notaEmTexto } from "@/lib/rotulos";
 import { rankingNoAr } from "@/lib/series";
@@ -47,7 +49,7 @@ export default function PaginaRanking() {
           return (
             <li
               key={serie.id}
-              className="flex items-center gap-3 rounded-xl border border-linha bg-cartao px-3 py-2.5"
+              className="relative flex items-center gap-3 rounded-xl border border-linha bg-cartao px-3 py-2.5 transition-colors hover:border-linha-forte"
             >
               <span className="numero w-7 shrink-0 text-center text-sm font-semibold text-fraco">
                 {posicao ?? "—"}
@@ -65,7 +67,15 @@ export default function PaginaRanking() {
                 <div className="h-16 w-11 shrink-0 rounded-lg bg-realce" />
               )}
               <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-semibold text-tinta">{serie.nome}</p>
+                <p className="truncate text-sm font-semibold text-tinta">
+                  <Link
+                    href={enderecoDaSerie(serie.slug)}
+                    prefetch={false}
+                    className={LINK_QUE_COBRE}
+                  >
+                    {serie.nome}
+                  </Link>
+                </p>
                 {serie.nomeOriginal ? (
                   <p className="truncate text-xs text-suave">{serie.nomeOriginal}</p>
                 ) : null}

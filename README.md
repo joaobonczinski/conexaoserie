@@ -33,6 +33,7 @@ npm run dev                # site em http://localhost:3000
 npm run fetch              # busca a agenda no TVmaze
 npm run admin              # painel de ajustes em http://localhost:4331
 npm run conferir:horarios  # confere a conta de horários contra casos conhecidos
+npm run conferir:slugs     # confere a regra dos endereços das séries
 npm run build              # gera o site estático em out/ (sempre por aqui, nunca `next build`)
 npm run preview            # compila e serve o out/ como a Cloudflare, na 4330
 ```
@@ -57,7 +58,7 @@ São três arquivos, e a separação é o ponto principal:
 
 | Arquivo | Quem escreve | O que tem |
 |---|---|---|
-| `src/data/agenda.json` | o `npm run fetch`, automático | episódios dos últimos 7 dias até 60 à frente, crus |
+| `src/data/agenda.json` | o `npm run fetch`, automático | episódios dos últimos 7 dias até 60 à frente, crus, e o endereço de cada série |
 | `src/data/plataformas.json` | você, à mão | canal → plataforma no Brasil, e a regra de horário de cada uma |
 | `src/data/overrides.json` | você, pelo admin | ajustes por série |
 
@@ -95,6 +96,30 @@ card mostra o dia e "sem hora" — melhor que inventar.
 Canal que não está no mapa (Tencent, BBC iPlayer…) nem é baixado. O `fetch`
 lista no fim os que mais tiveram episódio de ficção, para você decidir se algum
 merece entrar.
+
+## A página de cada série
+
+`/series/<slug>/` responde "que horas sai" para uma série só — é a pergunta que
+mais se digita no Google —, e `/series/` lista todas, por plataforma. O painel
+do próximo episódio roda no navegador (contagem regressiva, fuso de quem olha, e
+troca sozinho para o episódio seguinte quando o atual sai); o resto é HTML do
+build, no horário de Brasília.
+
+- **O endereço nunca muda.** O `fetch` escolhe o slug na primeira vez que a
+  série aparece (o nome brasileiro, se já houver; senão o original; empate vira
+  `-ano` e depois `-id`) e grava no `agenda.json`. Dali em diante só
+  reaproveita: se o admin der um título brasileiro depois, muda o título da
+  página, e não o endereço. A regra está em `scripts/slug.mjs`.
+- **A página não some no fim da temporada.** A série que sai da janela do TVmaze
+  continua no `agenda.json`, sem episódios e com o último que saiu, por um ano
+  (`GUARDA_DIAS` no `fetch`). A página passa a dizer "o último foi o episódio
+  10, em 24 de setembro".
+- **Só série que vai ao ar tem página**: a de canal sem casa fixa (ABC, CBS…)
+  ganha a sua quando o admin escolher a plataforma.
+- **O limite da Cloudflare**: o plano grátis aceita 20.000 arquivos por versão
+  do site, e cada página de série gera 9. Medido em 25/09/2026: 103 séries,
+  1.166 arquivos no site inteiro — cabem umas 2.000 séries. Se um dia chegar
+  perto, é o `GUARDA_DIAS` que baixa.
 
 ## O que entra e o que não entra
 

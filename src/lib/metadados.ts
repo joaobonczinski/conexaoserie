@@ -45,6 +45,12 @@ type Entrada = {
   descricaoCompartilhada?: string;
   /** A capa do artigo. Sem ela, entra a imagem do site — nunca imagem nenhuma. */
   imagem?: string | null;
+  /**
+   * A imagem e PEQUENA (o poster de 210px de uma serie): o cartao do X vira o
+   * `summary`, de miniatura quadrada. O `summary_large_image` pede ao menos
+   * 300px de largura, e com menos o X mostra o cartao sem imagem nenhuma.
+   */
+  imagemPequena?: boolean;
   artigo?: { publicadoEm: string; atualizadoEm?: string };
 };
 
@@ -69,6 +75,6 @@ export function metadadosDaPagina(e: Entrada): Metadata {
           }
         : {}),
     },
-    twitter: { card: "summary_large_image" },
+    twitter: { card: e.imagemPequena ? "summary" : "summary_large_image" },
   };
 }

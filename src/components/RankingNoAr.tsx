@@ -1,10 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import SeloDePlataforma from "./SeloDePlataforma";
 import TituloDeSecao from "./TituloDeSecao";
 import { IconeSetaDireita, IconeSetaEsquerda } from "./Icones";
 import { CARD_CARROSSEL, TRILHO_CARROSSEL, useCarrossel } from "@/lib/carrossel";
 import { estiloDaCor } from "@/lib/cor-da-capa";
+import { LINK_QUE_COBRE, enderecoDaSerie } from "@/lib/enderecos";
 import { traduzirGenero } from "@/lib/generos";
 import { notaEmTexto } from "@/lib/rotulos";
 import type { SerieNaTela } from "@/lib/tipos";
@@ -101,20 +103,15 @@ export default function RankingNoAr({ series: todas }: { series: SerieNaTela[] }
                 aria-label={`${posicao ? `${posicao}º lugar, ` : ""}${serie.nome}, ${
                   serie.nota !== null ? `nota ${notaEmTexto(serie.nota)}` : "ainda sem nota"
                 }`}
-                className="card block"
+                className="card relative block"
                 style={estiloDaCor(serie.cor)}
               >
                 <div className="card-capa aspect-[2/3]">
                   {serie.capa ? (
+                    // Sem o original no `srcSet`: ver o comentario do CardSerie.
                     // eslint-disable-next-line @next/next/no-img-element -- CDN externo em site estatico
                     <img
                       src={serie.capa}
-                      srcSet={
-                        serie.capaGrande
-                          ? `${serie.capa} 210w, ${serie.capaGrande} 680w`
-                          : undefined
-                      }
-                      sizes="168px"
                       alt=""
                       loading="lazy"
                       decoding="async"
@@ -155,7 +152,13 @@ export default function RankingNoAr({ series: todas }: { series: SerieNaTela[] }
                     title={serie.nome}
                     className="card-nome truncate text-[15px] font-semibold leading-snug text-tinta"
                   >
-                    {serie.nome}
+                    <Link
+                      href={enderecoDaSerie(serie.slug)}
+                      prefetch={false}
+                      className={LINK_QUE_COBRE}
+                    >
+                      {serie.nome}
+                    </Link>
                   </p>
                   <p
                     title={serie.nomeOriginal ?? undefined}

@@ -2,6 +2,7 @@ import {
   IconeCalendario,
   IconeCasa,
   IconeCoracao,
+  IconeEpisodios,
   IconeNovidades,
   IconeTemporadas,
   IconeTrofeu,
@@ -24,7 +25,7 @@ export const APOIAR_EM_BREVE = APOIO.livepix === null && APOIO.paypal === null;
    escrita a mao em cada peca, elas divergiram.
 
    UMA PRATELEIRA SO, e nao as duas do anime. La a segunda existe porque o site
-   cresceu para doze telas; aqui sao seis, e cabem numa linha. No dia em que
+   cresceu para doze telas; aqui sao sete, e cabem numa linha. No dia em que
    aparecer uma tela de uso ocasional, e la que ela entra — e a prateleira de
    baixo volta junto.
    =========================================================================== */
@@ -39,6 +40,7 @@ export type Destino = {
 export type IdDeSecao =
   | "inicio"
   | "calendario"
+  | "series"
   | "estreias"
   | "ranking"
   | "novidades"
@@ -52,6 +54,9 @@ export const SECOES: {
 }[] = [
   { id: "inicio", rotulo: "Início", href: "/" },
   { id: "calendario", rotulo: "Calendário", href: "/calendario/" },
+  // Colada no calendario: e a mesma pergunta ("que horas sai"), feita por
+  // serie em vez de por dia — e a pagina de cada serie mora aqui dentro.
+  { id: "series", rotulo: "Séries", href: "/series/" },
   { id: "estreias", rotulo: "Estreias", href: "/estreias/" },
   { id: "ranking", rotulo: "Ranking", href: "/ranking/" },
   { id: "novidades", rotulo: "Novidades", href: "/novidades/" },
@@ -93,6 +98,7 @@ export const GRUPOS_DO_MENU: { titulo: string; itens: Destino[] }[] = [
     itens: [
       { href: "/", rotulo: "Início", Icone: IconeCasa },
       { href: "/calendario/", rotulo: "Calendário", Icone: IconeCalendario },
+      { href: "/series/", rotulo: "Todas as séries", Icone: IconeEpisodios },
       { href: "/estreias/", rotulo: "Estreias", Icone: IconeTemporadas },
       { href: "/ranking/", rotulo: "Ranking", Icone: IconeTrofeu },
     ],
@@ -132,7 +138,7 @@ function destinoPorHref(href: string): Destino {
 export const GRUPOS_DO_RODAPE: { titulo: string; itens: Destino[] }[] = [
   {
     titulo: "Séries",
-    itens: ["/calendario/", "/estreias/", "/ranking/"].map(destinoPorHref),
+    itens: ["/calendario/", "/series/", "/estreias/", "/ranking/"].map(destinoPorHref),
   },
   {
     titulo: "O site",

@@ -1,6 +1,8 @@
+import Link from "next/link";
 import SeloDePlataforma from "./SeloDePlataforma";
 import { IconeRelogio } from "./Icones";
 import type { Item } from "@/lib/tipos";
+import { LINK_QUE_COBRE, enderecoDaSerie } from "@/lib/enderecos";
 import { traduzirGenero } from "@/lib/generos";
 import { contar, rotuloContagem } from "@/lib/contagem";
 import { formatarHora } from "@/lib/horario";
@@ -49,18 +51,18 @@ export default function CardSerie({ item, fuso, agora }: Props) {
   const estreia = rotuloDeEstreia(lancamento);
 
   return (
-    <article className="card flex flex-col" style={estiloDaCor(serie.cor)}>
+    <article className="card relative flex flex-col" style={estiloDaCor(serie.cor)}>
       <div className="card-capa aspect-[2/3]">
         {serie.capa ? (
+          // SO O POSTER MEDIO (210px), sem `srcSet` com o original, e isso e
+          // medido: o "original" do TVmaze e o arquivo que alguem subiu, com
+          // media de 760 KB (ate 2 MB) numa amostra de 25/09/2026. Num celular
+          // de tela densa o navegador escolheria ele para todo card — 40 vezes o
+          // peso, na fita inteira. O medio fica um pouco macio em tela retina;
+          // e o preco certo.
           // eslint-disable-next-line @next/next/no-img-element -- CDN externo em site estatico
           <img
             src={serie.capa}
-            srcSet={
-              serie.capaGrande
-                ? `${serie.capa} 210w, ${serie.capaGrande} 680w`
-                : undefined
-            }
-            sizes="168px"
             alt=""
             loading="lazy"
             decoding="async"
@@ -125,12 +127,18 @@ export default function CardSerie({ item, fuso, agora }: Props) {
 
       <div className="mt-2.5 flex flex-1 flex-col">
         {/* O `title` devolve o que o corte tira, para quem usa mouse; o texto
-            inteiro continua no HTML. */}
+            inteiro continua no HTML.
+
+            O NOME E O LINK DA PAGINA DA SERIE, esticado sobre o card inteiro
+            (ver `LINK_QUE_COBRE`). Sem prefetch: a fita do dia tem dezenas de
+            cards, e cada um que entrasse na tela baixaria uma pagina. */}
         <h3
           title={serie.nome}
           className="card-nome truncate text-[15px] font-semibold leading-snug text-tinta"
         >
-          {serie.nome}
+          <Link href={enderecoDaSerie(serie.slug)} prefetch={false} className={LINK_QUE_COBRE}>
+            {serie.nome}
+          </Link>
         </h3>
 
         {/* Sempre presente: o espaco rigido segura a linha quando o nome

@@ -39,11 +39,13 @@ export default function SeloDePlataforma({
   return (
     <div className={`${espacamento} flex min-h-[20px] gap-1 overflow-hidden`}>
       {link ? (
+        // `relative z-10`: o selo mora dentro de cards que sao link por inteiro
+        // (ver `LINK_QUE_COBRE`), e sem isto a area do card o cobriria.
         <a
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className={`${classe} transition-colors hover:bg-acento/10 hover:text-acento`}
+          className={`${classe} relative z-10 transition-colors hover:bg-acento/10 hover:text-acento`}
         >
           {conteudo}
         </a>

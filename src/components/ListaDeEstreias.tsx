@@ -1,5 +1,7 @@
+import Link from "next/link";
 import SeloDePlataforma from "./SeloDePlataforma";
 import type { Item } from "@/lib/tipos";
+import { LINK_QUE_COBRE, enderecoDaSerie } from "@/lib/enderecos";
 import { traduzirGenero } from "@/lib/generos";
 import {
   DIAS,
@@ -61,7 +63,7 @@ export function LinhaDeEstreia({
   const dia = diaEmBrasilia(item);
 
   return (
-    <li className="flex items-center gap-3 rounded-xl border border-linha bg-cartao px-3 py-2.5">
+    <li className="relative flex items-center gap-3 rounded-xl border border-linha bg-cartao px-3 py-2.5 transition-colors hover:border-linha-forte">
       {serie.capa ? (
         // eslint-disable-next-line @next/next/no-img-element -- CDN externo em site estatico
         <img
@@ -76,7 +78,11 @@ export function LinhaDeEstreia({
       )}
 
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-semibold text-tinta">{serie.nome}</p>
+        <p className="truncate text-sm font-semibold text-tinta">
+          <Link href={enderecoDaSerie(serie.slug)} prefetch={false} className={LINK_QUE_COBRE}>
+            {serie.nome}
+          </Link>
+        </p>
         {serie.nomeOriginal ? (
           <p className="truncate text-xs text-suave">{serie.nomeOriginal}</p>
         ) : null}

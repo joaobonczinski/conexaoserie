@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/marca";
+import { enderecoDaSerie } from "@/lib/enderecos";
 import { APOIAR_EM_BREVE } from "@/lib/navegacao";
 import { carregarNovidades } from "@/lib/novidades";
+import { carregarSeries } from "@/lib/series";
 
 /**
  * OBRIGATORIO com `output: "export"`: sem esta linha o build inteiro falha. O
@@ -21,6 +23,7 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const fixas: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "daily", priority: 1 },
+    { url: `${SITE_URL}/series/`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/estreias/`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/ranking/`, changeFrequency: "daily", priority: 0.7 },
     { url: `${SITE_URL}/novidades/`, changeFrequency: "weekly", priority: 0.6 },
@@ -39,5 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...fixas, ...novidades];
+  // Uma por serie. Sem `lastModified` pelo motivo do cabecalho: o site nao sabe
+  // quando a pagina de uma serie mudou de verdade, so que ela e refeita todo dia.
+  const series: MetadataRoute.Sitemap = carregarSeries().map((s) => ({
+    url: `${SITE_URL}${enderecoDaSerie(s.slug)}`,
+    changeFrequency: "daily" as const,
+    priority: 0.8,
+  }));
+
+  return [...fixas, ...series, ...novidades];
 }

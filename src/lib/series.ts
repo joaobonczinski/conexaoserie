@@ -76,6 +76,7 @@ function aplicar(bruta: SerieBruta): Serie | null {
 
   return {
     id: bruta.id,
+    slug: bruta.slug,
     nome,
     nomeOriginal,
     generos: bruta.generos,
@@ -91,22 +92,83 @@ function aplicar(bruta: SerieBruta): Serie | null {
     link: linkQueAbre(ajuste.link ?? bruta.site, plataforma),
     destaque: ajuste.destaque === true,
     tvmazeUrl: bruta.tvmazeUrl,
+    canal: bruta.canal,
+    horario: ajuste.horario
+      ? { tipo: "manual", hora: ajuste.horario.hora, vespera: ajuste.horario.vespera === true }
+      : regra,
+    estreou: bruta.estreou,
+    status: bruta.status,
+    ultimo: bruta.ultimo,
     lancamentos: montarLancamentos(bruta.episodios, regra, ajuste.horario ?? null),
   };
 }
 
-/** Todas as series que vao ao ar no site, com os ajustes aplicados. */
+let carregadas: Serie[] | null = null;
+
+/**
+ * Todas as series que vao ao ar no site, com os ajustes aplicados.
+ *
+ * CALCULADO UMA VEZ POR BUILD: com uma pagina por serie, a lista e pedida
+ * centenas de vezes, e cada montagem refaz a conta de fuso de todo episodio
+ * (dois `Intl.DateTimeFormat` por episodio). O dado nao muda no meio do build.
+ */
 export function carregarSeries(): Serie[] {
-  return agenda.series
+  carregadas ??= agenda.series
     .map(aplicar)
     .filter((s): s is Serie => s !== null);
+  return carregadas;
 }
 
-/** A serie sem a lista de lancamentos. Ver `SerieNaTela`. */
-function naTela(serie: Serie): SerieNaTela {
-  const { lancamentos: _, ...resto } = serie;
-  void _;
+/** A serie sem o que so a pagina dela usa. Ver `SerieNaTela`. */
+export function naTela(serie: Serie): SerieNaTela {
+  const {
+    lancamentos: _l,
+    capaGrande: _g,
+    canal: _c,
+    horario: _h,
+    estreou: _e,
+    status: _s,
+    ultimo: _u,
+    ...resto
+  } = serie;
+  void [_l, _g, _c, _h, _e, _s, _u];
   return resto;
+}
+
+/**
+ * A serie de um endereco, ou null.
+ *
+ * SO SERIE QUE VAI AO AR TEM PAGINA: a oculta pelo admin e a de canal sem casa
+ * no Brasil (ABC, CBS...) ficam sem, pela mesma regra que as tira do
+ * calendario. Uma pagina dizendo "que horas sai" de algo que nao sai aqui seria
+ * resposta errada com cara de certa.
+ */
+export function buscarSerie(slug: string): Serie | null {
+  return carregarSeries().find((s) => s.slug === slug) ?? null;
+}
+
+/**
+ * Outras series da mesma plataforma no ar agora, as mais vistas primeiro.
+ *
+ * E o que a pagina de uma serie oferece embaixo — e tambem o que liga as
+ * paginas entre si: sem isso, uma pagina de serie so seria achada pelo Google
+ * a partir da lista inteira.
+ */
+export function vizinhasNoAr(serie: Serie, agora: number, quantas: number): SerieNaTela[] {
+  const SEMANA = 7 * 86400;
+  return carregarSeries()
+    .filter(
+      (s) =>
+        s.id !== serie.id &&
+        s.plataforma === serie.plataforma &&
+        s.lancamentos.some((l) => {
+          const t = instanteDe(l);
+          return t >= agora - SEMANA && t < agora + SEMANA;
+        }),
+    )
+    .sort((a, b) => b.popularidade - a.popularidade)
+    .slice(0, quantas)
+    .map(naTela);
 }
 
 /**

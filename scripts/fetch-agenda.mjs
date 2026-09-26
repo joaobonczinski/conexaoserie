@@ -32,6 +32,7 @@ import { readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gravarJson } from "./gravar-json.mjs";
+import { escolherSlug } from "./slug.mjs";
 
 const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DESTINO = resolve(RAIZ, "src/data/agenda.json");
@@ -53,6 +54,20 @@ const PAUSA_MS = 600;
 
 /** O titulo brasileiro de uma serie quase nunca muda; reconsulta a cada 30 dias. */
 const VALIDADE_DO_TITULO_DIAS = 30;
+
+/**
+ * Por quanto tempo uma serie que SAIU da agenda continua no arquivo — e com
+ * ela, a pagina /series/<slug>/.
+ *
+ * A pagina NAO some quando a temporada acaba: quem procura "que horas sai
+ * Lanternas" depois do final encontra "a temporada terminou em 12/10", e o
+ * endereco continua juntando visita para a temporada seguinte. Some depois de
+ * um ano sem aparecer, e esse corte e o que segura o site longe do limite de
+ * 20.000 arquivos do plano gratis da Cloudflare. Medido em 25/09/2026: 9
+ * arquivos por pagina de serie, 1.166 no site inteiro com 103 series — cabem
+ * umas 2.000. Se um dia chegar perto, e este numero que baixa.
+ */
+const GUARDA_DIAS = 365;
 
 /**
  * Os tipos de serie que entram. Reality, talk show, jornal, esporte e game show
@@ -192,6 +207,9 @@ async function main() {
         site: s.officialSite ?? null,
         tvmazeUrl: s.url,
         estreou: s.premiered ?? null,
+        // "Running", "Ended", "To Be Determined"... A pagina da serie diz
+        // "serie encerrada" quando e o caso.
+        status: s.status ?? null,
         episodios: [],
       };
       series.set(s.id, serie);
@@ -246,7 +264,57 @@ async function main() {
     serie.tituloBr = cache[serie.id]?.titulo ?? null;
   }
 
-  // --- 4. Gravar -------------------------------------------------------------
+  // --- 4. O arquivo que ja existia: enderecos, ultimo episodio e quem saiu ----
+  let anteriores = [];
+  try {
+    anteriores = JSON.parse(await readFile(DESTINO, "utf8")).series ?? [];
+  } catch {
+    anteriores = [];
+  }
+  const anteriorPorId = new Map(anteriores.map((s) => [s.id, s]));
+
+  // Os enderecos que ja existem ficam reservados ANTES de qualquer serie nova
+  // escolher o seu: uma serie nova chamada "Ghosts" nao pode tomar o endereco
+  // de outra "Ghosts" que ja tem pagina.
+  const ocupados = new Set(anteriores.map((s) => s.slug).filter(Boolean));
+
+  // As novas escolhem em ordem de popularidade: se duas "Ghosts" chegam no mesmo
+  // dia, a mais vista fica com o endereco limpo. O id desempata, para a escolha
+  // nao depender da ordem em que o TVmaze devolveu os episodios.
+  const porPopularidade = [...series.values()].sort(
+    (a, b) => b.popularidade - a.popularidade || a.id - b.id,
+  );
+  for (const serie of porPopularidade) {
+    const anterior = anteriorPorId.get(serie.id);
+    serie.slug = anterior?.slug ?? escolherSlug(serie, ocupados);
+    ocupados.add(serie.slug);
+    serie.vistoEm = hoje;
+    // O ULTIMO EPISODIO QUE JA SAIU. Guardado porque a janela de episodios
+    // anda: quando a temporada acaba e sai dela, a pagina ainda precisa dizer
+    // "o ultimo foi o T1 E10, em 24/09".
+    const saidos = serie.episodios.filter((e) => e.data <= hoje);
+    const ultimoAgora = saidos.at(-1);
+    serie.ultimo = ultimoAgora
+      ? { temporada: ultimoAgora.temporada, numero: ultimoAgora.numero, data: ultimoAgora.data }
+      : (anterior?.ultimo ?? null);
+  }
+
+  // Quem estava no arquivo e nao veio desta vez continua por `GUARDA_DIAS`,
+  // SEM episodios: se nao esta na janela do TVmaze, nao ha episodio a mostrar.
+  const limiteDaGuarda = dataISO(-GUARDA_DIAS);
+  let guardadas = 0;
+  let descartadas = 0;
+  for (const anterior of anteriores) {
+    if (series.has(anterior.id)) continue;
+    if (!anterior.slug || (anterior.vistoEm ?? "") < limiteDaGuarda) {
+      descartadas++;
+      continue;
+    }
+    series.set(anterior.id, { ...anterior, episodios: [] });
+    guardadas++;
+  }
+
+  // --- 5. Gravar -------------------------------------------------------------
   const lista = [...series.values()].sort(
     (a, b) => b.popularidade - a.popularidade || a.nome.localeCompare(b.nome),
   );
@@ -260,6 +328,7 @@ async function main() {
   console.log(`\nGravadas ${lista.length} series em src/data/agenda.json`);
   console.log(`  com plataforma no Brasil        : ${lista.length - semPlataforma.length}`);
   console.log(`  canal sem casa fixa (so admin)  : ${semPlataforma.length}`);
+  console.log(`  fora da janela, pagina mantida  : ${guardadas} (descartadas depois de ${GUARDA_DIAS} dias: ${descartadas})`);
   console.log(`  titulos brasileiros consultados : ${consultados}`);
   console.log(`  descartados: canal fora do mapa ${descartes.canal}, tipo ${descartes.tipo}, anime ${descartes.anime}, especial ${descartes.especial}`);
 

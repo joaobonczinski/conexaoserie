@@ -11,9 +11,18 @@ export type EpisodioBruto = {
   temHora: boolean;
 };
 
+/** O ultimo episodio que ja saiu, guardado pelo fetch entre uma janela e outra. */
+export type UltimoEpisodio = {
+  temporada: number;
+  numero: number | null;
+  data: string;
+};
+
 /** Serie como vem do TVmaze, antes dos ajustes manuais. */
 export type SerieBruta = {
   id: number;
+  /** O endereco da pagina, /series/<slug>/. Escolhido uma vez, nunca muda. */
+  slug: string;
   nome: string;
   /** Titulo brasileiro pelos "akas" do TVmaze. Raro — o admin completa. */
   tituloBr: string | null;
@@ -31,6 +40,12 @@ export type SerieBruta = {
   site: string | null;
   tvmazeUrl: string;
   estreou: string | null;
+  /** "Running", "Ended", "To Be Determined", "In Development". */
+  status: string | null;
+  /** A ultima vez que o fetch viu a serie na janela. */
+  vistoEm: string;
+  ultimo: UltimoEpisodio | null;
+  /** Vazio quando a serie saiu da janela e so a pagina continua. */
   episodios: EpisodioBruto[];
 };
 
@@ -85,6 +100,14 @@ export type Override = {
 export type OrigemDoHorario = "exibicao" | "regra" | "manual";
 
 /**
+ * Como a serie ganha horario: a regra do canal, ou o ajuste do admin (hora de
+ * Brasilia). A pagina da serie explica isso com palavras.
+ */
+export type HorarioDaSerie =
+  | RegraDeHorario
+  | { tipo: "manual"; hora: string; vespera: boolean };
+
+/**
  * Um LANCAMENTO: o que fica disponivel de uma vez.
  *
  * Nao e um episodio. A Netflix solta a temporada inteira no mesmo minuto, e
@@ -107,6 +130,7 @@ export type Lancamento = {
 /** Serie pronta para a tela, com os ajustes e a plataforma resolvidos. */
 export type Serie = {
   id: number;
+  slug: string;
   /** O nome grande do card: o brasileiro quando existe, senao o original. */
   nome: string;
   /** O original, so quando e diferente do nome grande. */
@@ -123,17 +147,38 @@ export type Serie = {
   link: string | null;
   destaque: boolean;
   tvmazeUrl: string;
+  /** Chave do canal de origem ("net:8"), para a pagina explicar o horario. */
+  canal: string;
+  /** null quando a serie nao tem regra nem ajuste: sai sem hora. */
+  horario: HorarioDaSerie | null;
+  estreou: string | null;
+  status: string | null;
+  ultimo: UltimoEpisodio | null;
   lancamentos: Lancamento[];
 };
 
 /**
- * A serie SEM a lista de lancamentos — o que um card precisa saber dela.
+ * O que so a pagina da serie usa. O `capaGrande` entre eles: nenhum card usa o
+ * original (ver o comentario do CardSerie), e so os dados estruturados da
+ * pagina, que quem le e o robo do Google, apontam para ele.
+ */
+type SoDaPagina =
+  | "lancamentos"
+  | "capaGrande"
+  | "canal"
+  | "horario"
+  | "estreou"
+  | "status"
+  | "ultimo";
+
+/**
+ * A serie SEM o que so a pagina dela usa — o que um card precisa saber.
  *
  * Existe por causa do tamanho da pagina: o calendario manda os cards para o
  * navegador, e uma novela diaria levaria os seus sessenta lancamentos dentro de
  * cada um dos sete cards dela.
  */
-export type SerieNaTela = Omit<Serie, "lancamentos">;
+export type SerieNaTela = Omit<Serie, SoDaPagina>;
 
 /** Um card do calendario: a serie mais UM lancamento dela. */
 export type Item = {

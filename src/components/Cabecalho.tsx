@@ -9,7 +9,7 @@ import { IconeLupa } from "@/components/Icones";
 import { SECOES, secaoAtiva } from "@/lib/navegacao";
 
 /* ===========================================================================
-   O CABECALHO — uma linha: marca, as seis secoes, a lupa e o tema.
+   O CABECALHO — uma linha: marca, as secoes, a lupa e o tema.
 
    E o cabecalho do Conexão Anime sem a conta: aqui nao ha login (decisao do
    Joao para a primeira versao, 25/09/2026), entao somem o "Entrar", o avatar e

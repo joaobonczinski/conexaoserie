@@ -17,6 +17,7 @@ como os dados funcionam.
 npx tsc --noEmit
 npx eslint src               # as regras do React Compiler pegam coisa real
 npm run conferir:horarios    # a conta de horários, contra casos conhecidos
+npm run conferir:slugs       # a regra dos endereços das séries
 npm run build
 ```
 
@@ -73,6 +74,15 @@ navegador do João: `CONEXAO_SEM_NAVEGADOR=1`.
   a fita do calendário tem `key` que muda com a ordem.
 - **Grid sem colunas explícitas vaza no celular**: a coluna automática cresce
   até o título mais longo (o `truncate` nunca age). Use `grid-cols-1`.
+- **O slug de uma série nunca muda** depois de gravado no `agenda.json` — é o
+  endereço que o Google guardou. Não "conserte" um slug feio renomeando: a
+  página velha vira 404. Regra em `scripts/slug.mjs`.
+- **Card que é link não pode ser `<a>`**: o selo da plataforma é outro link, e
+  link dentro de link quebra o HTML. O link fica no nome, esticado com
+  `LINK_QUE_COBRE` (`src/lib/enderecos.ts`) — e o card precisa de `relative`.
+- **Link para página de série vai com `prefetch={false}`**: a lista de séries e
+  a fita do dia têm dezenas deles, e cada um que entra na tela baixaria uma
+  página inteira no plano de dados de quem rola.
 
 ## Como trabalhar aqui
 

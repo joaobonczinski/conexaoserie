@@ -160,6 +160,12 @@ confere se o deploy passou, e o link leva ao log.
   nome que só redireciona;
 - `http://` vira `https://` (Always Use HTTPS) e o TLS mínimo é 1.2, em
   SSL/TLS → Edge Certificates.
+- o `contato@conexaoserie.com.br` encaminha para o e-mail do João (Email →
+  Email Routing). O domínio veio com registros de "não uso e-mail" (MX `.` e
+  `v=spf1 -all`), que precisaram sair na mão; o `_dmarc` com `p=reject` ficou,
+  porque o site não manda e-mail e isso impede e-mail falso em nome dele.
+  **Ligar o Email Routing não cria o endereço**: sem uma regra em Routing
+  rules, a Cloudflare recusa com "550 Address does not exist".
 
 Para subir na mão, sem esperar o GitHub:
 
@@ -172,9 +178,7 @@ O wrangler desta máquina está logado na conta da Cloudflare.
 
 ### O que falta
 
-1. **Email Routing** para o `contato@` funcionar — a Política de Privacidade
-   aponta para ele.
-2. **Google Search Console**: cadastrar o domínio e enviar o `sitemap.xml`.
+- **Google Search Console**: cadastrar o domínio e enviar o `sitemap.xml`.
 
 ## O que falta decidir
 

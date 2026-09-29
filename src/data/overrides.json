@@ -8,6 +8,21 @@
     "link: o endereco da serie na plataforma. So vira link se o dominio estiver na lista da plataforma em plataformas.json.",
     "horario: { hora: '22:00', vespera: true } na hora de BRASILIA, quando a serie foge da regra da plataforma."
   ],
+  "49": {
+    "tituloBr": "Brooklyn Nine-Nine"
+  },
+  "123": {
+    "tituloBr": "Lost"
+  },
+  "464": {
+    "tituloBr": "The Pacific"
+  },
+  "526": {
+    "tituloBr": "The Office"
+  },
+  "557": {
+    "tituloBr": "Alias"
+  },
   "2993": {
     "tituloBr": "Stranger Things"
   },

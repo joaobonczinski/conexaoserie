@@ -176,9 +176,10 @@ npx wrangler deploy
 
 O wrangler desta máquina está logado na conta da Cloudflare.
 
-### O que falta
-
-- **Google Search Console**: cadastrar o domínio e enviar o `sitemap.xml`.
+**Google Search Console**: propriedade de domínio `conexaoserie.com.br`,
+verificada por um TXT `google-site-verification` no DNS da Cloudflare, com o
+`sitemap.xml` enviado em 29/09/2026. Não apague esse TXT: sem ele o Google
+deixa de reconhecer o João como dono do site.
 
 ## O que falta decidir
 

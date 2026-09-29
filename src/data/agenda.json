@@ -1,8 +1,8 @@
 {
-  "atualizadoEm": "2026-09-28T17:21:53.596Z",
+  "atualizadoEm": "2026-09-29T13:15:49.221Z",
   "janela": {
-    "de": "2026-09-21",
-    "ate": "2026-11-27"
+    "de": "2026-09-22",
+    "ate": "2026-11-28"
   },
   "series": [
     {
@@ -35,7 +35,7 @@
       ],
       "tituloBr": null,
       "slug": "9-1-1",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -152,7 +152,7 @@
       ],
       "tituloBr": null,
       "slug": "american-horror-story",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 13,
         "numero": 3,
@@ -171,7 +171,7 @@
       "idioma": "English",
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1607270.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1607270.jpg",
-      "nota": 7,
+      "nota": 7.1,
       "popularidade": 100,
       "canal": "web:1",
       "site": "https://www.netflix.com/title/81682935",
@@ -189,7 +189,7 @@
       ],
       "tituloBr": null,
       "slug": "black-doves",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -228,7 +228,7 @@
       ],
       "tituloBr": "Heróis contra o Fogo",
       "slug": "herois-contra-o-fogo",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -267,7 +267,7 @@
       ],
       "tituloBr": null,
       "slug": "chicago-med",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -306,7 +306,7 @@
       ],
       "tituloBr": null,
       "slug": "chicago-p-d",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -352,7 +352,7 @@
       ],
       "tituloBr": null,
       "slug": "cia",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -420,7 +420,7 @@
       ],
       "tituloBr": "Matéria Escura",
       "slug": "materia-escura",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
         "numero": 5,
@@ -457,7 +457,7 @@
       ],
       "tituloBr": null,
       "slug": "dexter-resurrection",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -504,7 +504,7 @@
       ],
       "tituloBr": null,
       "slug": "elsbeth",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -550,7 +550,7 @@
       ],
       "tituloBr": null,
       "slug": "fbi",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -610,7 +610,7 @@
       ],
       "tituloBr": null,
       "slug": "fire-country",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -635,13 +635,6 @@
       "episodios": [
         {
           "temporada": 14,
-          "numero": 9,
-          "data": "2026-09-21",
-          "carimbo": 1790006400,
-          "temHora": false
-        },
-        {
-          "temporada": 14,
           "numero": 10,
           "data": "2026-09-28",
           "carimbo": 1790611200,
@@ -650,7 +643,7 @@
       ],
       "tituloBr": null,
       "slug": "futurama",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 14,
         "numero": 10,
@@ -686,7 +679,7 @@
       ],
       "tituloBr": "Fantasmas",
       "slug": "fantasmas",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -719,7 +712,7 @@
       ],
       "tituloBr": null,
       "slug": "grey-s-anatomy",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -740,13 +733,6 @@
       "estreou": "2005-08-04",
       "status": "Running",
       "episodios": [
-        {
-          "temporada": 18,
-          "numero": 7,
-          "data": "2026-09-21",
-          "carimbo": 1790038800,
-          "temHora": true
-        },
         {
           "temporada": 18,
           "numero": 8,
@@ -771,7 +757,7 @@
       ],
       "tituloBr": null,
       "slug": "it-s-always-sunny-in-philadelphia",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 18,
         "numero": 8,
@@ -815,12 +801,66 @@
       ],
       "tituloBr": "Lanternas",
       "slug": "lanternas",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 7,
         "data": "2026-09-27"
       }
+    },
+    {
+      "id": 562,
+      "nome": "Law & Order",
+      "generos": [
+        "Drama",
+        "Crime",
+        "Legal"
+      ],
+      "tipo": "Scripted",
+      "idioma": "English",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1602766.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602766.jpg",
+      "nota": 7.4,
+      "popularidade": 100,
+      "canal": "net:1",
+      "site": "https://www.nbc.com/law-order",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/562/law-order",
+      "estreou": "1990-09-13",
+      "status": "Running",
+      "episodios": [
+        {
+          "temporada": 26,
+          "numero": 1,
+          "data": "2026-10-08",
+          "carimbo": 1791511200,
+          "temHora": true
+        },
+        {
+          "temporada": 26,
+          "numero": 2,
+          "data": "2026-10-15",
+          "carimbo": 1792116000,
+          "temHora": true
+        },
+        {
+          "temporada": 26,
+          "numero": 3,
+          "data": "2026-10-22",
+          "carimbo": 1792720800,
+          "temHora": true
+        },
+        {
+          "temporada": 26,
+          "numero": 4,
+          "data": "2026-10-29",
+          "carimbo": 1793325600,
+          "temHora": true
+        }
+      ],
+      "tituloBr": null,
+      "slug": "law-order",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
     },
     {
       "id": 103,
@@ -880,7 +920,7 @@
       ],
       "tituloBr": "Lei e Ordem: Unidade de Vítimas Especiais",
       "slug": "lei-e-ordem-unidade-de-vitimas-especiais",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -942,7 +982,7 @@
       ],
       "tituloBr": null,
       "slug": "lupin",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1024,7 +1064,7 @@
       ],
       "tituloBr": null,
       "slug": "marshals",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1112,7 +1152,7 @@
       ],
       "tituloBr": null,
       "slug": "mobland",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
         "numero": 2,
@@ -1156,7 +1196,7 @@
       ],
       "tituloBr": "NCIS: Investigações Criminais",
       "slug": "ncis-investigacoes-criminais",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1238,7 +1278,7 @@
       ],
       "tituloBr": null,
       "slug": "ncis-origins",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1285,7 +1325,7 @@
       ],
       "tituloBr": null,
       "slug": "percy-jackson-and-the-olympians",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1353,11 +1393,11 @@
       ],
       "tituloBr": null,
       "slug": "r-j-decker",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
-        "numero": 2,
-        "data": "2026-09-22"
+        "numero": 3,
+        "data": "2026-09-29"
       }
     },
     {
@@ -1453,7 +1493,7 @@
       ],
       "tituloBr": null,
       "slug": "scrubs",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1513,7 +1553,7 @@
       ],
       "tituloBr": null,
       "slug": "sheriff-country",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1574,7 +1614,7 @@
       ],
       "tituloBr": null,
       "slug": "slow-horses",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 6,
         "numero": 2,
@@ -1611,7 +1651,7 @@
       ],
       "tituloBr": null,
       "slug": "star-trek-strange-new-worlds",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 4,
         "numero": 10,
@@ -1647,7 +1687,7 @@
       ],
       "tituloBr": null,
       "slug": "stuart-fails-to-save-the-universe",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 10,
@@ -1698,7 +1738,7 @@
       ],
       "tituloBr": null,
       "slug": "ted-lasso",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 4,
         "numero": 8,
@@ -1734,7 +1774,7 @@
       ],
       "tituloBr": null,
       "slug": "the-diplomat",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1816,7 +1856,7 @@
       ],
       "tituloBr": null,
       "slug": "the-lord-of-the-rings-the-rings-of-power",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -1876,7 +1916,7 @@
       ],
       "tituloBr": "Os Simpsons",
       "slug": "os-simpsons",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 38,
         "numero": 1,
@@ -1962,7 +2002,7 @@
       ],
       "tituloBr": "A Lista Terminal",
       "slug": "a-lista-terminal",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2009,7 +2049,7 @@
       ],
       "tituloBr": "O Rastreador",
       "slug": "o-rastreador",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2084,7 +2124,7 @@
       ],
       "tituloBr": null,
       "slug": "tulsa-king",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2117,7 +2157,7 @@
       ],
       "tituloBr": null,
       "slug": "9-1-1-nashville",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2155,7 +2195,7 @@
       ],
       "tituloBr": null,
       "slug": "abbott-elementary",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2179,13 +2219,6 @@
       "episodios": [
         {
           "temporada": 8,
-          "numero": 12,
-          "data": "2026-09-21",
-          "carimbo": 1790035200,
-          "temHora": true
-        },
-        {
-          "temporada": 8,
           "numero": 13,
           "data": "2026-09-28",
           "carimbo": 1790640000,
@@ -2194,7 +2227,7 @@
       ],
       "tituloBr": null,
       "slug": "all-american",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 8,
         "numero": 13,
@@ -2265,7 +2298,7 @@
       ],
       "tituloBr": null,
       "slug": "american-hostage",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 3,
@@ -2314,7 +2347,7 @@
       ],
       "tituloBr": null,
       "slug": "animal-control",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 5,
         "numero": 1,
@@ -2386,7 +2419,7 @@
       ],
       "tituloBr": null,
       "slug": "below",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2447,11 +2480,11 @@
       ],
       "tituloBr": null,
       "slug": "best-medicine",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
-        "numero": 1,
-        "data": "2026-09-20"
+        "numero": 2,
+        "data": "2026-09-29"
       }
     },
     {
@@ -2532,7 +2565,7 @@
       ],
       "tituloBr": null,
       "slug": "blade-runner-2099",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2571,7 +2604,7 @@
       ],
       "tituloBr": null,
       "slug": "boston-blue",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2651,7 +2684,7 @@
       ],
       "tituloBr": null,
       "slug": "brothers",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 2,
@@ -2735,7 +2768,7 @@
       ],
       "tituloBr": null,
       "slug": "carrie",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2815,7 +2848,7 @@
       ],
       "tituloBr": null,
       "slug": "crystal-lake",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2860,7 +2893,7 @@
       ],
       "tituloBr": null,
       "slug": "cupertino",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -2927,11 +2960,11 @@
       ],
       "tituloBr": null,
       "slug": "doc",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 3,
-        "numero": 1,
-        "data": "2026-09-22"
+        "numero": 2,
+        "data": "2026-09-29"
       }
     },
     {
@@ -2963,7 +2996,7 @@
       ],
       "tituloBr": null,
       "slug": "east-of-eden",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3002,7 +3035,7 @@
       ],
       "tituloBr": null,
       "slug": "eternally-yours",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3041,7 +3074,7 @@
       ],
       "tituloBr": "Georgie e Mandy - Seu Primeiro Casamento",
       "slug": "georgie-e-mandy-seu-primeiro-casamento",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3072,7 +3105,87 @@
       ],
       "tituloBr": null,
       "slug": "happy-s-place",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
+    },
+    {
+      "id": 82618,
+      "nome": "Kill Jackie",
+      "generos": [
+        "Thriller"
+      ],
+      "tipo": "Scripted",
+      "idioma": "English",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/637/1594286.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/637/1594286.jpg",
+      "nota": null,
+      "popularidade": 99,
+      "canal": "web:3",
+      "site": null,
+      "tvmazeUrl": "https://www.tvmaze.com/shows/82618/kill-jackie",
+      "estreou": "2026-10-02",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 2,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 3,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 4,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 5,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 6,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 7,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 8,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "kill-jackie",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3119,66 +3232,12 @@
       ],
       "tituloBr": null,
       "slug": "last-seen",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 4,
         "data": "2026-09-23"
       }
-    },
-    {
-      "id": 562,
-      "nome": "Law & Order",
-      "generos": [
-        "Drama",
-        "Crime",
-        "Legal"
-      ],
-      "tipo": "Scripted",
-      "idioma": "English",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1602766.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602766.jpg",
-      "nota": 7.4,
-      "popularidade": 99,
-      "canal": "net:1",
-      "site": "https://www.nbc.com/law-order",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/562/law-order",
-      "estreou": "1990-09-13",
-      "status": "Running",
-      "episodios": [
-        {
-          "temporada": 26,
-          "numero": 1,
-          "data": "2026-10-08",
-          "carimbo": 1791511200,
-          "temHora": true
-        },
-        {
-          "temporada": 26,
-          "numero": 2,
-          "data": "2026-10-15",
-          "carimbo": 1792116000,
-          "temHora": true
-        },
-        {
-          "temporada": 26,
-          "numero": 3,
-          "data": "2026-10-22",
-          "carimbo": 1792720800,
-          "temHora": true
-        },
-        {
-          "temporada": 26,
-          "numero": 4,
-          "data": "2026-10-29",
-          "carimbo": 1793325600,
-          "temHora": true
-        }
-      ],
-      "tituloBr": null,
-      "slug": "law-order",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
     },
     {
       "id": 90632,
@@ -3190,8 +3249,8 @@
       ],
       "tipo": "Scripted",
       "idioma": "English",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/639/1597608.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/639/1597608.jpg",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1604426.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1604426.jpg",
       "nota": 5.8,
       "popularidade": 99,
       "canal": "net:1",
@@ -3200,13 +3259,6 @@
       "estreou": "2026-09-21",
       "status": "Running",
       "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-09-21",
-          "carimbo": 1790042400,
-          "temHora": true
-        },
         {
           "temporada": 1,
           "numero": 2,
@@ -3252,7 +3304,7 @@
       ],
       "tituloBr": null,
       "slug": "line-of-fire",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 2,
@@ -3296,7 +3348,7 @@
       ],
       "tituloBr": null,
       "slug": "ncis-new-york",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3327,7 +3379,7 @@
       ],
       "tituloBr": null,
       "slug": "nobody-wants-this",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3395,7 +3447,7 @@
       ],
       "tituloBr": null,
       "slug": "nocturne",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3484,7 +3536,7 @@
       ],
       "tituloBr": "Outlander: Sangue do meu Sangue",
       "slug": "outlander-sangue-do-meu-sangue",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
         "numero": 2,
@@ -3519,7 +3571,7 @@
       ],
       "tituloBr": "Presidente Curtis",
       "slug": "presidente-curtis",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 10,
@@ -3618,7 +3670,7 @@
       ],
       "tituloBr": null,
       "slug": "reasonable-doubt",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3650,7 +3702,7 @@
       ],
       "tituloBr": null,
       "slug": "st-denis-medical",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3710,7 +3762,7 @@
       ],
       "tituloBr": null,
       "slug": "stick",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3742,7 +3794,7 @@
       ],
       "tituloBr": null,
       "slug": "the-gilded-age",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3789,7 +3841,7 @@
       ],
       "tituloBr": null,
       "slug": "the-lowdown",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3863,7 +3915,7 @@
       ],
       "tituloBr": null,
       "slug": "visionquest",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3902,7 +3954,7 @@
       ],
       "tituloBr": null,
       "slug": "war",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3935,7 +3987,7 @@
       ],
       "tituloBr": null,
       "slug": "yellowjackets",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -3989,7 +4041,7 @@
       ],
       "tituloBr": null,
       "slug": "12-12-12",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4028,7 +4080,7 @@
       ],
       "tituloBr": null,
       "slug": "a-tale-of-two-cities",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 3,
@@ -4038,7 +4090,10 @@
     {
       "id": 83073,
       "nome": "Avatar: Seven Havens",
-      "generos": [],
+      "generos": [
+        "Action",
+        "Adventure"
+      ],
       "tipo": "Animation",
       "idioma": "English",
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/640/1601845.jpg",
@@ -4046,7 +4101,7 @@
       "nota": null,
       "popularidade": 98,
       "canal": "web:107",
-      "site": null,
+      "site": "https://www.paramountplus.com/shows/avatar-seven-havens/",
       "tvmazeUrl": "https://www.tvmaze.com/shows/83073/avatar-seven-havens",
       "estreou": "2026-10-09",
       "status": "In Development",
@@ -4145,7 +4200,7 @@
       ],
       "tituloBr": null,
       "slug": "avatar-seven-havens",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4199,7 +4254,7 @@
       ],
       "tituloBr": null,
       "slug": "average-joe",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
         "numero": 7,
@@ -4334,7 +4389,7 @@
       ],
       "tituloBr": null,
       "slug": "coven-academy",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4428,7 +4483,7 @@
       ],
       "tituloBr": null,
       "slug": "dig",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4461,7 +4516,7 @@
       ],
       "tituloBr": null,
       "slug": "fightland",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 8,
@@ -4532,7 +4587,7 @@
       ],
       "tituloBr": null,
       "slug": "grimsburg",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 3,
         "numero": 1,
@@ -4568,87 +4623,7 @@
       ],
       "tituloBr": "Hotel Assombrado",
       "slug": "hotel-assombrado",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
-      "id": 82618,
-      "nome": "Kill Jackie",
-      "generos": [
-        "Thriller"
-      ],
-      "tipo": "Scripted",
-      "idioma": "English",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/637/1594286.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/637/1594286.jpg",
-      "nota": null,
-      "popularidade": 98,
-      "canal": "web:3",
-      "site": null,
-      "tvmazeUrl": "https://www.tvmaze.com/shows/82618/kill-jackie",
-      "estreou": "2026-10-02",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 2,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 3,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 4,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 5,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 6,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 7,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 8,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "kill-jackie",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4679,7 +4654,7 @@
       ],
       "tituloBr": null,
       "slug": "newlyweds",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4747,7 +4722,7 @@
       ],
       "tituloBr": null,
       "slug": "reina-roja",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4800,7 +4775,7 @@
       ],
       "tituloBr": null,
       "slug": "the-chosen",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4868,11 +4843,11 @@
       ],
       "tituloBr": null,
       "slug": "the-drop-a-snowfall-saga",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
-        "numero": 3,
-        "data": "2026-09-22"
+        "numero": 4,
+        "data": "2026-09-29"
       }
     },
     {
@@ -4924,7 +4899,7 @@
       ],
       "tituloBr": null,
       "slug": "the-fall-and-rise-of-reggie-dinkins",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -4991,7 +4966,7 @@
       ],
       "tituloBr": null,
       "slug": "the-good-daughter",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -5023,7 +4998,7 @@
       ],
       "tituloBr": "Casadas e Caçadoras",
       "slug": "casadas-e-cacadoras",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -5090,7 +5065,7 @@
       ],
       "tituloBr": null,
       "slug": "treasure-island",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -5156,7 +5131,7 @@
       ],
       "tituloBr": null,
       "slug": "youth",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 3,
@@ -5254,7 +5229,7 @@
       ],
       "tituloBr": null,
       "slug": "a-different-world",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 10,
@@ -5281,13 +5256,6 @@
       "estreou": "1965-11-08",
       "status": "Running",
       "episodios": [
-        {
-          "temporada": 2026,
-          "numero": 188,
-          "data": "2026-09-21",
-          "carimbo": 1790006400,
-          "temHora": false
-        },
         {
           "temporada": 2026,
           "numero": 189,
@@ -5340,11 +5308,11 @@
       ],
       "tituloBr": null,
       "slug": "days-of-our-lives",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2026,
-        "numero": 193,
-        "data": "2026-09-28"
+        "numero": 194,
+        "data": "2026-09-29"
       }
     },
     {
@@ -5375,7 +5343,7 @@
       ],
       "tituloBr": null,
       "slug": "family-guy-hulu-exclusives",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -5397,13 +5365,6 @@
       "estreou": "1963-04-01",
       "status": "Running",
       "episodios": [
-        {
-          "temporada": 2026,
-          "numero": 184,
-          "data": "2026-09-21",
-          "carimbo": 1790013600,
-          "temHora": true
-        },
         {
           "temporada": 2026,
           "numero": 185,
@@ -5470,11 +5431,11 @@
       ],
       "tituloBr": null,
       "slug": "general-hospital",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2026,
-        "numero": 189,
-        "data": "2026-09-28"
+        "numero": 190,
+        "data": "2026-09-29"
       }
     },
     {
@@ -5519,7 +5480,7 @@
       ],
       "tituloBr": null,
       "slug": "harlan-coben-s-final-twist",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -5594,7 +5555,7 @@
       ],
       "tituloBr": null,
       "slug": "helluva-boss",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -5633,7 +5594,7 @@
       ],
       "tituloBr": "Mulheres de Azul",
       "slug": "mulheres-de-azul",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
         "numero": 7,
@@ -5669,7 +5630,7 @@
       ],
       "tituloBr": null,
       "slug": "the-altruists",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -5700,7 +5661,7 @@
       ],
       "tituloBr": null,
       "slug": "the-body",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -5723,13 +5684,6 @@
       "estreou": "1987-03-23",
       "status": "Running",
       "episodios": [
-        {
-          "temporada": 2026,
-          "numero": 185,
-          "data": "2026-09-21",
-          "carimbo": 1790011800,
-          "temHora": true
-        },
         {
           "temporada": 2026,
           "numero": 186,
@@ -5831,11 +5785,11 @@
       ],
       "tituloBr": null,
       "slug": "the-bold-and-the-beautiful",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2026,
-        "numero": 190,
-        "data": "2026-09-28"
+        "numero": 191,
+        "data": "2026-09-29"
       }
     },
     {
@@ -5858,13 +5812,6 @@
       "estreou": "1973-03-26",
       "status": "Running",
       "episodios": [
-        {
-          "temporada": 2026,
-          "numero": 184,
-          "data": "2026-09-21",
-          "carimbo": 1790008200,
-          "temHora": true
-        },
         {
           "temporada": 2026,
           "numero": 185,
@@ -5966,11 +5913,11 @@
       ],
       "tituloBr": null,
       "slug": "the-young-and-the-restless",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2026,
-        "numero": 189,
-        "data": "2026-09-28"
+        "numero": 190,
+        "data": "2026-09-29"
       }
     },
     {
@@ -6008,7 +5955,7 @@
       ],
       "tituloBr": null,
       "slug": "universal-basic-guys",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 3,
         "numero": 1,
@@ -6079,7 +6026,7 @@
       ],
       "tituloBr": "Onde Está a Wanda?",
       "slug": "onde-esta-a-wanda",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -6110,7 +6057,7 @@
       ],
       "tituloBr": null,
       "slug": "a-killer-story",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 3,
@@ -6147,7 +6094,7 @@
       ],
       "tituloBr": null,
       "slug": "bass-x-machina",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -6187,12 +6134,43 @@
       ],
       "tituloBr": null,
       "slug": "made-in-korea",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
         "numero": 6,
         "data": "2026-09-23"
       }
+    },
+    {
+      "id": 82905,
+      "nome": "Medusa",
+      "generos": [
+        "Thriller"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Spanish",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/557/1394751.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/557/1394751.jpg",
+      "nota": 7.2,
+      "popularidade": 96,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/title/81683616",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/82905/medusa",
+      "estreou": "2025-03-05",
+      "status": "Running",
+      "episodios": [
+        {
+          "temporada": 2,
+          "numero": 1,
+          "data": "2026-09-30",
+          "carimbo": 1790769600,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "medusa",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
     },
     {
       "id": 50786,
@@ -6238,7 +6216,7 @@
       ],
       "tituloBr": null,
       "slug": "sacrifice",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -6267,7 +6245,7 @@
       ],
       "tituloBr": null,
       "slug": "the-greatest",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -6433,7 +6411,7 @@
       ],
       "tituloBr": null,
       "slug": "adventure-time-side-quests",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -6464,7 +6442,7 @@
       ],
       "tituloBr": null,
       "slug": "all-the-queen-s-men",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -6486,13 +6464,6 @@
       "estreou": "2025-02-24",
       "status": "Running",
       "episodios": [
-        {
-          "temporada": 2026,
-          "numero": 173,
-          "data": "2026-09-21",
-          "carimbo": 1790013600,
-          "temHora": true
-        },
         {
           "temporada": 2026,
           "numero": 174,
@@ -6594,11 +6565,11 @@
       ],
       "tituloBr": null,
       "slug": "beyond-the-gates",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2026,
-        "numero": 178,
-        "data": "2026-09-28"
+        "numero": 179,
+        "data": "2026-09-29"
       }
     },
     {
@@ -6652,7 +6623,7 @@
       ],
       "tituloBr": null,
       "slug": "el-problema-final",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 4,
@@ -6708,43 +6679,12 @@
       ],
       "tituloBr": null,
       "slug": "knife-edge-chasing-michelin-stars",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
         "numero": 2,
         "data": "2026-09-25"
       }
-    },
-    {
-      "id": 82905,
-      "nome": "Medusa",
-      "generos": [
-        "Thriller"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Spanish",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/557/1394751.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/557/1394751.jpg",
-      "nota": 7.2,
-      "popularidade": 95,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/title/81683616",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/82905/medusa",
-      "estreou": "2025-03-05",
-      "status": "Running",
-      "episodios": [
-        {
-          "temporada": 2,
-          "numero": 1,
-          "data": "2026-09-30",
-          "carimbo": 1790769600,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "medusa",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
     },
     {
       "id": 6544,
@@ -6774,7 +6714,7 @@
       ],
       "tituloBr": null,
       "slug": "sesame-street",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -6856,7 +6796,7 @@
       ],
       "tituloBr": null,
       "slug": "4-blocks-zero",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 1,
@@ -6893,7 +6833,7 @@
       ],
       "tituloBr": null,
       "slug": "furia",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -6922,7 +6862,7 @@
       ],
       "tituloBr": null,
       "slug": "get-jiro",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -7003,7 +6943,7 @@
       ],
       "tituloBr": null,
       "slug": "habeas-corpus",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 8,
@@ -7211,7 +7151,7 @@
       ],
       "tituloBr": null,
       "slug": "hollywood-arts",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -7244,7 +7184,7 @@
       ],
       "tituloBr": null,
       "slug": "the-sisters-grimm",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -7265,14 +7205,22 @@
       "tvmazeUrl": "https://www.tvmaze.com/shows/86450/the-terrors-of-jordan-mendoza",
       "estreou": "2026-09-13",
       "status": "Running",
-      "episodios": [],
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 3,
+          "data": "2026-09-27",
+          "carimbo": 1790567940,
+          "temHora": true
+        }
+      ],
       "tituloBr": null,
       "slug": "the-terrors-of-jordan-mendoza",
-      "vistoEm": "2026-09-27",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
-        "numero": 2,
-        "data": "2026-09-20"
+        "numero": 3,
+        "data": "2026-09-27"
       }
     },
     {
@@ -7339,65 +7287,8 @@
       ],
       "tituloBr": null,
       "slug": "die-falle",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
-    },
-    {
-      "id": 85163,
-      "nome": "Mis muertos tristes",
-      "generos": [
-        "Horror",
-        "Supernatural"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Spanish",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1607062.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1607062.jpg",
-      "nota": null,
-      "popularidade": 93,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/title/81776737",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/85163/mis-muertos-tristes",
-      "estreou": "2026-09-24",
-      "status": "Ended",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-09-24",
-          "carimbo": 1790251200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 2,
-          "data": "2026-09-24",
-          "carimbo": 1790251200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 3,
-          "data": "2026-09-24",
-          "carimbo": 1790251200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 4,
-          "data": "2026-09-24",
-          "carimbo": 1790251200,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "mis-muertos-tristes",
-      "vistoEm": "2026-09-28",
-      "ultimo": {
-        "temporada": 1,
-        "numero": 4,
-        "data": "2026-09-24"
-      }
     },
     {
       "id": 93776,
@@ -7469,184 +7360,11 @@
       ],
       "tituloBr": null,
       "slug": "paolo",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 1,
         "data": "2026-09-25"
-      }
-    },
-    {
-      "id": 93446,
-      "nome": "The Varnell Hill Show",
-      "generos": [
-        "Comedy"
-      ],
-      "tipo": "Scripted",
-      "idioma": "English",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/639/1599939.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/639/1599939.jpg",
-      "nota": null,
-      "popularidade": 92,
-      "canal": "web:107",
-      "site": "https://www.paramountplus.com/shows/the-varnell-hill-show/",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/93446/the-varnell-hill-show",
-      "estreou": "2026-09-01",
-      "status": "Running",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 5,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 6,
-          "data": "2026-09-29",
-          "carimbo": 1790683200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 7,
-          "data": "2026-10-06",
-          "carimbo": 1791288000,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 8,
-          "data": "2026-10-13",
-          "carimbo": 1791892800,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "the-varnell-hill-show",
-      "vistoEm": "2026-09-28",
-      "ultimo": {
-        "temporada": 1,
-        "numero": 5,
-        "data": "2026-09-22"
-      }
-    },
-    {
-      "id": 92871,
-      "nome": "Balaraw",
-      "generos": [
-        "Horror",
-        "Mystery"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Tagalog",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1605211.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1605211.jpg",
-      "nota": null,
-      "popularidade": 91,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/title/81704898",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/92871/balaraw",
-      "estreou": "2026-10-29",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-29",
-          "carimbo": 1793275200,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "balaraw",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
-      "id": 93900,
-      "nome": "Minerva - La scuola",
-      "generos": [
-        "Drama",
-        "Mystery"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Italian",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/639/1598834.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/639/1598834.jpg",
-      "nota": null,
-      "popularidade": 91,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/title/81749605",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/93900/minerva-la-scuola",
-      "estreou": "2026-09-22",
-      "status": "To Be Determined",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 2,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 3,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 4,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 5,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 6,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 7,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 8,
-          "data": "2026-09-22",
-          "carimbo": 1790078400,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "minerva-la-scuola",
-      "vistoEm": "2026-09-28",
-      "ultimo": {
-        "temporada": 1,
-        "numero": 8,
-        "data": "2026-09-22"
       }
     },
     {
@@ -7658,7 +7376,7 @@
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1607155.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1607155.jpg",
       "nota": null,
-      "popularidade": 91,
+      "popularidade": 92,
       "canal": "web:1",
       "site": null,
       "tvmazeUrl": "https://www.tvmaze.com/shows/93569/minimum-wage",
@@ -7766,7 +7484,302 @@
       ],
       "tituloBr": null,
       "slug": "minimum-wage",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
+    },
+    {
+      "id": 85163,
+      "nome": "Mis muertos tristes",
+      "generos": [
+        "Horror",
+        "Supernatural"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Spanish",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1607062.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1607062.jpg",
+      "nota": null,
+      "popularidade": 92,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/title/81776737",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/85163/mis-muertos-tristes",
+      "estreou": "2026-09-24",
+      "status": "Ended",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-09-24",
+          "carimbo": 1790251200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 2,
+          "data": "2026-09-24",
+          "carimbo": 1790251200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 3,
+          "data": "2026-09-24",
+          "carimbo": 1790251200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 4,
+          "data": "2026-09-24",
+          "carimbo": 1790251200,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "mis-muertos-tristes",
+      "vistoEm": "2026-09-29",
+      "ultimo": {
+        "temporada": 1,
+        "numero": 4,
+        "data": "2026-09-24"
+      }
+    },
+    {
+      "id": 93446,
+      "nome": "The Varnell Hill Show",
+      "generos": [
+        "Comedy"
+      ],
+      "tipo": "Scripted",
+      "idioma": "English",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/639/1599939.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/639/1599939.jpg",
+      "nota": null,
+      "popularidade": 92,
+      "canal": "web:107",
+      "site": "https://www.paramountplus.com/shows/the-varnell-hill-show/",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/93446/the-varnell-hill-show",
+      "estreou": "2026-09-01",
+      "status": "Running",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 5,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 6,
+          "data": "2026-09-29",
+          "carimbo": 1790683200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 7,
+          "data": "2026-10-06",
+          "carimbo": 1791288000,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 8,
+          "data": "2026-10-13",
+          "carimbo": 1791892800,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "the-varnell-hill-show",
+      "vistoEm": "2026-09-29",
+      "ultimo": {
+        "temporada": 1,
+        "numero": 6,
+        "data": "2026-09-29"
+      }
+    },
+    {
+      "id": 92871,
+      "nome": "Balaraw",
+      "generos": [
+        "Horror",
+        "Mystery"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Tagalog",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1605211.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1605211.jpg",
+      "nota": null,
+      "popularidade": 91,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/title/81704898",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/92871/balaraw",
+      "estreou": "2026-10-29",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-10-29",
+          "carimbo": 1793275200,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "balaraw",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
+    },
+    {
+      "id": 93900,
+      "nome": "Minerva - La scuola",
+      "generos": [
+        "Drama",
+        "Mystery"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Italian",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/639/1598834.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/639/1598834.jpg",
+      "nota": null,
+      "popularidade": 91,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/title/81749605",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/93900/minerva-la-scuola",
+      "estreou": "2026-09-22",
+      "status": "To Be Determined",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 2,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 3,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 4,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 5,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 6,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 7,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 8,
+          "data": "2026-09-22",
+          "carimbo": 1790078400,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "minerva-la-scuola",
+      "vistoEm": "2026-09-29",
+      "ultimo": {
+        "temporada": 1,
+        "numero": 8,
+        "data": "2026-09-22"
+      }
+    },
+    {
+      "id": 90035,
+      "nome": "The Remarried Empress",
+      "generos": [
+        "Drama",
+        "Fantasy",
+        "Romance"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Korean",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1604516.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1604516.jpg",
+      "nota": null,
+      "popularidade": 91,
+      "canal": "web:287",
+      "site": null,
+      "tvmazeUrl": "https://www.tvmaze.com/shows/90035/the-remarried-empress",
+      "estreou": "2026-11-04",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-11-04",
+          "carimbo": 1793793600,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "the-remarried-empress",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
+    },
+    {
+      "id": 93881,
+      "nome": "Bytet",
+      "generos": [
+        "Drama",
+        "Thriller"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Swedish",
+      "capa": null,
+      "capaGrande": null,
+      "nota": null,
+      "popularidade": 90,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/title/81944880",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/93881/bytet",
+      "estreou": "2026-10-30",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-10-30",
+          "carimbo": 1793361600,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "bytet",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -7795,40 +7808,7 @@
       ],
       "tituloBr": null,
       "slug": "friends-sex-and-games",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
-      "id": 90035,
-      "nome": "The Remarried Empress",
-      "generos": [
-        "Drama",
-        "Fantasy",
-        "Romance"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Korean",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1604516.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1604516.jpg",
-      "nota": null,
-      "popularidade": 90,
-      "canal": "web:287",
-      "site": null,
-      "tvmazeUrl": "https://www.tvmaze.com/shows/90035/the-remarried-empress",
-      "estreou": "2026-11-04",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-11-04",
-          "carimbo": 1793793600,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "the-remarried-empress",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -7993,44 +7973,12 @@
       ],
       "tituloBr": null,
       "slug": "blood-legacy",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 2,
         "numero": 20,
         "data": "2026-09-25"
       }
-    },
-    {
-      "id": 93881,
-      "nome": "Bytet",
-      "generos": [
-        "Drama",
-        "Thriller"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Swedish",
-      "capa": null,
-      "capaGrande": null,
-      "nota": null,
-      "popularidade": 89,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/title/81944880",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/93881/bytet",
-      "estreou": "2026-10-30",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-30",
-          "carimbo": 1793361600,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "bytet",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
     },
     {
       "id": 92764,
@@ -8095,12 +8043,122 @@
       ],
       "tituloBr": null,
       "slug": "jay-z-in-8",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 4,
         "data": "2026-09-25"
       }
+    },
+    {
+      "id": 90007,
+      "nome": "Take Charge of My Heart",
+      "generos": [
+        "Comedy",
+        "Fantasy",
+        "Romance"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Korean",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1602924.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602924.jpg",
+      "nota": null,
+      "popularidade": 89,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/title/82016402",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/90007/take-charge-of-my-heart",
+      "estreou": "2026-10-09",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 2,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 3,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 4,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 5,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 6,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 7,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 8,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 9,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 10,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 11,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 12,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "take-charge-of-my-heart",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
     },
     {
       "id": 75517,
@@ -8131,7 +8189,80 @@
       ],
       "tituloBr": null,
       "slug": "vienna-game",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
+    },
+    {
+      "id": 94459,
+      "nome": "Africa: Earth's Wild Home",
+      "generos": [
+        "Nature"
+      ],
+      "tipo": "Documentary",
+      "idioma": "English",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1603561.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1603561.jpg",
+      "nota": null,
+      "popularidade": 88,
+      "canal": "net:42",
+      "site": null,
+      "tvmazeUrl": "https://www.tvmaze.com/shows/94459/africa-earths-wild-home",
+      "estreou": "2026-10-02",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-10-02",
+          "carimbo": 1790985600,
+          "temHora": true
+        },
+        {
+          "temporada": 1,
+          "numero": 2,
+          "data": "2026-10-02",
+          "carimbo": 1790989020,
+          "temHora": true
+        },
+        {
+          "temporada": 1,
+          "numero": 3,
+          "data": "2026-10-02",
+          "carimbo": 1790992740,
+          "temHora": true
+        },
+        {
+          "temporada": 1,
+          "numero": 4,
+          "data": "2026-10-02",
+          "carimbo": 1790996520,
+          "temHora": true
+        },
+        {
+          "temporada": 1,
+          "numero": 5,
+          "data": "2026-10-03",
+          "carimbo": 1791072000,
+          "temHora": true
+        },
+        {
+          "temporada": 1,
+          "numero": 6,
+          "data": "2026-10-03",
+          "carimbo": 1791075780,
+          "temHora": true
+        },
+        {
+          "temporada": 1,
+          "numero": 7,
+          "data": "2026-10-03",
+          "carimbo": 1791079500,
+          "temHora": true
+        }
+      ],
+      "tituloBr": null,
+      "slug": "africa-earth-s-wild-home",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -8153,41 +8284,6 @@
       "estreou": "2026-09-07",
       "status": "Running",
       "episodios": [
-        {
-          "temporada": 1,
-          "numero": 10,
-          "data": "2026-09-21",
-          "carimbo": 1789992000,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 11,
-          "data": "2026-09-21",
-          "carimbo": 1789992000,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 12,
-          "data": "2026-09-21",
-          "carimbo": 1789992000,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 13,
-          "data": "2026-09-21",
-          "carimbo": 1789992000,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 14,
-          "data": "2026-09-21",
-          "carimbo": 1789992000,
-          "temHora": false
-        },
         {
           "temporada": 1,
           "numero": 15,
@@ -8366,7 +8462,7 @@
       ],
       "tituloBr": null,
       "slug": "colision",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 19,
@@ -8402,224 +8498,8 @@
       ],
       "tituloBr": null,
       "slug": "el-circulo",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
-    },
-    {
-      "id": 90007,
-      "nome": "Take Charge of My Heart",
-      "generos": [
-        "Comedy",
-        "Fantasy",
-        "Romance"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Korean",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1602924.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1602924.jpg",
-      "nota": null,
-      "popularidade": 88,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/title/82016402",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/90007/take-charge-of-my-heart",
-      "estreou": "2026-10-09",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 2,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 3,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 4,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 5,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 6,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 7,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 8,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 9,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 10,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 11,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 12,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "take-charge-of-my-heart",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
-      "id": 94459,
-      "nome": "Africa: Earth's Wild Home",
-      "generos": [
-        "Nature"
-      ],
-      "tipo": "Documentary",
-      "idioma": "English",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1603561.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1603561.jpg",
-      "nota": null,
-      "popularidade": 86,
-      "canal": "net:42",
-      "site": null,
-      "tvmazeUrl": "https://www.tvmaze.com/shows/94459/africa-earths-wild-home",
-      "estreou": "2026-10-02",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-02",
-          "carimbo": 1790985600,
-          "temHora": true
-        },
-        {
-          "temporada": 1,
-          "numero": 2,
-          "data": "2026-10-02",
-          "carimbo": 1790989020,
-          "temHora": true
-        },
-        {
-          "temporada": 1,
-          "numero": 3,
-          "data": "2026-10-02",
-          "carimbo": 1790992740,
-          "temHora": true
-        },
-        {
-          "temporada": 1,
-          "numero": 4,
-          "data": "2026-10-02",
-          "carimbo": 1790996520,
-          "temHora": true
-        },
-        {
-          "temporada": 1,
-          "numero": 5,
-          "data": "2026-10-03",
-          "carimbo": 1791072000,
-          "temHora": true
-        },
-        {
-          "temporada": 1,
-          "numero": 6,
-          "data": "2026-10-03",
-          "carimbo": 1791075780,
-          "temHora": true
-        },
-        {
-          "temporada": 1,
-          "numero": 7,
-          "data": "2026-10-03",
-          "carimbo": 1791079500,
-          "temHora": true
-        }
-      ],
-      "tituloBr": null,
-      "slug": "africa-earth-s-wild-home",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
-      "id": 44088,
-      "nome": "Mission Unstoppable",
-      "generos": [],
-      "tipo": "Documentary",
-      "idioma": "English",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/538/1345337.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/538/1345337.jpg",
-      "nota": null,
-      "popularidade": 86,
-      "canal": "net:2",
-      "site": "https://www.cbs.com/shows/mission-unstoppable/",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/44088/mission-unstoppable",
-      "estreou": "2019-09-28",
-      "status": "Running",
-      "episodios": [
-        {
-          "temporada": 7,
-          "numero": 30,
-          "data": "2026-09-26",
-          "carimbo": 1790431200,
-          "temHora": true
-        }
-      ],
-      "tituloBr": null,
-      "slug": "mission-unstoppable",
-      "vistoEm": "2026-09-28",
-      "ultimo": {
-        "temporada": 7,
-        "numero": 30,
-        "data": "2026-09-26"
-      }
     },
     {
       "id": 93846,
@@ -8632,7 +8512,7 @@
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/639/1597543.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/639/1597543.jpg",
       "nota": null,
-      "popularidade": 86,
+      "popularidade": 87,
       "canal": "web:287",
       "site": null,
       "tvmazeUrl": "https://www.tvmaze.com/shows/93846/surveillant",
@@ -8691,12 +8571,97 @@
       ],
       "tituloBr": null,
       "slug": "surveillant",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 2,
         "data": "2026-09-23"
       }
+    },
+    {
+      "id": 44088,
+      "nome": "Mission Unstoppable",
+      "generos": [],
+      "tipo": "Documentary",
+      "idioma": "English",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/538/1345337.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/538/1345337.jpg",
+      "nota": null,
+      "popularidade": 86,
+      "canal": "net:2",
+      "site": "https://www.cbs.com/shows/mission-unstoppable/",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/44088/mission-unstoppable",
+      "estreou": "2019-09-28",
+      "status": "Running",
+      "episodios": [
+        {
+          "temporada": 7,
+          "numero": 30,
+          "data": "2026-09-26",
+          "carimbo": 1790431200,
+          "temHora": true
+        }
+      ],
+      "tituloBr": null,
+      "slug": "mission-unstoppable",
+      "vistoEm": "2026-09-29",
+      "ultimo": {
+        "temporada": 7,
+        "numero": 30,
+        "data": "2026-09-26"
+      }
+    },
+    {
+      "id": 94532,
+      "nome": "Tyson",
+      "generos": [
+        "Sports"
+      ],
+      "tipo": "Documentary",
+      "idioma": "English",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1604696.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1604696.jpg",
+      "nota": null,
+      "popularidade": 84,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/title/81780623",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/94532/tyson",
+      "estreou": "2026-10-13",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-10-13",
+          "carimbo": 1791892800,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 2,
+          "data": "2026-10-13",
+          "carimbo": 1791892800,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 3,
+          "data": "2026-10-13",
+          "carimbo": 1791892800,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 4,
+          "data": "2026-10-13",
+          "carimbo": 1791892800,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "tyson",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
     },
     {
       "id": 94640,
@@ -8763,7 +8728,7 @@
       ],
       "tituloBr": null,
       "slug": "delusion",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 6,
@@ -8863,7 +8828,7 @@
       ],
       "tituloBr": null,
       "slug": "honor-thy-mother",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 6,
@@ -8910,7 +8875,7 @@
       ],
       "tituloBr": null,
       "slug": "the-one-about-matthew-perry",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -8941,59 +8906,7 @@
       ],
       "tituloBr": null,
       "slug": "did-someone-happen-to-mention-me",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
-      "id": 94532,
-      "nome": "Tyson",
-      "generos": [
-        "Sports"
-      ],
-      "tipo": "Documentary",
-      "idioma": "English",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1604696.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1604696.jpg",
-      "nota": null,
-      "popularidade": 82,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/title/81780623",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/94532/tyson",
-      "estreou": "2026-10-13",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-13",
-          "carimbo": 1791892800,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 2,
-          "data": "2026-10-13",
-          "carimbo": 1791892800,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 3,
-          "data": "2026-10-13",
-          "carimbo": 1791892800,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 4,
-          "data": "2026-10-13",
-          "carimbo": 1791892800,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "tyson",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -9009,7 +8922,7 @@
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/641/1604803.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/641/1604803.jpg",
       "nota": null,
-      "popularidade": 81,
+      "popularidade": 82,
       "canal": "web:3",
       "site": null,
       "tvmazeUrl": "https://www.tvmaze.com/shows/94538/perfectos-mentirosos",
@@ -9026,7 +8939,7 @@
       ],
       "tituloBr": null,
       "slug": "perfectos-mentirosos",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -9046,15 +8959,7 @@
       "tvmazeUrl": "https://www.tvmaze.com/shows/79222/margarita",
       "estreou": "2024-09-02",
       "status": "Running",
-      "episodios": [
-        {
-          "temporada": 3,
-          "numero": 20,
-          "data": "2026-09-21",
-          "carimbo": 1789992000,
-          "temHora": false
-        }
-      ],
+      "episodios": [],
       "tituloBr": null,
       "slug": "margarita",
       "vistoEm": "2026-09-28",
@@ -9065,70 +8970,6 @@
       }
     },
     {
-      "id": 94498,
-      "nome": "Hunting Gary Glitter",
-      "generos": [
-        "Crime"
-      ],
-      "tipo": "Documentary",
-      "idioma": "English",
-      "capa": null,
-      "capaGrande": null,
-      "nota": null,
-      "popularidade": 73,
-      "canal": "web:1",
-      "site": null,
-      "tvmazeUrl": "https://www.tvmaze.com/shows/94498/hunting-gary-glitter",
-      "estreou": "2026-10-14",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-14",
-          "carimbo": 1791979200,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "hunting-gary-glitter",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
-      "id": 91480,
-      "nome": "Organize İşler: Karun Hazinesi",
-      "generos": [
-        "Comedy",
-        "Action",
-        "Crime"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Turkish",
-      "capa": null,
-      "capaGrande": null,
-      "nota": null,
-      "popularidade": 73,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/title/82047949",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/91480/organize-isler-karun-hazinesi",
-      "estreou": "2026-10-16",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-16",
-          "carimbo": 1792152000,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "organize-isler-karun-hazinesi",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
       "id": 94686,
       "nome": "Chilean Mine Rescue: Race Against Time",
       "generos": [],
@@ -9137,7 +8978,7 @@
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1607344.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1607344.jpg",
       "nota": null,
-      "popularidade": 69,
+      "popularidade": 79,
       "canal": "net:42",
       "site": null,
       "tvmazeUrl": "https://www.tvmaze.com/shows/94686/chilean-mine-rescue-race-against-time",
@@ -9168,7 +9009,7 @@
       ],
       "tituloBr": null,
       "slug": "chilean-mine-rescue-race-against-time",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 3,
@@ -9176,34 +9017,36 @@
       }
     },
     {
-      "id": 94472,
-      "nome": "Paul, la série",
+      "id": 91480,
+      "nome": "Organize İşler: Karun Hazinesi",
       "generos": [
-        "Comedy"
+        "Comedy",
+        "Action",
+        "Crime"
       ],
       "tipo": "Scripted",
-      "idioma": "French",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1605770.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1605770.jpg",
+      "idioma": "Turkish",
+      "capa": null,
+      "capaGrande": null,
       "nota": null,
-      "popularidade": 69,
-      "canal": "web:3",
-      "site": null,
-      "tvmazeUrl": "https://www.tvmaze.com/shows/94472/paul-la-serie",
-      "estreou": "2026-10-02",
+      "popularidade": 78,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/title/82047949",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/91480/organize-isler-karun-hazinesi",
+      "estreou": "2026-10-16",
       "status": "In Development",
       "episodios": [
         {
           "temporada": 1,
           "numero": 1,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
+          "data": "2026-10-16",
+          "carimbo": 1792152000,
           "temHora": false
         }
       ],
       "tituloBr": null,
-      "slug": "paul-la-serie",
-      "vistoEm": "2026-09-28",
+      "slug": "organize-isler-karun-hazinesi",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -9218,7 +9061,7 @@
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1606513.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1606513.jpg",
       "nota": null,
-      "popularidade": 69,
+      "popularidade": 77,
       "canal": "web:1",
       "site": null,
       "tvmazeUrl": "https://www.tvmaze.com/shows/94637/your-personal-taxi",
@@ -9284,7 +9127,38 @@
       ],
       "tituloBr": null,
       "slug": "your-personal-taxi",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
+    },
+    {
+      "id": 94498,
+      "nome": "Hunting Gary Glitter",
+      "generos": [
+        "Crime"
+      ],
+      "tipo": "Documentary",
+      "idioma": "English",
+      "capa": null,
+      "capaGrande": null,
+      "nota": null,
+      "popularidade": 76,
+      "canal": "web:1",
+      "site": null,
+      "tvmazeUrl": "https://www.tvmaze.com/shows/94498/hunting-gary-glitter",
+      "estreou": "2026-10-14",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-10-14",
+          "carimbo": 1791979200,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "hunting-gary-glitter",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -9299,7 +9173,7 @@
       "capa": null,
       "capaGrande": null,
       "nota": null,
-      "popularidade": 64,
+      "popularidade": 73,
       "canal": "web:1",
       "site": "https://www.netflix.com/title/81702550",
       "tvmazeUrl": "https://www.tvmaze.com/shows/94542/grande-de-espana",
@@ -9351,7 +9225,38 @@
       ],
       "tituloBr": null,
       "slug": "grande-de-espana",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
+      "ultimo": null
+    },
+    {
+      "id": 94472,
+      "nome": "Paul, la série",
+      "generos": [
+        "Comedy"
+      ],
+      "tipo": "Scripted",
+      "idioma": "French",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1605770.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1605770.jpg",
+      "nota": null,
+      "popularidade": 73,
+      "canal": "web:3",
+      "site": null,
+      "tvmazeUrl": "https://www.tvmaze.com/shows/94472/paul-la-serie",
+      "estreou": "2026-10-02",
+      "status": "In Development",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 1,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "paul-la-serie",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -9367,7 +9272,7 @@
       "capa": null,
       "capaGrande": null,
       "nota": null,
-      "popularidade": 61,
+      "popularidade": 65,
       "canal": "web:1",
       "site": "https://www.netflix.com/title/81680908",
       "tvmazeUrl": "https://www.tvmaze.com/shows/94544/love",
@@ -9384,7 +9289,7 @@
       ],
       "tituloBr": null,
       "slug": "love",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -9398,7 +9303,7 @@
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/642/1606570.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/642/1606570.jpg",
       "nota": null,
-      "popularidade": 61,
+      "popularidade": 65,
       "canal": "web:1",
       "site": "https://www.netflix.com/title/81762865",
       "tvmazeUrl": "https://www.tvmaze.com/shows/94641/shaque-trust-no-one",
@@ -9457,11 +9362,67 @@
       ],
       "tituloBr": null,
       "slug": "shaque-trust-no-one",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 7,
         "data": "2026-09-24"
+      }
+    },
+    {
+      "id": 93709,
+      "nome": "Fired Up!",
+      "generos": [
+        "Drama"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Chinese",
+      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/637/1594790.jpg",
+      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/637/1594790.jpg",
+      "nota": null,
+      "popularidade": 61,
+      "canal": "web:329",
+      "site": null,
+      "tvmazeUrl": "https://www.tvmaze.com/shows/93709/fired-up",
+      "estreou": "2026-07-31",
+      "status": "Running",
+      "episodios": [
+        {
+          "temporada": 1,
+          "numero": 9,
+          "data": "2026-09-25",
+          "carimbo": 1790337600,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 10,
+          "data": "2026-10-02",
+          "carimbo": 1790942400,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 11,
+          "data": "2026-10-09",
+          "carimbo": 1791547200,
+          "temHora": false
+        },
+        {
+          "temporada": 1,
+          "numero": 12,
+          "data": "2026-10-16",
+          "carimbo": 1792152000,
+          "temHora": false
+        }
+      ],
+      "tituloBr": null,
+      "slug": "fired-up",
+      "vistoEm": "2026-09-29",
+      "ultimo": {
+        "temporada": 1,
+        "numero": 9,
+        "data": "2026-09-25"
       }
     },
     {
@@ -9492,7 +9453,7 @@
       ],
       "tituloBr": null,
       "slug": "dupahiya",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -9592,95 +9553,7 @@
       ],
       "tituloBr": null,
       "slug": "doozie-s-doghouse",
-      "vistoEm": "2026-09-28",
-      "ultimo": null
-    },
-    {
-      "id": 93709,
-      "nome": "Fired Up!",
-      "generos": [
-        "Drama"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Chinese",
-      "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/637/1594790.jpg",
-      "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/637/1594790.jpg",
-      "nota": null,
-      "popularidade": 59,
-      "canal": "web:329",
-      "site": null,
-      "tvmazeUrl": "https://www.tvmaze.com/shows/93709/fired-up",
-      "estreou": "2026-07-31",
-      "status": "Running",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 9,
-          "data": "2026-09-25",
-          "carimbo": 1790337600,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 10,
-          "data": "2026-10-02",
-          "carimbo": 1790942400,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 11,
-          "data": "2026-10-09",
-          "carimbo": 1791547200,
-          "temHora": false
-        },
-        {
-          "temporada": 1,
-          "numero": 12,
-          "data": "2026-10-16",
-          "carimbo": 1792152000,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "fired-up",
-      "vistoEm": "2026-09-28",
-      "ultimo": {
-        "temporada": 1,
-        "numero": 9,
-        "data": "2026-09-25"
-      }
-    },
-    {
-      "id": 94460,
-      "nome": "Money Trap",
-      "generos": [
-        "Comedy",
-        "Action"
-      ],
-      "tipo": "Scripted",
-      "idioma": "Turkish",
-      "capa": null,
-      "capaGrande": null,
-      "nota": null,
-      "popularidade": 57,
-      "canal": "web:1",
-      "site": "https://www.netflix.com/fr/title/82047949",
-      "tvmazeUrl": "https://www.tvmaze.com/shows/94460/money-trap",
-      "estreou": "2026-10-16",
-      "status": "In Development",
-      "episodios": [
-        {
-          "temporada": 1,
-          "numero": 1,
-          "data": "2026-10-16",
-          "carimbo": 1792152000,
-          "temHora": false
-        }
-      ],
-      "tituloBr": null,
-      "slug": "money-trap",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": null
     },
     {
@@ -9695,7 +9568,7 @@
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/638/1595055.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/638/1595055.jpg",
       "nota": null,
-      "popularidade": 56,
+      "popularidade": 59,
       "canal": "web:329",
       "site": "https://play.hbomax.com/show/e37b15f5-1df8-4799-b6ef-96f0f5089296",
       "tvmazeUrl": "https://www.tvmaze.com/shows/93724/the-producer",
@@ -9761,12 +9634,36 @@
       ],
       "tituloBr": null,
       "slug": "the-producer",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 5,
         "data": "2026-09-25"
       }
+    },
+    {
+      "id": 94460,
+      "nome": "Money Trap",
+      "generos": [
+        "Comedy",
+        "Action"
+      ],
+      "tipo": "Scripted",
+      "idioma": "Turkish",
+      "capa": null,
+      "capaGrande": null,
+      "nota": null,
+      "popularidade": 57,
+      "canal": "web:1",
+      "site": "https://www.netflix.com/fr/title/82047949",
+      "tvmazeUrl": "https://www.tvmaze.com/shows/94460/money-trap",
+      "estreou": "2026-10-16",
+      "status": "In Development",
+      "episodios": [],
+      "tituloBr": null,
+      "slug": "money-trap",
+      "vistoEm": "2026-09-28",
+      "ultimo": null
     },
     {
       "id": 94733,
@@ -9777,7 +9674,7 @@
       "capa": "https://static.tvmaze.com/uploads/images/medium_portrait/643/1608306.jpg",
       "capaGrande": "https://static.tvmaze.com/uploads/images/original_untouched/643/1608306.jpg",
       "nota": null,
-      "popularidade": 0,
+      "popularidade": 52,
       "canal": "web:329",
       "site": "https://play.hbomax.com/show/64507602-e314-4ca2-ba8c-af73793f2e52",
       "tvmazeUrl": "https://www.tvmaze.com/shows/94733/el-buen-espiritu-detras-de-la-puerta-del-opus-dei",
@@ -9808,7 +9705,7 @@
       ],
       "tituloBr": null,
       "slug": "el-buen-espiritu-detras-de-la-puerta-del-opus-dei",
-      "vistoEm": "2026-09-28",
+      "vistoEm": "2026-09-29",
       "ultimo": {
         "temporada": 1,
         "numero": 3,

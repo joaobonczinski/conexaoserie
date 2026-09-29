@@ -83,6 +83,10 @@ navegador do João: `CONEXAO_SEM_NAVEGADOR=1`.
 - **Link para página de série vai com `prefetch={false}`**: a lista de séries e
   a fita do dia têm dezenas deles, e cada um que entra na tela baixaria uma
   página inteira no plano de dados de quem rola.
+- **Domínio e `.workers.dev` moram no `wrangler.jsonc`**, não no painel da
+  Cloudflare: todo deploy aplica o arquivo e desfaz o que foi mudado só no
+  painel (o `.workers.dev` do anime voltou ao ar assim). O `wrangler deploy`
+  conta pastas junto no "Read N files"; o limite de 20.000 é de arquivos.
 
 ## Como trabalhar aqui
 

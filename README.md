@@ -130,16 +130,41 @@ build, no horário de Brasília.
 - **Sem filtro de país**: série coreana ou espanhola da Netflix entra, como no
   anime.
 
-## Deploy (ainda não feito)
+## Onde o site vive
 
-1. Registrar `conexaoserie.com.br` e pôr na Cloudflare.
-2. Em Workers & Pages → Create → Import a repository, apontar para este
-   repositório. Comando de build `npm run build`; o `wrangler.jsonc` já diz que
-   o site é a pasta `out/`, sem Worker.
-3. Adicionar o domínio no Worker e desligar o `.workers.dev` (o motivo está no
-   README do anime).
-4. Ligar o Email Routing para o `contato@` funcionar — a Política de
-   Privacidade aponta para ele.
+No ar em **https://conexaoserie.com.br** desde 28/09/2026, e só ali: o Worker
+`conexaoserie` da Cloudflare, só com arquivos estáticos (a pasta `out/`). O
+domínio é do Registro.br, com os servidores de nome da Cloudflare. O DNSSEC
+saiu na troca de DNS; para religar, é ligar na Cloudflare e colar o DS dela no
+Registro.br.
+
+**O endereço é decidido no `wrangler.jsonc`, e não no painel**: o domínio
+(`custom_domain`) e o `.workers.dev` desligado estão escritos lá. Todo deploy
+aplica aquele arquivo, e o que ele não diz o deploy desfaz — foi assim que o
+`.workers.dev` do anime, desligado só no painel, voltou ao ar.
+
+Para subir na mão, sem esperar o GitHub:
+
+```bash
+npm run build
+npx wrangler deploy
+```
+
+O wrangler desta máquina está logado na conta da Cloudflare.
+
+### O que falta
+
+1. **Deploy automático** (Workers Builds): em Workers & Pages → conexaoserie →
+   Settings → Build → Connect, apontar para este repositório, branch `main`,
+   build `npm run build`, deploy `npx wrangler deploy`. É o que faz o commit
+   diário do robô virar site novo; sem ele, o site fica com a agenda do último
+   deploy na mão. Quando está ligado, cada commit ganha no GitHub um check
+   "Workers Builds: conexaoserie" — é o jeito de conferir.
+2. **`www`**: redirecionar para o endereço sem `www`, como no anime (regra de
+   redirecionamento da zona, com um registro `www` com proxy).
+3. **Email Routing** para o `contato@` funcionar — a Política de Privacidade
+   aponta para ele.
+4. **Google Search Console**: cadastrar o domínio e enviar o `sitemap.xml`.
 
 ## O que falta decidir
 

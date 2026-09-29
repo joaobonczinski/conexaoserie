@@ -38,9 +38,10 @@ npm run build              # gera o site estático em out/ (sempre por aqui, nun
 npm run preview            # compila e serve o out/ como a Cloudflare, na 4330
 ```
 
-O GitHub Actions roda o `fetch` todo dia às 6h de Brasília
-(`.github/workflows/atualizar-agenda.yml`) e commita se algo mudou; o commit
-republica o site sozinho.
+O GitHub Actions roda o `fetch` todo dia de madrugada, marcado para 3h17 de
+Brasília (`.github/workflows/atualizar-agenda.yml`), e commita se algo mudou; o
+commit republica o site sozinho. O GitHub costuma atrasar esses agendamentos em
+horas — por isso o horário é cedo e fora da hora cheia.
 
 ## De onde vêm os dados, e por que não o TMDB
 

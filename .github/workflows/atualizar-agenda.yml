@@ -5,7 +5,12 @@ name: Atualizar agenda
 # Cloudflare ve o commit e republica o site — voce nao precisa fazer nada.
 on:
   schedule:
-    - cron: "0 9 * * *" # 09:00 UTC = 06:00 no horario de Brasilia
+    # 06:17 UTC = 03:17 no horario de Brasilia. FORA DA HORA CHEIA de proposito:
+    # o GitHub atrasa os agendamentos da hora cheia, que e quando todo mundo
+    # marca. Com "0 9 * * *" o robo rodou as 13:36, 14:33 e 17:21 UTC nos dias
+    # 26 a 28/09/2026 — a agenda do dia chegava a tarde. Cedo e fora da hora
+    # cheia, mesmo um atraso de horas ainda entrega a agenda de manha.
+    - cron: "17 6 * * *"
   workflow_dispatch:
 
 # Necessario para o job conseguir fazer commit de volta no repositorio.

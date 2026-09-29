@@ -151,6 +151,16 @@ no `wrangler.jsonc`. É o que faz o commit diário do robô virar site novo. Cad
 commit ganha no GitHub um check "Workers Builds: conexaoserie": é ali que se
 confere se o deploy passou, e o link leva ao log.
 
+**O que mora na zona, e não no `wrangler.jsonc`** (configurado no painel em
+29/09/2026, porque é regra da Cloudflare e não do Worker):
+
+- o `www` redireciona (308) para o endereço sem `www`, pela regra "Redirect
+  from WWW to root" em Rules → Redirect Rules, com um registro `AAAA www 100::`
+  com proxy — o `100::` é o endereço "vazio" que a Cloudflare recomenda para
+  nome que só redireciona;
+- `http://` vira `https://` (Always Use HTTPS) e o TLS mínimo é 1.2, em
+  SSL/TLS → Edge Certificates.
+
 Para subir na mão, sem esperar o GitHub:
 
 ```bash
@@ -162,13 +172,9 @@ O wrangler desta máquina está logado na conta da Cloudflare.
 
 ### O que falta
 
-1. **`www`**: redirecionar para o endereço sem `www`, como no anime (regra de
-   redirecionamento da zona, com um registro `www` com proxy).
-2. **Email Routing** para o `contato@` funcionar — a Política de Privacidade
+1. **Email Routing** para o `contato@` funcionar — a Política de Privacidade
    aponta para ele.
-3. **Google Search Console**: cadastrar o domínio e enviar o `sitemap.xml`.
-4. **TLS mínimo 1.2** (SSL/TLS → Edge Certificates): a Cloudflare aceita TLS
-   1.0 e 1.1 por padrão, e é isso que segura a nota do SSL Labs em B.
+2. **Google Search Console**: cadastrar o domínio e enviar o `sitemap.xml`.
 
 ## O que falta decidir
 

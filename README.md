@@ -144,6 +144,13 @@ Registro.br.
 aplica aquele arquivo, e o que ele não diz o deploy desfaz — foi assim que o
 `.workers.dev` do anime, desligado só no painel, voltou ao ar.
 
+**Todo push na `main` republica o site** (Workers Builds, ligado em
+29/09/2026): build `npm run build`, deploy `npx wrangler deploy`, sem preview
+builds — ninguém usa outra branch, e os endereços de preview estão desligados
+no `wrangler.jsonc`. É o que faz o commit diário do robô virar site novo. Cada
+commit ganha no GitHub um check "Workers Builds: conexaoserie": é ali que se
+confere se o deploy passou, e o link leva ao log.
+
 Para subir na mão, sem esperar o GitHub:
 
 ```bash
@@ -155,17 +162,13 @@ O wrangler desta máquina está logado na conta da Cloudflare.
 
 ### O que falta
 
-1. **Deploy automático** (Workers Builds): em Workers & Pages → conexaoserie →
-   Settings → Build → Connect, apontar para este repositório, branch `main`,
-   build `npm run build`, deploy `npx wrangler deploy`. É o que faz o commit
-   diário do robô virar site novo; sem ele, o site fica com a agenda do último
-   deploy na mão. Quando está ligado, cada commit ganha no GitHub um check
-   "Workers Builds: conexaoserie" — é o jeito de conferir.
-2. **`www`**: redirecionar para o endereço sem `www`, como no anime (regra de
+1. **`www`**: redirecionar para o endereço sem `www`, como no anime (regra de
    redirecionamento da zona, com um registro `www` com proxy).
-3. **Email Routing** para o `contato@` funcionar — a Política de Privacidade
+2. **Email Routing** para o `contato@` funcionar — a Política de Privacidade
    aponta para ele.
-4. **Google Search Console**: cadastrar o domínio e enviar o `sitemap.xml`.
+3. **Google Search Console**: cadastrar o domínio e enviar o `sitemap.xml`.
+4. **TLS mínimo 1.2** (SSL/TLS → Edge Certificates): a Cloudflare aceita TLS
+   1.0 e 1.1 por padrão, e é isso que segura a nota do SSL Labs em B.
 
 ## O que falta decidir
 

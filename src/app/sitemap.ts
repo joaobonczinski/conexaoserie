@@ -3,6 +3,7 @@ import { SITE_URL } from "@/lib/marca";
 import { enderecoDaSerie } from "@/lib/enderecos";
 import { APOIAR_EM_BREVE } from "@/lib/navegacao";
 import { carregarNovidades } from "@/lib/novidades";
+import { chavesDasCategorias, enderecoDaLista } from "@/lib/ranking";
 import { carregarSeries } from "@/lib/series";
 
 /**
@@ -25,7 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/`, changeFrequency: "daily", priority: 1 },
     { url: `${SITE_URL}/series/`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/estreias/`, changeFrequency: "daily", priority: 0.9 },
-    { url: `${SITE_URL}/ranking/`, changeFrequency: "daily", priority: 0.7 },
+    { url: `${SITE_URL}/ranking/`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${SITE_URL}/ranking/no-ar/`, changeFrequency: "daily", priority: 0.7 },
     { url: `${SITE_URL}/novidades/`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${SITE_URL}/privacidade/`, changeFrequency: "yearly", priority: 0.2 },
     { url: `${SITE_URL}/termos/`, changeFrequency: "yearly", priority: 0.2 },
@@ -50,5 +52,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...fixas, ...series, ...novidades];
+  // O top de cada categoria: "melhores séries de terror" e o tipo de busca que
+  // traz gente nova, e cada uma tem pagina propria por isso.
+  const categorias: MetadataRoute.Sitemap = chavesDasCategorias().map((chave) => ({
+    url: `${SITE_URL}${enderecoDaLista(chave)}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  return [...fixas, ...categorias, ...series, ...novidades];
 }

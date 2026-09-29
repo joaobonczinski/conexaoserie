@@ -7,5 +7,11 @@
     "plataforma: onde a serie sai no Brasil. Obrigatorio para serie de canal sem casa fixa (ABC, CBS, Peacock...).",
     "link: o endereco da serie na plataforma. So vira link se o dominio estiver na lista da plataforma em plataformas.json.",
     "horario: { hora: '22:00', vespera: true } na hora de BRASILIA, quando a serie foge da regra da plataforma."
-  ]
+  ],
+  "2993": {
+    "tituloBr": "Stranger Things"
+  },
+  "46972": {
+    "tituloBr": "Astrid et Raphaëlle"
+  }
 }

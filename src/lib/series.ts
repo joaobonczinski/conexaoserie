@@ -18,7 +18,12 @@ const agenda = agendaJson as Agenda;
 // serie e precisa ser ignorada no merge.
 const overrides = overridesJson as Record<string, Override | string[]>;
 
-function pegarOverride(id: number): Override {
+/**
+ * O ajuste do admin para um id do TVmaze (vazio quando nao ha). Exportado
+ * porque o ranking de todos os tempos obedece aos mesmos ajustes: um titulo
+ * corrigido ou uma serie oculta valem no site inteiro.
+ */
+export function pegarOverride(id: number): Override {
   const bruto = overrides[String(id)];
   return typeof bruto === "object" && bruto !== null && !Array.isArray(bruto)
     ? bruto

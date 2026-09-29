@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "fetch": "node scripts/fetch-agenda.mjs",
+    "fetch:ranking": "node scripts/fetch-ranking.mjs",
     "admin": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/admin-server.mjs",
     "conferir:horarios": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/conferir-horarios.mjs",
     "conferir:slugs": "node scripts/conferir-slugs.mjs"

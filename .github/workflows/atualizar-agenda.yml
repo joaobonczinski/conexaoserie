@@ -30,19 +30,37 @@ jobs:
       - name: Buscar a agenda no TVmaze
         run: node scripts/fetch-agenda.mjs
 
+      # O RANKING DE TODOS OS TEMPOS so as segundas, e sempre que alguem
+      # dispara o robo a mao: nota muda devagar, e ele baixa o indice inteiro do
+      # TVmaze — umas 370 paginas, que nao ha por que pedir todo dia. Roda DEPOIS
+      # da agenda, no mesmo job, porque os dois escrevem o titulos-br.json; em
+      # jobs separados, um commit atropelaria o outro.
+      - name: Montar o ranking de todos os tempos (segundas)
+        run: |
+          if [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node scripts/fetch-ranking.mjs
+          else
+            echo "Hoje nao e segunda: o ranking fica como esta."
+          fi
+
       - name: Fazer commit se houver mudanca
         run: |
-          # Olha os DOIS arquivos, e o `git add` lista os mesmos dois: caminho
+          # Olha os TRES arquivos, e o `git add` lista os mesmos tres: caminho
           # explicito no add deixa de fora o que nao esta na lista, e um arquivo
           # gerado que nunca e commitado e o defeito mais silencioso que existe
           # — o script grava, o CI descarta, e ninguem ve erro nenhum. (Licao do
           # Conexão Anime.)
-          if git diff --quiet -- src/data/agenda.json src/data/titulos-br.json; then
+          ARQUIVOS="src/data/agenda.json src/data/titulos-br.json src/data/ranking.json"
+          if git diff --quiet -- $ARQUIVOS; then
             echo "Nada mudou no TVmaze hoje."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/agenda.json src/data/titulos-br.json
+          git add $ARQUIVOS
           git commit -m "chore: atualiza a agenda de series"
+          # Nas segundas o job leva uns 15 minutos, e um push de outra pessoa
+          # nesse meio tempo faria o nosso ser recusado. O robo so mexe nos
+          # arquivos de dados, entao trazer o que chegou antes nao conflita.
+          git pull --rebase origin main
           git push

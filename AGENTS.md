@@ -83,6 +83,13 @@ navegador do João: `CONEXAO_SEM_NAVEGADOR=1`.
 - **Link para página de série vai com `prefetch={false}`**: a lista de séries e
   a fita do dia têm dezenas deles, e cada um que entra na tela baixaria uma
   página inteira no plano de dados de quem rola.
+- **JSON gravado pelo PowerShell** (`Set-Content -Encoding utf8`) sai com BOM,
+  e o Turbopack recusa com um erro em `1:1`, sem mais explicação. Grave JSON
+  pelo Node (`scripts/gravar-json.mjs`).
+- **Rota dinâmica com lista vazia derruba o build** no `output: "export"`
+  ("missing generateStaticParams"). Por isso `/novidades/[slug]/` e
+  `/ranking/[categoria]/` devolvem uma página reserva (`em-breve`) quando o
+  arquivo não tem nada.
 - **Domínio e `.workers.dev` moram no `wrangler.jsonc`**, não no painel da
   Cloudflare: todo deploy aplica o arquivo e desfaz o que foi mudado só no
   painel (o `.workers.dev` do anime voltou ao ar assim). O `wrangler deploy`

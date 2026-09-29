@@ -54,7 +54,9 @@ export default function RankingNoAr({ series: todas }: { series: SerieNaTela[] }
             // Diz DE ONDE vem a nota e QUANTAS entraram: numero sem origem e
             // opiniao com cara de fato.
             descricao={`Nota média do público do TVmaze, entre as ${quantosComNota} séries no ar que já têm nota. Atualiza todo dia.`}
-            href="/ranking/"
+            // O ranking DESTA SEMANA, e nao o de todos os tempos, que tomou a
+            // /ranking/ em 29/09/2026: o carrossel fala do que esta no ar.
+            href="/ranking/no-ar/"
           />
         </div>
 

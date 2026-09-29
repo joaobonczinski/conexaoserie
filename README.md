@@ -31,6 +31,7 @@ o ícone `scripts\conexao-serie.ico` (gerado por `npm run icone`).
 ```bash
 npm run dev                # site em http://localhost:3000
 npm run fetch              # busca a agenda no TVmaze
+npm run fetch:ranking      # monta o ranking de todos os tempos (leva uns 15 min)
 npm run admin              # painel de ajustes em http://localhost:4331
 npm run conferir:horarios  # confere a conta de horários contra casos conhecidos
 npm run conferir:slugs     # confere a regra dos endereços das séries
@@ -121,6 +122,27 @@ build, no horário de Brasília.
   do site, e cada página de série gera 9. Medido em 25/09/2026: 103 séries,
   1.166 arquivos no site inteiro — cabem umas 2.000 séries. Se um dia chegar
   perto, é o `GUARDA_DIAS` que baixa.
+
+## O ranking
+
+`/ranking/` é o **top 100 de todos os tempos**, e `/ranking/<categoria>/` o de
+cada gênero (drama, terror, tribunal…) e origem (coreanas, britânicas, em
+espanhol). O formato é o do Conexão Filme, pedido do João em 29/09/2026. O
+ranking das séries **desta semana**, que era a `/ranking/` até então, mudou
+para `/ranking/no-ar/`, a outra aba — e é para ele que o carrossel da home
+aponta.
+
+- **Sai do índice inteiro do TVmaze** (`scripts/fetch-ranking.mjs`, umas 370
+  páginas), porque o TVmaze não tem busca por "mais bem avaliadas". O robô
+  roda às segundas, e sempre que disparado à mão.
+- **A nota sozinha não serve**: o TVmaze não diz quantos votos cada nota tem.
+  O corte é o "peso" dele (quanta gente acompanha a série): cada lista usa o
+  maior peso que ainda deixa 300 candidatas, entre 95 e 60. O script conta a
+  medição que escolheu esses números.
+- **Sem lista brasileira**: o TVmaze tem só umas 30 séries em português com
+  nota. Ver o topo do script antes de tentar de novo.
+- O clique leva à página da série no site quando ela existe, e à ficha do
+  TVmaze quando não (Breaking Bad acabou e não tem "que horas sai").
 
 ## O que entra e o que não entra
 

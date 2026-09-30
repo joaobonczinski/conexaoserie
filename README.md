@@ -65,10 +65,13 @@ verdade (LGPD).
 - **O atalho da área de trabalho não tem servidor de conta:** as telas dizem
   "funciona no site publicado" e o "+" some.
 
-### O que falta: o login do Google
+### O login do Google
 
-Sem as chaves do Google o site funciona inteiro, e a /entrar/ diz "o login está
-quase pronto". Para ligar:
+O projeto "Conexão Série" do Google Cloud e o cliente `site` foram criados em
+29/09/2026; o ID do cliente está no `wrangler.jsonc`. A chave secreta vai por
+`npx wrangler secret put GOOGLE_CLIENT_SECRET` e nunca por arquivo do git.
+Sem as duas, o site funciona inteiro e a /entrar/ diz "o login está quase
+pronto". Como foi montado, para refazer:
 
 1. No [Google Cloud](https://console.cloud.google.com/), criar o projeto
    "Conexão Série" — o Filme usou o Gmail do próprio site, porque o e-mail de

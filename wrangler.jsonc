@@ -46,8 +46,14 @@
   // ligado) vao por `npx wrangler secret put NOME`, e no teste local pelo
   // arquivo .dev.vars, que o git ignora. Sem eles, o botao de entrar some e a
   // /entrar/ diz que o login esta quase pronto (ver /api/auth/provedores).
+  //
+  // O GOOGLE_CLIENT_ID mora aqui porque nao e segredo: vai na URL de login, a
+  // vista de qualquer um. E o cliente `site` do projeto "Conexão Série" no
+  // Google Cloud, criado pelo Joao em 29/09/2026; o numero antes do hifen e o
+  // numero do projeto.
   "vars": {
-    "APP_URL": "https://conexaoserie.com.br"
+    "APP_URL": "https://conexaoserie.com.br",
+    "GOOGLE_CLIENT_ID": "613404690641-397crn2na9bkfe3sb2euorgbk4k4jti2.apps.googleusercontent.com"
   },
 
   // O banco de producao, criado em 29/09/2026 na regiao ENAM (a mais perto do

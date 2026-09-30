@@ -26,6 +26,7 @@ import { LINHA_DE_CONTEXTO } from "@/lib/layout";
 export default function CabecalhoDePagina({
   etiqueta,
   titulo,
+  acao,
   subtitulo,
   nota,
   children,
@@ -33,6 +34,12 @@ export default function CabecalhoDePagina({
   /** Texto miudo em caixa alta acima do titulo. Diz de que TIPO e a tela. */
   etiqueta?: string;
   titulo: string;
+  /**
+   * Um botao na mesma linha do titulo, a direita — hoje, so o "Minha conta"
+   * da /minha-lista/, como no Conexão Anime e no Filme. Sem ele, o titulo fica
+   * sozinho, igual a antes.
+   */
+  acao?: React.ReactNode;
   /** Uma linha curta abaixo do titulo. Sempre ocupa espaco, mesmo vazia. */
   subtitulo?: string;
   /**
@@ -48,9 +55,14 @@ export default function CabecalhoDePagina({
     <header>
       {etiqueta ? <p className="etiqueta mb-2">{etiqueta}</p> : null}
 
-      <h1 className="text-2xl font-bold tracking-tight text-tinta sm:text-3xl">
-        {titulo}
-      </h1>
+      {acao ? (
+        <div className="flex items-center justify-between gap-3">
+          <h1 className="text-2xl font-bold tracking-tight text-tinta sm:text-3xl">{titulo}</h1>
+          {acao}
+        </div>
+      ) : (
+        <h1 className="text-2xl font-bold tracking-tight text-tinta sm:text-3xl">{titulo}</h1>
+      )}
 
       {/* SEMPRE PRESENTE, mesmo sem texto: o espaco em branco e o que faz as
           telas irmas comecarem no mesmo pixel. Ver o cabecalho deste arquivo. */}

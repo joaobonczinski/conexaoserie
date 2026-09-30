@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BotaoDaLista from "./BotaoDaLista";
 import type { SerieDoRanking } from "@/lib/ranking";
 import { notaEmTexto } from "@/lib/rotulos";
 
@@ -33,7 +34,7 @@ export default function ListaDoRanking({ series }: { series: SerieDoRanking[] })
         const posicao = i + 1;
         const classeDaMedalha = medalha(posicao);
         const classe =
-          "flex items-center gap-3 px-2 py-2.5 transition-colors hover:bg-realce/60";
+          "flex min-w-0 flex-1 items-center gap-3 px-2 py-2.5 transition-colors hover:bg-realce/60";
         const conteudo = (
           <>
             <span
@@ -86,7 +87,9 @@ export default function ListaDoRanking({ series }: { series: SerieDoRanking[] })
         );
 
         return (
-          <li key={s.id}>
+          // O "+" da Minha lista fica FORA do link (botao dentro de <a> e HTML
+          // invalido), no fim da linha, depois da nota — o desenho do Filme.
+          <li key={s.id} className="flex items-center gap-1 pr-1">
             {s.pagina ? (
               // Sem prefetch: cem linhas na tela baixariam cem paginas (ver o
               // AGENTS.md).
@@ -98,6 +101,7 @@ export default function ListaDoRanking({ series }: { series: SerieDoRanking[] })
                 {conteudo}
               </a>
             )}
+            <BotaoDaLista tvmazeId={s.id} titulo={s.nome} variante="linha" />
           </li>
         );
       })}

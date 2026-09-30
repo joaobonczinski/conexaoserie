@@ -1,11 +1,11 @@
 import agendaJson from "@/data/agenda.json";
 import overridesJson from "@/data/overrides.json";
 import { canalPorChave, corDaPlataforma, linkQueAbre } from "./plataformas";
+import { fimDe, instanteDe } from "./proximo";
 import { montarLancamentos } from "./regras";
 import type {
   Agenda,
   Item,
-  Lancamento,
   Override,
   Serie,
   SerieBruta,
@@ -176,16 +176,9 @@ export function vizinhasNoAr(serie: Serie, agora: number, quantas: number): Seri
     .map(naTela);
 }
 
-/**
- * O instante que um lancamento ocupa na linha do tempo.
- *
- * Sem hora conhecida, o meio-dia UTC da data: e o ponto do dia que cai na mesma
- * data em qualquer fuso das Americas, entao o lancamento nao pula de dia so
- * porque ninguem sabe a hora dele.
- */
-export function instanteDe(l: Lancamento): number {
-  return l.airingAt ?? Date.parse(`${l.data}T12:00:00Z`) / 1000;
-}
+// O instante de um lancamento mora em proximo.ts (o navegador tambem ordena);
+// daqui ele segue exportado para quem ja o importava.
+export { instanteDe };
 
 /** Os lancamentos entre dois instantes, ja como cards. */
 export function itensEntre(de: number, ate: number): Item[] {
@@ -233,6 +226,34 @@ export function rankingNoAr(agora: number): SerieNaTela[] {
   comNota.sort((a, b) => b.nota! - a.nota! || b.popularidade - a.popularidade);
   semNota.sort((a, b) => b.popularidade - a.popularidade);
   return [...comNota, ...semNota].map(naTela);
+}
+
+/** Quantos lancamentos de cada serie a /proximos/ leva para o navegador. */
+const LANCAMENTOS_NO_PROXIMOS = 3;
+
+/**
+ * As series com episodio marcado, cada uma com os proximos lancamentos — a
+ * /proximos/.
+ *
+ * TRES LANCAMENTOS, e nao so o proximo: a pagina e HTML do build, e o episodio
+ * de domingo as 22h sai no meio do dia. O navegador troca para o seguinte
+ * sozinho (ver Proximos.tsx), e para isso precisa te-lo na mao. Tres cobrem o
+ * dia sem build de qualquer serie semanal; a novela diaria levaria sessenta.
+ */
+export function seriesComProximos(agora: number) {
+  return carregarSeries()
+    .map((serie) => ({
+      serie: naTela(serie),
+      lancamentos: serie.lancamentos
+        .filter((l) => fimDe(l) > agora)
+        .slice(0, LANCAMENTOS_NO_PROXIMOS),
+    }))
+    .filter((s) => s.lancamentos.length > 0)
+    .sort(
+      (a, b) =>
+        instanteDe(a.lancamentos[0]) - instanteDe(b.lancamentos[0]) ||
+        b.serie.popularidade - a.serie.popularidade,
+    );
 }
 
 /**

@@ -4,7 +4,7 @@ import type { Item } from "@/lib/tipos";
 
 /**
  * As proximas estreias, na home — as seis mais proximas, e o resto na
- * /estreias/.
+ * /proximos/, com o filtro "Estreias" ja escolhido (#estreias).
  *
  * FICA DEPOIS DO RANKING: o calendario e o ranking respondem sobre o que ja
  * esta no ar, e esta secao olha para a frente. Na ordem de leitura, o presente
@@ -25,7 +25,7 @@ export default function EstreiasNaHome({ itens }: { itens: Item[] }) {
         etiqueta="Vem aí"
         titulo="Próximas estreias"
         descricao="Séries novas e temporadas novas, no horário de Brasília."
-        href="/estreias/"
+        href="/proximos/#estreias"
         rotuloDoLink="ver todas"
       />
       {/* `grid-cols-1` NAO E REDUNDANTE: sem ele a coluna do celular e

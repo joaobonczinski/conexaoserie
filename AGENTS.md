@@ -15,6 +15,7 @@ como os dados funcionam.
 
 ```bash
 npx tsc --noEmit
+npx tsc -p worker            # o Worker da /api/ tem tsconfig proprio
 npx eslint src               # as regras do React Compiler pegam coisa real
 npm run conferir:horarios    # a conta de horários, contra casos conhecidos
 npm run conferir:slugs       # a regra dos endereços das séries
@@ -90,6 +91,17 @@ navegador do João: `CONEXAO_SEM_NAVEGADOR=1`.
   ("missing generateStaticParams"). Por isso `/novidades/[slug]/` e
   `/ranking/[categoria]/` devolvem uma página reserva (`em-breve`) quando o
   arquivo não tem nada.
+- **A conta só existe no Worker** (`npx wrangler dev --port 8787`, ver o
+  README): o atalho e o `servir-out.mjs` servem só as páginas, e a Minha lista
+  diz "funciona no site publicado". O `wrangler dev` trava o `out/` — desligue
+  antes do `npm run build` e confira se o `workerd` não ficou vivo.
+- **O banco local é guardado pelo `database_id`**: trocar o id no
+  `wrangler.jsonc` faz o `wrangler dev` usar um banco local novo e vazio
+  ("no such table"). Rode o schema com `--local` de novo. Mudança no
+  `db/schema.sql` precisa rodar também com `--remote`, ANTES do push.
+- **As classes do design system (`.botao`, `.campo`, `.chip`) vencem os
+  utilitários do Tailwind** (ficam fora das camadas): cor e padding diferentes
+  vão por `style`, como a lupa da busca e o "Remover da lista" fazem.
 - **Domínio e `.workers.dev` moram no `wrangler.jsonc`**, não no painel da
   Cloudflare: todo deploy aplica o arquivo e desfaz o que foi mudado só no
   painel (o `.workers.dev` do anime voltou ao ar assim). O `wrangler deploy`

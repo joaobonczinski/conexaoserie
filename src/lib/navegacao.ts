@@ -2,9 +2,9 @@ import {
   IconeCalendario,
   IconeCasa,
   IconeCoracao,
-  IconeEpisodios,
+  IconeLista,
   IconeNovidades,
-  IconeTemporadas,
+  IconeRelogio,
   IconeTrofeu,
 } from "@/components/Icones";
 import { APOIO } from "./marca";
@@ -28,6 +28,10 @@ export const APOIAR_EM_BREVE = APOIO.livepix === null && APOIO.paypal === null;
    cresceu para doze telas; aqui sao sete, e cabem numa linha. No dia em que
    aparecer uma tela de uso ocasional, e la que ela entra — e a prateleira de
    baixo volta junto.
+
+   O MENU E O DO ANIME E DO FILME desde 29/09/2026 (pedido do Joao): Proximos
+   entrou no lugar de "Series" e "Estreias", que viraram filtros dele, e a
+   Minha lista chegou com a conta.
    =========================================================================== */
 
 export type Destino = {
@@ -40,9 +44,9 @@ export type Destino = {
 export type IdDeSecao =
   | "inicio"
   | "calendario"
-  | "series"
-  | "estreias"
+  | "proximos"
   | "ranking"
+  | "minha-lista"
   | "novidades"
   | "apoiar";
 
@@ -54,11 +58,11 @@ export const SECOES: {
 }[] = [
   { id: "inicio", rotulo: "Início", href: "/" },
   { id: "calendario", rotulo: "Calendário", href: "/calendario/" },
-  // Colada no calendario: e a mesma pergunta ("que horas sai"), feita por
-  // serie em vez de por dia — e a pagina de cada serie mora aqui dentro.
-  { id: "series", rotulo: "Séries", href: "/series/" },
-  { id: "estreias", rotulo: "Estreias", href: "/estreias/" },
+  { id: "proximos", rotulo: "Próximos", href: "/proximos/" },
   { id: "ranking", rotulo: "Ranking", href: "/ranking/" },
+  // A lista de cada um. A pagina diz "entre" para quem nao entrou, entao o
+  // link aparece para todos: e ele que conta que a lista existe.
+  { id: "minha-lista", rotulo: "Minha lista", href: "/minha-lista/" },
   { id: "novidades", rotulo: "Novidades", href: "/novidades/" },
   // POR ULTIMO, como no anime: e a pagina que menos gente procura, e primeiro
   // lugar no menu daria a ela um peso que ela nao deve ter.
@@ -68,24 +72,29 @@ export const SECOES: {
 /**
  * A que secao um caminho pertence. A home e comparada por igualdade e o resto
  * por prefixo: `/` casaria com qualquer `startsWith`.
+ *
+ * A PAGINA DE UMA SERIE (/series/lanternas/) E DOS PROXIMOS: e de la que se
+ * chega nela, e e para la que o "voltar" dela aponta.
  */
 export function secaoAtiva(caminho: string): IdDeSecao | null {
   if (caminho === "/") return "inicio";
+  if (caminho.startsWith("/series/")) return "proximos";
   return SECOES.find((s) => s.id !== "inicio" && caminho.startsWith(s.href))?.id ?? null;
 }
 
 /**
  * AS ABAS DO CELULAR — cinco, e a quinta abre a folha com o resto.
  *
- * Cinco e o teto: a 320px de tela, seis abas com rotulo legivel nao cabem. Os
- * quatro destinos sao os que respondem as perguntas que trazem alguem ao site —
- * o que sai hoje, a semana, o que estreia e o que vale a pena.
+ * Cinco e o teto: a 320px de tela, seis abas com rotulo legivel nao cabem. As
+ * quatro sao as do Conexão Filme: o que sai hoje (a home e o calendario), o
+ * que vem por ai, o que vale a pena e a lista de cada um. O Calendario fica na
+ * folha: a home ja abre nele.
  */
 export const ABAS_DO_CELULAR: Destino[] = [
   { href: "/", rotulo: "Início", Icone: IconeCasa },
-  { href: "/calendario/", rotulo: "Calendário", Icone: IconeCalendario },
-  { href: "/estreias/", rotulo: "Estreias", Icone: IconeTemporadas },
+  { href: "/proximos/", rotulo: "Próximos", Icone: IconeRelogio },
   { href: "/ranking/", rotulo: "Ranking", Icone: IconeTrofeu },
+  { href: "/minha-lista/", rotulo: "Minha lista", Icone: IconeLista },
 ];
 
 /**
@@ -98,10 +107,13 @@ export const GRUPOS_DO_MENU: { titulo: string; itens: Destino[] }[] = [
     itens: [
       { href: "/", rotulo: "Início", Icone: IconeCasa },
       { href: "/calendario/", rotulo: "Calendário", Icone: IconeCalendario },
-      { href: "/series/", rotulo: "Todas as séries", Icone: IconeEpisodios },
-      { href: "/estreias/", rotulo: "Estreias", Icone: IconeTemporadas },
+      { href: "/proximos/", rotulo: "Próximos", Icone: IconeRelogio },
       { href: "/ranking/", rotulo: "Ranking", Icone: IconeTrofeu },
     ],
+  },
+  {
+    titulo: "Você",
+    itens: [{ href: "/minha-lista/", rotulo: "Minha lista", Icone: IconeLista }],
   },
   {
     titulo: "O site",
@@ -138,10 +150,10 @@ function destinoPorHref(href: string): Destino {
 export const GRUPOS_DO_RODAPE: { titulo: string; itens: Destino[] }[] = [
   {
     titulo: "Séries",
-    itens: ["/calendario/", "/series/", "/estreias/", "/ranking/"].map(destinoPorHref),
+    itens: ["/calendario/", "/proximos/", "/ranking/"].map(destinoPorHref),
   },
   {
     titulo: "O site",
-    itens: ["/", "/novidades/", "/apoiar/"].map(destinoPorHref),
+    itens: ["/", "/minha-lista/", "/novidades/", "/apoiar/"].map(destinoPorHref),
   },
 ];

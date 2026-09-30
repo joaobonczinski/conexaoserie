@@ -1,13 +1,15 @@
 # Conexão Série
 
 Calendário de séries com a hora em que cada episódio chega ao streaming **no
-Brasil**, já convertida para o fuso de quem visita. Estreias dos próximos dois
-meses e ranking do que está no ar. Irmão do [Conexão Anime](https://conexaoanime.com.br),
-com o mesmo desenho, a mesma antena na marca e outra cor de destaque (índigo).
+Brasil**, já convertida para o fuso de quem visita. Os próximos episódios, o
+ranking de todos os tempos e a Minha lista. Irmão do [Conexão Anime](https://conexaoanime.com.br)
+e do Conexão Filme, com o mesmo desenho, a mesma antena na marca e outra cor de
+destaque (índigo).
 
-Site estático (Next.js + Tailwind, `output: "export"`) servido pela Cloudflare.
-Sem login, sem banco, sem API própria — decisão da primeira versão (25/09/2026).
-Login, lista e shoutbox podem vir depois, trazidos do anime.
+Site estático (Next.js + Tailwind, `output: "export"`) servido pela Cloudflare,
+mais um Worker só para a `/api/` (login e Minha lista, com banco D1) — ver
+"Conta e Minha lista" abaixo. A primeira versão (25/09/2026) não tinha conta;
+ela veio em 29/09/2026, com o menu do anime e do filme.
 
 ## O atalho da área de trabalho
 
@@ -43,6 +45,65 @@ O GitHub Actions roda o `fetch` todo dia de madrugada, marcado para 3h17 de
 Brasília (`.github/workflows/atualizar-agenda.yml`), e commita se algo mudou; o
 commit republica o site sozinho. O GitHub costuma atrasar esses agendamentos em
 horas — por isso o horário é cedo e fora da hora cheia.
+
+## Conta e Minha lista
+
+Pedidas em 29/09/2026 ("segue o padrão do Conexão anime e filme"), com o
+código do Conexão Filme, que veio do Anime: login pelo Google (OAuth com PKCE,
+sem senha nenhuma), sessão com o hash do token no banco, e apagar a conta de
+verdade (LGPD).
+
+- **Servidor:** `worker/` (`index.ts` são as rotas; `auth.ts`, `sessao.ts`,
+  `lista.ts` e `tvmaze.ts`). Só a `/api/*` passa por ele (`run_worker_first` no
+  `wrangler.jsonc`); o resto são os arquivos do `out/`, que continuam de graça.
+- **Banco:** D1 `conexaoserie` (região ENAM), criado em 29/09/2026 com o
+  `db/schema.sql` aplicado. O catálogo `series` é escrito PELO WORKER, lido do
+  TVmaze, nunca pelo navegador.
+- **Quatro situações:** assistindo, quero ver, terminei, abandonei.
+- **O "+"** está nos próximos, no ranking e na página de cada série. Ele
+  adiciona como "Quero ver" e já abre a janela de editar.
+- **O atalho da área de trabalho não tem servidor de conta:** as telas dizem
+  "funciona no site publicado" e o "+" some.
+
+### O que falta: o login do Google
+
+Sem as chaves do Google o site funciona inteiro, e a /entrar/ diz "o login está
+quase pronto". Para ligar:
+
+1. No [Google Cloud](https://console.cloud.google.com/), criar o projeto
+   "Conexão Série" — o Filme usou o Gmail do próprio site, porque o e-mail de
+   suporte aparece na tela de login do Google.
+2. Tela de consentimento OAuth: externo, nome "Conexão Série", domínio
+   `conexaoserie.com.br`, a política em `/privacidade/` e os termos em
+   `/termos/`. Publicar (os escopos são só `openid email profile`, que não
+   pedem verificação do Google).
+3. Credenciais → ID do cliente OAuth → Aplicativo da Web, com os retornos
+   `https://conexaoserie.com.br/api/auth/callback` e
+   `http://localhost:8787/api/auth/callback` (o segundo é o do teste no
+   computador).
+4. O **ID do cliente** vai no `wrangler.jsonc` (`vars.GOOGLE_CLIENT_ID`: não é
+   segredo, vai na URL de login). A **chave secreta** vai por
+   `npx wrangler secret put GOOGLE_CLIENT_SECRET`, e no teste local pelo
+   `.dev.vars` (o git ignora).
+
+O Discord tem o código pronto no Worker e aparece sozinho no dia das chaves
+dele (`DISCORD_CLIENT_ID` e `DISCORD_CLIENT_SECRET`). Nesse dia, a
+/privacidade/ e os /termos/ mudam junto, porque é um serviço novo recebendo
+dados.
+
+### Testar a conta no computador
+
+```bash
+npx wrangler d1 execute conexaoserie --local --file=db/schema.sql   # uma vez
+npm run build                        # o wrangler dev serve o out/
+npx wrangler dev --port 8787         # segredos no .dev.vars
+```
+
+Sem as chaves do Google, dá para testar logado criando uma sessão no banco
+local: um `INSERT` em `usuarios`, `identidades` e `sessoes`, com o
+`token_hash` = SHA-256 em base64url do token, e o cookie `sessao=<token>`
+posto no navegador pelo console. Foi assim que a lista foi testada em
+29/09/2026 (adicionar, editar, remover, busca, conta).
 
 ## De onde vêm os dados, e por que não o TMDB
 
@@ -102,7 +163,9 @@ merece entrar.
 ## A página de cada série
 
 `/series/<slug>/` responde "que horas sai" para uma série só — é a pergunta que
-mais se digita no Google —, e `/series/` lista todas, por plataforma. O painel
+mais se digita no Google. A lista de todas é a `/proximos/`, com filtro por
+plataforma e por estreia: ela tomou o lugar da `/series/` e da `/estreias/` em
+29/09/2026 (as duas redirecionam, ver `public/_redirects`). O painel
 do próximo episódio roda no navegador (contagem regressiva, fuso de quem olha, e
 troca sozinho para o episódio seguinte quando o atual sai); o resto é HTML do
 build, no horário de Brasília.

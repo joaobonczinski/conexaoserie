@@ -40,8 +40,10 @@ export default function Rodape() {
               Calendário de séries no seu fuso, com a hora em que o episódio
               chega ao streaming no Brasil.
             </p>
+            {/* "Sem cadastro" ate 29/09/2026. A conta chegou com a Minha lista,
+                mas continua opcional: e isso que a frase precisa dizer. */}
             <p className="mt-2.5 max-w-xs text-sm leading-relaxed text-suave">
-              Sem poluição e sem cadastro.
+              Sem poluição, e sem cadastro para ver o calendário.
             </p>
 
             {/* As redes so aparecem quando existem — ver o comentario do REDES

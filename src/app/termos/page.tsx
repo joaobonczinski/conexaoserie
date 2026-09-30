@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EMAIL_CONTATO, MARCA } from "@/lib/marca";
-import { ATUALIZADO_EM, ATUALIZADO_EM_TEXTO } from "@/lib/legal";
+import { ATUALIZADO_EM, ATUALIZADO_EM_TEXTO, IDADE_MINIMA } from "@/lib/legal";
 import { metadadosDaPagina } from "@/lib/metadados";
 
 // Termos de uso. Curto pelo mesmo motivo da politica de privacidade: o site
-// nao tem conta, nao tem pagamento e nao recebe texto de ninguem. O que precisa
-// estar dito e o limite do que ele promete — o horario e uma previsao.
+// nao tem pagamento e nao publica texto de ninguem. O que precisa estar dito e
+// o limite do que ele promete — o horario e uma previsao — e, desde a Minha
+// lista (29/09/2026), as regras da conta, com o texto do Conexão Filme.
 
 export const metadata: Metadata = metadadosDaPagina({
   titulo: "Termos de Uso",
@@ -34,9 +35,9 @@ export default function Termos() {
       <Secao titulo="O que é o site">
         <p>
           O {MARCA} é um calendário de séries: mostra quando cada episódio chega
-          ao streaming no Brasil, as estreias e as séries mais bem avaliadas. É
-          gratuito, não tem anúncios e é mantido por uma pessoa só, no tempo
-          livre.
+          ao streaming no Brasil, os próximos lançamentos e as séries mais bem
+          avaliadas, e guarda a sua lista de séries se você quiser. É gratuito,
+          não tem anúncios e é mantido por uma pessoa só, no tempo livre.
         </p>
       </Secao>
 
@@ -75,9 +76,27 @@ export default function Termos() {
         </p>
       </Secao>
 
+      <Secao titulo="A conta">
+        <p>
+          A conta é opcional e serve só para a Minha lista. Ela é pessoal, entra
+          pelo Google, e é preciso ter pelo menos {IDADE_MINIMA} anos para criar
+          uma.
+        </p>
+        <p>
+          Use o site como uma pessoa usaria. Robô, uso automatizado ou tentativa
+          de contornar os limites do site podem levar a conta a ser suspensa ou
+          removida.
+        </p>
+        <p>
+          A lista é sua: você pode apagar a conta, e tudo o que está nela, quando
+          quiser.
+        </p>
+      </Secao>
+
       <Secao titulo="Privacidade">
         <p>
-          O site não tem conta, não usa cookies e não tem rastreadores. Os
+          Sem conta, o site não guarda nada que identifique você; com conta,
+          guarda só o login e a sua lista. Não há anúncios nem rastreadores. Os
           detalhes estão na{" "}
           <Link href="/privacidade/" className="text-tinta underline underline-offset-2">
             Política de Privacidade

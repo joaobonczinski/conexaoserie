@@ -3,18 +3,19 @@
 import { usePathname } from "next/navigation";
 import LinkQueSobe from "./LinkQueSobe";
 import BotaoDeTema from "./BotaoDeTema";
+import EntrarOuConta from "./EntrarOuConta";
 import IndicadorDoMenu from "./IndicadorDoMenu";
 import Marca from "./Marca";
 import { IconeLupa } from "@/components/Icones";
 import { SECOES, secaoAtiva } from "@/lib/navegacao";
 
 /* ===========================================================================
-   O CABECALHO — uma linha: marca, as secoes, a lupa e o tema.
+   O CABECALHO — uma linha: marca, as secoes, a lupa, o tema e a conta.
 
-   E o cabecalho do Conexão Anime sem a conta: aqui nao ha login (decisao do
-   Joao para a primeira versao, 25/09/2026), entao somem o "Entrar", o avatar e
-   a campainha. O desenho e o resto sao os mesmos, para os dois sites parecerem
-   da mesma familia.
+   E o cabecalho do Conexão Anime. A conta chegou com a Minha lista
+   (29/09/2026): o "Entrar", ou a foto de quem entrou, fica ao lado do tema,
+   como no anime e no filme. A campainha do anime continua de fora, porque aqui
+   nao ha aviso nenhum para ela tocar.
 
    NO CELULAR quem navega e a BARRA DE ABAS de baixo, e por isso o menu daqui
    some abaixo de `lg`: seria a segunda coisa dizendo a mesma coisa.
@@ -67,6 +68,7 @@ export default function Cabecalho() {
           </LinkQueSobe>
 
           <BotaoDeTema />
+          <EntrarOuConta />
         </div>
       </div>
     </header>

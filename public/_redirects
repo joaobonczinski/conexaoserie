@@ -1,0 +1,16 @@
+# Redirecionamentos do site, lidos pela Cloudflare (Workers Static Assets). O
+# arquivo vai para o out/ junto com o resto do public/, e a Cloudflare o usa
+# como regra: ele nao e servido como pagina. O formato e o do Conexão Filme.
+#
+# A /estreias/ e a lista /series/ viraram a /proximos/ em 29/09/2026 (pedido do
+# Joao: "remove esse menu Series e Estreias para criar o Proximos"). As duas
+# estiveram no ar e no sitemap, entao link salvo e resultado do Google vem para
+# ca em vez de dar 404.
+#
+# A /series/ SO NA FORMA EXATA, e nunca com `*`: embaixo dela moram as paginas
+# de cada serie (/series/lanternas/), que continuam existindo.
+# Quem vinha da /estreias/ chega com o filtro "Estreias" ja escolhido.
+/estreias      /proximos/#estreias   301
+/estreias/*    /proximos/#estreias   301
+/series        /proximos/            301
+/series/       /proximos/            301

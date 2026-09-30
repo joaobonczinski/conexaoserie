@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { INSTANTE_DO_BUILD } from "@/lib/build";
 import AbasDoRanking from "@/components/AbasDoRanking";
+import BotaoDaLista from "@/components/BotaoDaLista";
 import CabecalhoDePagina from "@/components/CabecalhoDePagina";
 import SeloDePlataforma from "@/components/SeloDePlataforma";
 import { metadadosDaPagina } from "@/lib/metadados";
@@ -103,6 +104,7 @@ export default function PaginaRankingNoAr() {
               >
                 {serie.nota !== null ? notaEmTexto(serie.nota) : "sem nota"}
               </span>
+              <BotaoDaLista tvmazeId={serie.id} titulo={serie.nome} variante="linha" />
             </li>
           );
         })}

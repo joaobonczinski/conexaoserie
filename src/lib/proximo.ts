@@ -10,6 +10,19 @@ import type { Lancamento } from "./tipos";
 // navegador: ele carrega a agenda inteira.)
 
 /**
+ * O instante que um lancamento ocupa na linha do tempo.
+ *
+ * Sem hora conhecida, o meio-dia UTC da data: e o ponto do dia que cai na mesma
+ * data em qualquer fuso das Americas, entao o lancamento nao pula de dia so
+ * porque ninguem sabe a hora dele.
+ *
+ * Mora aqui, e nao em series.ts, porque a /proximos/ ordena no navegador.
+ */
+export function instanteDe(l: Lancamento): number {
+  return l.airingAt ?? Date.parse(`${l.data}T12:00:00Z`) / 1000;
+}
+
+/**
  * Ate quando um lancamento conta como "ainda vem".
  *
  * Com hora, o proprio instante. SEM HORA, o fim do dia dele em Brasilia: o

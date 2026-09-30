@@ -4,11 +4,9 @@ import type { Item } from "@/lib/tipos";
 import { LINK_QUE_COBRE, enderecoDaSerie } from "@/lib/enderecos";
 import { traduzirGenero } from "@/lib/generos";
 import {
-  DIAS,
   DIAS_CURTOS,
   FUSO_PADRAO,
   dataLocal,
-  dataPorExtenso,
   diaDaSemanaDaData,
   diaEMes,
   formatarHora,
@@ -16,15 +14,15 @@ import {
 import { rotuloDeEstreia, rotuloDoLancamento } from "@/lib/rotulos";
 
 /* ===========================================================================
-   AS ESTREIAS, agrupadas por dia — na /estreias/ e, curta, na home.
+   A LINHA DE UMA ESTREIA — nas "Próximas estreias" da home.
+
+   Ate 29/09/2026 havia tambem a /estreias/, com as linhas agrupadas por dia;
+   ela virou o filtro "Estreias" da /proximos/, e so a linha ficou.
 
    COMPONENTE DE SERVIDOR, e por isso o horario e o de BRASILIA, escrito com o
    nome: esta lista e HTML do build, e o build nao sabe de onde a pessoa acessa.
    Um fuso fixo e dito na tela e verdade para todo mundo; um fuso "do
    visitante" calculado no build seria o do servidor, e mentira para todos.
-
-   E a pagina feita para ser achada no Google ("estreias de séries em outubro"),
-   e o texto dela precisa estar no HTML — o que tambem pede servidor.
    =========================================================================== */
 
 /** O dia de uma estreia em Brasilia: a data do instante, ou a data do episodio. */
@@ -33,28 +31,15 @@ function diaEmBrasilia(item: Item): string {
   return airingAt !== null ? dataLocal(airingAt, FUSO_PADRAO) : data;
 }
 
-export function agruparPorDia(itens: Item[]): { dia: string; itens: Item[] }[] {
-  const grupos = new Map<string, Item[]>();
-  for (const item of itens) {
-    const dia = diaEmBrasilia(item);
-    const lista = grupos.get(dia) ?? [];
-    lista.push(item);
-    grupos.set(dia, lista);
-  }
-  return [...grupos]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([dia, lista]) => ({ dia, itens: lista }));
-}
-
 export function LinhaDeEstreia({
   item,
   comDia = false,
 }: {
   item: Item;
   /**
-   * Mostra o dia acima da hora. A /estreias/ nao precisa — la as linhas vem
-   * embaixo do titulo do dia —, mas a home lista estreias de dias diferentes
-   * sem titulo nenhum, e "22:00" sozinho nao diz de QUAL dia.
+   * Mostra o dia acima da hora: a home lista estreias de dias diferentes sem
+   * titulo nenhum, e "22:00" sozinho nao diz de QUAL dia. (A /estreias/, que
+   * agrupava por dia e nao precisava, saiu em 29/09/2026.)
    */
   comDia?: boolean;
 }) {
@@ -116,40 +101,5 @@ export function LinhaDeEstreia({
         </p>
       </div>
     </li>
-  );
-}
-
-export default function ListaDeEstreias({ itens }: { itens: Item[] }) {
-  const grupos = agruparPorDia(itens);
-
-  if (grupos.length === 0) {
-    return (
-      <p className="py-16 text-center text-sm text-fraco">
-        Nenhuma estreia anunciada para as próximas semanas.
-      </p>
-    );
-  }
-
-  return (
-    <div className="flex flex-col gap-8">
-      {grupos.map(({ dia, itens: doDia }) => (
-        <section key={dia} aria-labelledby={`dia-${dia}`}>
-          <h2 id={`dia-${dia}`} className="mb-3 text-base font-bold text-tinta">
-            {DIAS[diaDaSemanaDaData(dia)]}, {dataPorExtenso(dia)}
-            <span className="numero ml-2 text-xs font-medium text-fraco">
-              {doDia.length}
-            </span>
-          </h2>
-          <ol className="flex flex-col gap-2">
-            {doDia.map((item) => (
-              <LinhaDeEstreia
-                key={`${item.serie.id}-${item.lancamento.temporada}`}
-                item={item}
-              />
-            ))}
-          </ol>
-        </section>
-      ))}
-    </div>
   );
 }

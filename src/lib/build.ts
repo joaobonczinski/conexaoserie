@@ -8,7 +8,7 @@
  * visita — e o do build. Tudo que depende do relogio de verdade (a contagem, o
  * "hoje" do calendario) e recalculado no navegador.
  *
- * Todas as paginas leem o MESMO valor, entao a home e a /estreias/ nunca
+ * Todas as paginas leem o MESMO valor, entao a home e a /proximos/ nunca
  * discordam sobre qual estreia ja passou.
  */
 export const INSTANTE_DO_BUILD = Math.floor(Date.now() / 1000);

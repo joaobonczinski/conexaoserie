@@ -1,9 +1,11 @@
 {
-  // Deploy no Cloudflare Workers, SO COM ARQUIVOS ESTATICOS.
+  // Publicacao no Cloudflare: os arquivos estaticos da pasta out/ (o build) e um
+  // Worker para a /api/ (login e Minha Lista, pedidos em 29/09/2026 "seguindo o
+  // padrao do anime e do filme").
   //
-  // Nao ha `main` (codigo de Worker) aqui, e isso e a primeira versao inteira:
-  // sem login, sem banco e sem API, o site e a pasta `out/` servida pela borda.
-  // No dia em que entrar login, o `main` e o D1 voltam, como no Conexão Anime.
+  // O calendario, os proximos e o ranking nem passam pelo Worker: o
+  // `run_worker_first` so tem a /api/. Pagina estatica e servida pela borda sem
+  // contar requisicao de Worker — so quem usa a conta chama o codigo.
   //
   // Nao usa o adaptador OpenNext nem o preset "Next.js" do painel: o site e
   // `output: "export"`, e aquele preset assume SSR e quebra procurando uma pasta
@@ -12,10 +14,13 @@
   "name": "conexaoserie",
   "compatibility_date": "2026-09-25",
 
+  "main": "worker/index.ts",
+
   // O SITE MORA SO EM conexaoserie.com.br. O `custom_domain` liga o dominio ao
   // Worker (a Cloudflare cria o registro de DNS e o certificado sozinha), e o
   // `workers_dev: false` tira do ar o endereco provisorio .workers.dev — senao
-  // o Google ve dois sites iguais.
+  // o Google ve dois sites iguais, e o endereco de la leva o nome e o
+  // sobrenome do Joao (o nome da conta).
   //
   // ESCRITO AQUI, e nao so desligado no painel, por causa do Conexão Anime: la
   // o .workers.dev foi desligado no painel em 08/09/2026 e, em 28/09/2026,
@@ -27,12 +32,45 @@
 
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
     // O next.config.ts usa `trailingSlash: true`; isto faz /ranking e /ranking/
     // cairem no mesmo arquivo.
     "html_handling": "auto-trailing-slash",
     // Serve o out/404.html em vez de uma pagina de erro generica.
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   },
+
+  // O que NAO e segredo mora aqui (este arquivo esta no GitHub). Os segredos
+  // (GOOGLE_CLIENT_SECRET, e DISCORD_CLIENT_ID e _SECRET se o Discord for
+  // ligado) vao por `npx wrangler secret put NOME`, e no teste local pelo
+  // arquivo .dev.vars, que o git ignora. Sem eles, o botao de entrar some e a
+  // /entrar/ diz que o login esta quase pronto (ver /api/auth/provedores).
+  "vars": {
+    "APP_URL": "https://conexaoserie.com.br"
+  },
+
+  // O banco de producao, criado em 29/09/2026 na regiao ENAM (a mais perto do
+  // Brasil que o D1 oferece, a mesma do Filme). O teste local nao usa este:
+  // usa um SQLite na pasta .wrangler/ (`--local`).
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "conexaoserie",
+      "database_id": "89a4f5f1-4e32-4829-a443-4c464e06e54a"
+    }
+  ],
+
+  // O teto de escritas por pessoa (ver o worker/index.ts). O namespace e 1003:
+  // o 1001 e do Anime e o 1002 do Filme, e os tres vivem na mesma conta da
+  // Cloudflare, cada site com o seu contador.
+  "ratelimits": [
+    {
+      "name": "ESCRITAS",
+      "namespace_id": "1003",
+      "simple": { "limit": 60, "period": 60 }
+    }
+  ],
 
   "observability": { "enabled": true }
 }

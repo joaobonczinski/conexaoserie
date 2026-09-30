@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AgendaDaSerie from "@/components/AgendaDaSerie";
+import BotaoDaLista from "@/components/BotaoDaLista";
 import SeloDePlataforma from "@/components/SeloDePlataforma";
 import { IconeExterno, IconeSetaEsquerda } from "@/components/Icones";
 import { INSTANTE_DO_BUILD } from "@/lib/build";
@@ -233,12 +234,14 @@ export default async function PaginaDaSerie({ params }: Props) {
         }}
       />
 
+      {/* Para a /proximos/, que em 29/09/2026 tomou o lugar da lista /series/
+          (ela redireciona para la). */}
       <Link
-        href="/series/"
+        href="/proximos/"
         className="inline-flex items-center gap-1.5 text-xs font-medium text-suave transition-colors hover:text-acento"
       >
         <IconeSetaEsquerda className="h-3.5 w-3.5" />
-        Todas as séries
+        Próximos episódios
       </Link>
 
       <header className="mt-5 flex items-start gap-4 sm:gap-6">
@@ -281,6 +284,13 @@ export default async function PaginaDaSerie({ params }: Props) {
                 no TVmaze
               </p>
             ) : null}
+          </div>
+          {/* O "+ Minha lista" da pagina: aqui, olhando UMA serie, e o lugar
+              mais natural de guardar ela (ver BotaoDaLista). A altura fica
+              reservada: o botao so aparece quando a conta responde, e sem a
+              reserva o texto de baixo pularia. */}
+          <div className="mt-4 min-h-9">
+            <BotaoDaLista tvmazeId={serie.id} titulo={serie.nome} variante="pagina" />
           </div>
         </div>
       </header>

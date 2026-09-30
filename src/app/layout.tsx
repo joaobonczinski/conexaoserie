@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, DM_Mono, M_PLUS_2 } from "next/font/google";
 import BarraDeAbas from "@/components/BarraDeAbas";
 import Cabecalho from "@/components/Cabecalho";
+import DialogoDoItem from "@/components/DialogoDoItem";
 import Rodape from "@/components/Rodape";
 import { MARCA, SITE_URL } from "@/lib/marca";
 import "./globals.css";
@@ -97,6 +98,9 @@ export default function RootLayout({
             qualquer tela — a Politica de Privacidade inclusive. */}
         <Rodape />
         <BarraDeAbas />
+        {/* O dialogo de editar uma serie da Minha lista, montado UMA vez: toda
+            tela que tem o "+" abre este mesmo (ver `abrirEdicao`). */}
+        <DialogoDoItem />
       </body>
     </html>
   );

@@ -1,0 +1,18 @@
+{
+  // tsconfig proprio: este codigo roda no Worker, nao no navegador. Os globais
+  // sao outros (D1Database, Fetcher), por isso ele fica fora do build do Next
+  // (ver o `exclude` do tsconfig da raiz). Confira com `npx tsc -p worker`.
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["@cloudflare/workers-types"],
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true
+  },
+  "include": ["**/*.ts"]
+}

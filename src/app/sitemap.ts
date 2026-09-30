@@ -24,8 +24,7 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const fixas: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, changeFrequency: "daily", priority: 1 },
-    { url: `${SITE_URL}/series/`, changeFrequency: "daily", priority: 0.9 },
-    { url: `${SITE_URL}/estreias/`, changeFrequency: "daily", priority: 0.9 },
+    { url: `${SITE_URL}/proximos/`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/ranking/`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE_URL}/ranking/no-ar/`, changeFrequency: "daily", priority: 0.7 },
     { url: `${SITE_URL}/novidades/`, changeFrequency: "weekly", priority: 0.6 },

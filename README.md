@@ -67,9 +67,11 @@ verdade (LGPD).
 
 ### O login do Google
 
-O projeto "Conexão Série" do Google Cloud e o cliente `site` foram criados em
-29/09/2026; o ID do cliente está no `wrangler.jsonc`. A chave secreta vai por
-`npx wrangler secret put GOOGLE_CLIENT_SECRET` e nunca por arquivo do git.
+**Ligado e testado em 29/09/2026**: o João entrou com a conta dele no site
+publicado, e a conta nasceu no banco de produção. O projeto "Conexão Série" do
+Google Cloud e o cliente `site` foram criados nesse dia; o ID do cliente está
+no `wrangler.jsonc`. A chave secreta foi por
+`npx wrangler secret put GOOGLE_CLIENT_SECRET`, e nunca vai por arquivo do git.
 Sem as duas, o site funciona inteiro e a /entrar/ diz "o login está quase
 pronto". Como foi montado, para refazer:
 

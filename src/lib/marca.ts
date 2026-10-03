@@ -10,9 +10,9 @@ export const MARCA = "Conexão Série";
 /**
  * A caixa de contato do site.
  *
- * AINDA NAO FUNCIONA: so passa a existir quando o dominio for registrado e o
- * Email Routing da Cloudflare for ligado nele, como foi feito no anime. Ate la,
- * quem escrever para ca recebe o e-mail de volta.
+ * Funciona desde 29/09/2026: o Email Routing da Cloudflare encaminha para o
+ * Gmail do Joao, como no anime, e ele testou. Ela so existe enquanto a regra do
+ * endereco existir em Email Routing > Routing rules (ver o README).
  *
  * Nao e decoracao: a Politica de Privacidade o aponta como o canal para pedir
  * qualquer coisa sobre dados (LGPD, art. 18). Se ele parar de funcionar, a
@@ -24,22 +24,27 @@ export const EMAIL_CONTATO = "contato@conexaoserie.com.br";
 export const HANDLE = "conexaoseriebr";
 
 /**
- * As redes que aparecem no rodape. VAZIO ATE CADA PERFIL EXISTIR.
+ * As redes que aparecem no rodape. SO ENTRA PERFIL QUE ABRE DESLOGADO.
  *
- * O @ foi conferido livre nas redes, mas conferir nao e criar: um link para um
- * perfil que ainda nao existe da 404, ou pior, cai no perfil de outra pessoa que
- * pegar o nome antes. Quando criar um, descomente a linha dele.
+ * Um link para um perfil que nao abre da 404, ou pior, cai no perfil de outra
+ * pessoa que pegar o nome antes. Por isso cada linha so e descomentada depois
+ * de o perfil abrir de verdade, sem login, no navegador.
+ *
+ * O Joao criou as cinco e pediu no rodape em 03/10/2026, e todas abriram
+ * deslogado como "Conexão Série" no mesmo dia. O X por ultimo: na primeira
+ * conferencia ele ainda nao existia ("Não foi possível mostrar essa conta"),
+ * e abriu assim que o Joao o criou.
  *
  * O nome de cada uma e a CHAVE que acha o icone (`ICONE_DA_REDE`, no
  * Icones.tsx) e a cor (`MARCAS`, no cores-de-marca.ts). O YouTube e o TikTok
  * levam o `@` na URL e os outros nao: e como cada servico monta o endereco.
  */
 export const REDES: readonly { nome: string; url: string }[] = [
-  // { nome: "X", url: `https://x.com/${HANDLE}` },
-  // { nome: "Facebook", url: `https://facebook.com/${HANDLE}` },
-  // { nome: "Instagram", url: `https://instagram.com/${HANDLE}` },
-  // { nome: "YouTube", url: `https://youtube.com/@${HANDLE}` },
-  // { nome: "TikTok", url: `https://tiktok.com/@${HANDLE}` },
+  { nome: "X", url: `https://x.com/${HANDLE}` },
+  { nome: "Facebook", url: `https://facebook.com/${HANDLE}` },
+  { nome: "Instagram", url: `https://instagram.com/${HANDLE}` },
+  { nome: "YouTube", url: `https://youtube.com/@${HANDLE}` },
+  { nome: "TikTok", url: `https://tiktok.com/@${HANDLE}` },
 ];
 
 /**
@@ -71,5 +76,6 @@ export const APOIO: { livepix: string | null; paypal: string | null } = {
  */
 export const SITE_URL = "https://conexaoserie.com.br";
 
-/** O site irmao, linkado no rodape. */
+/** Os sites irmaos, linkados no rodape. */
 export const SITE_ANIME = "https://conexaoanime.com.br";
+export const SITE_FILME = "https://conexaofilme.com.br";

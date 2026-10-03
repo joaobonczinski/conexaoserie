@@ -3,7 +3,7 @@ import { NomeDaMarca, SimboloDaMarca } from "./Marca";
 import SeloDeRede from "./SeloDeRede";
 import { ICONE_DA_REDE, IconeDiscord, IconeEmail } from "@/components/Icones";
 import { APOIAR_EM_BREVE, GRUPOS_DO_RODAPE } from "@/lib/navegacao";
-import { DISCORD, EMAIL_CONTATO, MARCA, REDES, SITE_ANIME } from "@/lib/marca";
+import { DISCORD, EMAIL_CONTATO, MARCA, REDES, SITE_ANIME, SITE_FILME } from "@/lib/marca";
 
 /* ===========================================================================
    O RODAPE, em todas as paginas — o do Conexão Anime, com duas pecas a mais.
@@ -12,12 +12,18 @@ import { DISCORD, EMAIL_CONTATO, MARCA, REDES, SITE_ANIME } from "@/lib/marca";
    deixa o site usar os dados. Ela pede "um link para o TVmaze de dentro do
    site", e o rodape e o unico lugar que esta em todas as paginas.
 
-   O LINK PARA O CONEXÃO ANIME e a familia se apresentando. Quem acompanha
-   serie tem boa chance de acompanhar anime, e a recíproca e o que faz dois
-   sites pequenos crescerem juntos em vez de um de cada vez.
+   OS IRMAOS NO FIM e a familia se apresentando. Quem acompanha serie tem boa
+   chance de acompanhar anime e filme, e a recíproca e o que faz sites
+   pequenos crescerem juntos em vez de um de cada vez. O Filme entrou em
+   03/10/2026, quando ja estava no ar em conexaofilme.com.br.
    =========================================================================== */
 
 const ANO = new Date().getFullYear();
+
+const IRMAOS = [
+  { nome: "Conexão Anime", url: SITE_ANIME },
+  { nome: "Conexão Filme", url: SITE_FILME },
+];
 
 export default function Rodape() {
   const temRedes = REDES.length > 0 || DISCORD !== null;
@@ -98,16 +104,18 @@ export default function Rodape() {
                     </LinkQueSobe>
                   </li>
                 ))}
-                {grupo.titulo === "O site" ? (
-                  <li>
-                    <a
-                      href={SITE_ANIME}
-                      className="text-sm text-suave transition-colors hover:text-acento"
-                    >
-                      Conexão Anime
-                    </a>
-                  </li>
-                ) : null}
+                {grupo.titulo === "O site"
+                  ? IRMAOS.map((irmao) => (
+                      <li key={irmao.url}>
+                        <a
+                          href={irmao.url}
+                          className="text-sm text-suave transition-colors hover:text-acento"
+                        >
+                          {irmao.nome}
+                        </a>
+                      </li>
+                    ))
+                  : null}
               </ul>
             </div>
           ))}

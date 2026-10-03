@@ -273,8 +273,9 @@ deixa de reconhecer o João como dono do site.
 
 ## O que falta decidir
 
-- **Redes sociais e Discord**: `REDES` e `DISCORD` em `src/lib/marca.ts` estão
-  vazios até cada perfil existir de verdade.
+- **Discord**: `DISCORD` em `src/lib/marca.ts` fica `null` até existir um
+  convite permanente. As redes (@conexaoseriebr no X, Facebook, Instagram,
+  YouTube e TikTok) estão no rodapé desde 03/10/2026, conferidas deslogado.
 - **Apoiar**: fica riscado no menu ("em breve") até existir uma página no
   LivePix (`APOIO` em `marca.ts`). A do anime não foi reaproveitada — cada site
   recebe na sua.

@@ -169,7 +169,13 @@ export default function Proximos({ series, agoraDoBuild, plataformas }: Props) {
                 )}
 
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold text-tinta">
+                  {/* DUAS LINHAS, e nao `truncate`: com a contagem e o "+" na
+                      mesma linha, sobram uns 110px para o nome num celular de
+                      375px, e o corte de uma linha comia 38 dos 87 nomes
+                      ("American Hor…", "The Sisters Gri…") em 01/10/2026. O
+                      link esticado nao sofre com o `overflow` do corte: o
+                      `::after` dele se posiciona pelo `li`, que esta fora. */}
+                  <p className="line-clamp-2 text-sm font-semibold text-tinta">
                     <Link
                       href={enderecoDaSerie(serie.slug)}
                       prefetch={false}

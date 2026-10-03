@@ -100,14 +100,20 @@ export default function CardSerie({ item, fuso, agora }: Props) {
 
         {/* A BARRA DE BAIXO: o que sai na esquerda, quanto falta na direita.
             Nas pontas, e nao centralizados, para um nunca cair por cima do
-            outro a 375px de largura. */}
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-1.5 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-2 pb-2.5 pt-8">
-          <span className="numero text-[11px] font-medium leading-none text-arte/90">
+            outro a 375px de largura.
+
+            NENHUM DOS DOIS QUEBRA NO MEIO. Sem o `whitespace-nowrap`, a faixa
+            de episodios partia no traco quando a contagem era longa: "T13 ·
+            E4–" numa linha e o "6" sozinho na de baixo (American Horror Story,
+            01/10/2026). Sem espaco para os dois, e a contagem que desce
+            inteira — o `ml-auto` a mantem na direita tambem sozinha. */}
+        <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-x-1.5 gap-y-1 bg-gradient-to-t from-black/90 via-black/55 to-transparent px-2 pb-2.5 pt-8">
+          <span className="numero whitespace-nowrap text-[11px] font-medium leading-none text-arte/90">
             {rotuloDoLancamento(lancamento)}
           </span>
 
           {lancamento.airingAt !== null ? (
-            <span className="inline-flex items-center gap-1 whitespace-nowrap text-[11px] font-medium leading-none text-arte/90">
+            <span className="ml-auto inline-flex items-center gap-1 whitespace-nowrap text-[11px] font-medium leading-none text-arte/90">
               <IconeRelogio className="h-3 w-3" />
               {contagem === null ? (
                 // Antes de montar ninguem sabe que horas sao — o HTML e

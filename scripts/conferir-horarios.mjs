@@ -10,6 +10,7 @@
 
 import {
   diaAnterior,
+  diaPosterior,
   instanteNoFuso,
   montarLancamentos,
   quandoChega,
@@ -124,9 +125,40 @@ igual(
   "manual",
 );
 
+// --- Ajuste no relogio de la, e no dia seguinte --------------------------------
+// Marshals na Paramount+ daqui: 23h de Nova York, na noite da CBS. O
+// Observatorio do Cinema (02/03/2026) viu 1h nos dois primeiros episodios e
+// meia-noite depois que os EUA entraram no horario de verao, em 8 de marco.
+const MARSHALS = { hora: "23:00", fuso: "America/New_York" };
+igual(
+  "Marshals T1E1 (CBS no domingo 01/03) saiu aqui a 1h de segunda",
+  emBrasilia(quandoChega(ep("2026-03-01"), null, MARSHALS).airingAt),
+  "02/03/2026, 01:00",
+);
+igual(
+  "Marshals T1E2, ja no horario de verao americano, a meia-noite",
+  emBrasilia(quandoChega(ep("2026-03-08"), null, MARSHALS).airingAt),
+  "09/03/2026, 00:00",
+);
+// Outlander: Blood of My Blood: Starz na sexta, Disney+ daqui no sabado as 4h
+// (O Tempo, 02/10/2026) — a meia-noite de Los Angeles do dia seguinte.
+const OUTLANDER = { hora: "00:00", fuso: "America/Los_Angeles", diaSeguinte: true };
+igual(
+  "Outlander T2E3 (Starz na sexta 02/10) sai aqui no sabado as 4h",
+  emBrasilia(quandoChega(ep("2026-10-02"), null, OUTLANDER).airingAt),
+  "03/10/2026, 04:00",
+);
+igual(
+  "... e as 5h depois da virada de novembro",
+  emBrasilia(quandoChega(ep("2026-11-06"), null, OUTLANDER).airingAt),
+  "07/11/2026, 05:00",
+);
+
 // --- Datas ---------------------------------------------------------------------
 igual("Dia anterior atravessa fevereiro", diaAnterior("2026-03-01"), "2026-02-28");
 igual("Dia anterior atravessa o ano", diaAnterior("2027-01-01"), "2026-12-31");
+igual("Dia posterior atravessa fevereiro", diaPosterior("2026-02-28"), "2026-03-01");
+igual("Dia posterior atravessa o ano", diaPosterior("2026-12-31"), "2027-01-01");
 
 // --- Agrupar em lancamentos ---------------------------------------------------
 const maratona = montarLancamentos(

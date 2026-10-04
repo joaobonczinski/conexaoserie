@@ -31,6 +31,9 @@ const CAMINHO_PLATAFORMAS = resolve(RAIZ, "src/data/plataformas.json");
 
 const PORTA = 4331;
 const HORA_VALIDA = /^([01]\d|2[0-3]):[0-5]\d$/;
+// Os relogios em que um ajuste pode vir escrito, alem de Brasilia (que e a
+// ausencia do campo). Ver o `AjusteDeHorario`, no regras.ts.
+const FUSOS_DO_AJUSTE = ["America/New_York", "America/Los_Angeles"];
 
 const lerJson = async (caminho) => JSON.parse(await readFile(caminho, "utf8"));
 
@@ -72,7 +75,11 @@ function limpar(entrada, plataformas) {
   const hora = String(entrada.horario?.hora ?? "").trim();
   if (HORA_VALIDA.test(hora)) {
     limpo.horario = { hora };
+    // Vespera e dia seguinte se excluem. Se os dois vierem, fica a vespera,
+    // que e o que o `quandoChega` faria.
     if (entrada.horario?.vespera === true) limpo.horario.vespera = true;
+    else if (entrada.horario?.diaSeguinte === true) limpo.horario.diaSeguinte = true;
+    if (FUSOS_DO_AJUSTE.includes(entrada.horario?.fuso)) limpo.horario.fuso = entrada.horario.fuso;
   }
   return limpo;
 }
@@ -313,19 +320,33 @@ function linha(s) {
   l2.append(titulo, link);
   corpo.append(l2);
 
-  // Linha 3: horário em Brasília, quando foge da regra.
+  // Linha 3: horário, quando foge da regra. Em Brasília, a menos que a fonte
+  // dê a hora de lá — ver o AjusteDeHorario, no regras.ts.
   const l3 = el("div", { className: "linha" });
   const hora = el("input", { type: "text", className: "hora", placeholder: "22:00", value: aj.horario?.hora ?? "" });
+  const fuso = el("select");
+  for (const [valor, nome] of [["", "de Brasília"], ["America/New_York", "de Nova York"], ["America/Los_Angeles", "de Los Angeles"]]) {
+    fuso.append(el("option", { value: valor, textContent: nome, selected: (aj.horario?.fuso ?? "") === valor }));
+  }
   const vesp = el("input", { type: "checkbox", checked: !!aj.horario?.vespera });
+  const seg = el("input", { type: "checkbox", checked: !!aj.horario?.diaSeguinte });
   const atualizarHorario = () => {
-    ov(s.id).horario = hora.value.trim() ? { hora: hora.value.trim(), vespera: vesp.checked } : undefined;
+    const h = hora.value.trim();
+    ov(s.id).horario = h
+      ? { hora: h, vespera: vesp.checked || undefined, diaSeguinte: seg.checked || undefined, fuso: fuso.value || undefined }
+      : undefined;
     marcarSujo();
   };
+  // Véspera e dia seguinte se excluem: marcar um desmarca o outro.
+  vesp.addEventListener("change", () => { if (vesp.checked) seg.checked = false; atualizarHorario(); });
+  seg.addEventListener("change", () => { if (seg.checked) vesp.checked = false; atualizarHorario(); });
   hora.addEventListener("input", atualizarHorario);
-  vesp.addEventListener("change", atualizarHorario);
+  fuso.addEventListener("change", atualizarHorario);
   const lv = el("label", { className: "chk" });
   lv.append(vesp, document.createTextNode("na véspera"));
-  l3.append(el("span", { className: "meta", textContent: "hora em Brasília, se fugir da regra:" }), hora, lv);
+  const ls = el("label", { className: "chk" });
+  ls.append(seg, document.createTextNode("no dia seguinte"));
+  l3.append(el("span", { className: "meta", textContent: "hora, se fugir da regra:" }), hora, fuso, lv, ls);
   if (!s.plataformaDoCanal && aj.plataforma && !aj.horario) {
     l3.append(el("span", { className: "aviso", textContent: "sem hora até você preencher" }));
   }

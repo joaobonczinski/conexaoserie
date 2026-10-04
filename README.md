@@ -138,21 +138,26 @@ build, sem esperar o próximo fetch.
 ### A regra de horário de cada plataforma
 
 É a parte que nenhuma API entrega, e o que diferencia o site. Conferido em
-25/09/2026 em fontes brasileiras:
+fontes brasileiras em 25/09 e 03/10/2026 (a frase de cada fonte está no
+`fonte` do JSON):
 
 | Plataforma | Quando sai | Em Brasília |
 |---|---|---|
 | Netflix, Prime Video, Disney+ | meia-noite de Los Angeles | 4h (5h fora do horário de verão americano) |
+| Paramount+ (originais) | meia-noite de Los Angeles | 4h (5h fora do horário de verão americano) |
+| Hulu (dentro do Disney+) | meia-noite de Los Angeles | 4h (5h fora do horário de verão americano) |
 | HBO Max (originais) | 21h de Nova York | 22h (23h no inverno americano) |
-| HBO e FX (TV) | junto com a exibição americana | o horário da TV, convertido |
+| HBO, FX e FXX (TV) | junto com a exibição americana | o horário da TV, convertido |
 | Apple TV | 21h de Nova York **na véspera** | 22h da véspera |
 
 A regra fica no fuso **da plataforma**, e não em Brasília: é isso que acerta o
-horário de verão americano sozinho. Hulu e Paramount+ usam o padrão americano e
-ainda não foram vistos no Brasil (`conferido: null` no JSON).
+horário de verão americano sozinho. Desde 03/10/2026, toda plataforma com casa
+fixa tem fonte brasileira (`conferido` preenchido no JSON).
 
 Série que foge da regra (Marvel e Star Wars no Disney+ costumam sair na véspera
-às 22h) se corrige no admin, com a hora de Brasília.
+às 22h) se corrige no admin: a hora, o relógio dela (Brasília, Nova York ou Los
+Angeles) e, se for o caso, "na véspera" ou "no dia seguinte". Use o relógio que
+a fonte usa: uma hora de Nova York escrita em Brasília erra metade do ano.
 
 ### Canal sem casa fixa
 
@@ -164,6 +169,46 @@ card mostra o dia e "sem hora" — melhor que inventar.
 Canal que não está no mapa (Tencent, BBC iPlayer…) nem é baixado. O `fetch`
 lista no fim os que mais tiveram episódio de ficção, para você decidir se algum
 merece entrar.
+
+### Séries da TV americana
+
+Pesquisado em 03/10/2026, série por série, entre as 58 que estavam fora. A
+regra: **só entra série com fonte brasileira dizendo que ela sai aqui toda
+semana, quase junto com os EUA.** O resto chega ao Brasil em lotes, meses
+depois, e com a data americana o site afirmaria uma estreia que não acontece.
+Escolher a plataforma no admin sem essa fonte é exatamente esse erro.
+
+Entraram:
+
+- **Marshals** (CBS) → Paramount+, às **23h de Nova York** da noite da CBS:
+  meia-noite aqui no horário de verão americano, 1h fora dele. Observatório do
+  Cinema (02/03/2026) viu a 1h e a meia-noite na 1ª temporada; Séries em Cena
+  (28/09/2026) confirma a 2ª "em 5 de outubro, um dia depois da estreia nos
+  Estados Unidos".
+- **Outlander: Blood of My Blood** (STARZ) → Disney+, **no dia seguinte, à
+  meia-noite de Los Angeles** (4h aqui). Guia Disney+ Brasil (19/09/2026):
+  "chegam ao Disney+ aos sábados", um dia depois do Starz; O Tempo (25/09 e
+  02/10/2026): "às 4h". A Rolling Stone Brasil diz "a partir da meia-noite",
+  mas escreve isso até para episódio da HBO, que sai às 23h — não serve como
+  hora.
+
+Ficaram fora, com o motivo:
+
+- **Chegam em lotes, meses depois**: Grey's Anatomy (a 22ª temporada só chega
+  ao Disney+ em outubro de 2026, um ano depois), 9-1-1, Os Simpsons, Abbott
+  Elementary (temporada inteira de uma vez), R.J. Decker, Tracker (Disney+ em
+  lotes), Ghosts e Sheriff Country (Paramount+ meses depois), Georgie & Mandy
+  (HBO Max semanas depois), Chicago Fire, Med e P.D. (canal Universal TV meses
+  depois). NCIS passa no AXN.
+- **Sem fonte de que saem aqui junto**: o resto da CBS (NCIS: Origins,
+  Elsbeth, FBI, CIA, Fire Country, Boston Blue…), da NBC, da FOX, Peacock,
+  MGM+, National Geographic, The CW e as novelas diárias.
+- **Quase**: Scrubs saiu no Disney+ um dia depois da ABC na 1ª temporada do
+  revival (Séries em Cena, 26/02/2026), mas a 2ª, que estreou em 30/09/2026,
+  ainda não tem dia nem hora confirmados aqui. Na Adult Swim, Presidente Curtis
+  e Get Jiro aparecem na HBO Max no dia, em Brasília, da exibição americana
+  (Olhar Digital, 28/09/2026), mas a hora não foi confirmada e The Terrors of
+  Jordan Mendoza não aparece nas listas da HBO Max.
 
 ## A página de cada série
 

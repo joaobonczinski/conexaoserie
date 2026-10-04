@@ -1,13 +1,4 @@
 {
-  "_leiame": [
-    "Ajustes manuais, chaveados pelo id do TVmaze. Sobrevivem a qualquer `npm run fetch`, que so reescreve agenda.json.",
-    "oculto: tira a serie do site sem apagar o dado.",
-    "destaque: marca o card na grade.",
-    "tituloBr: o titulo brasileiro, quando o TVmaze nao tem ou errou.",
-    "plataforma: onde a serie sai no Brasil. Obrigatorio para serie de canal sem casa fixa (ABC, CBS, Peacock...).",
-    "link: o endereco da serie na plataforma. So vira link se o dominio estiver na lista da plataforma em plataformas.json.",
-    "horario: { hora: '22:00', vespera: true } na hora de BRASILIA, quando a serie foge da regra da plataforma."
-  ],
   "49": {
     "tituloBr": "Brooklyn Nine-Nine"
   },
@@ -28,5 +19,32 @@
   },
   "46972": {
     "tituloBr": "Astrid et Raphaëlle"
-  }
+  },
+  "63386": {
+    "tituloBr": "Outlander: Blood of My Blood",
+    "plataforma": "Disney+",
+    "horario": {
+      "hora": "00:00",
+      "diaSeguinte": true,
+      "fuso": "America/Los_Angeles"
+    }
+  },
+  "84526": {
+    "plataforma": "Paramount+",
+    "horario": {
+      "hora": "23:00",
+      "fuso": "America/New_York"
+    }
+  },
+  "_leiame": [
+    "Ajustes manuais, chaveados pelo id do TVmaze. Sobrevivem a qualquer `npm run fetch`, que so reescreve agenda.json.",
+    "oculto: tira a serie do site sem apagar o dado.",
+    "destaque: marca o card na grade.",
+    "tituloBr: o titulo brasileiro, quando o TVmaze nao tem ou errou.",
+    "plataforma: onde a serie sai no Brasil. Obrigatorio para serie de canal sem casa fixa (ABC, CBS, Peacock...).",
+    "link: o endereco da serie na plataforma. So vira link se o dominio estiver na lista da plataforma em plataformas.json.",
+    "horario: { hora: '22:00', vespera: true } na hora de BRASILIA, quando a serie foge da regra da plataforma.",
+    "horario.fuso: 'America/New_York' ou 'America/Los_Angeles' quando a fonte da a hora de la (assim ela acompanha o horario de verao americano). horario.diaSeguinte: true quando chega aqui um dia DEPOIS da data oficial.",
+    "Serie de TV americana so entra com fonte brasileira dizendo que sai aqui toda semana, quase junto com os EUA. As fontes de cada uma estao no README, 'Series da TV americana'."
+  ]
 }

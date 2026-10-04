@@ -70,8 +70,30 @@ export function diaAnterior(data: string): string {
   return new Date(Date.UTC(ano, mes - 1, dia - 1)).toISOString().slice(0, 10);
 }
 
-/** O que o admin pode escrever para uma serie que foge da regra. */
-export type AjusteDeHorario = { hora: string; vespera?: boolean };
+/** "2026-02-28" -> "2026-03-01". O espelho do `diaAnterior`. */
+export function diaPosterior(data: string): string {
+  const [ano, mes, dia] = data.split("-").map(Number);
+  return new Date(Date.UTC(ano, mes - 1, dia + 1)).toISOString().slice(0, 10);
+}
+
+/**
+ * O que o admin pode escrever para uma serie que foge da regra.
+ *
+ * A hora e de Brasilia, a menos que venha `fuso`. O FUSO EXISTE PARA A HORA
+ * QUE MORA NOS EUA: Marshals sai na Paramount+ daqui as 23h de Nova York, que
+ * e meia-noite em Brasilia em outubro e 1h em marco (Observatorio do Cinema,
+ * 02/03/2026, viu as duas). Escrita em Brasilia, a hora erraria metade do ano.
+ *
+ * `diaSeguinte` e o contrario da `vespera`: a serie chega aqui um dia DEPOIS
+ * da data oficial — Outlander: Blood of My Blood passa no Starz na sexta e sai
+ * no Disney+ brasileiro no sabado.
+ */
+export type AjusteDeHorario = {
+  hora: string;
+  vespera?: boolean;
+  diaSeguinte?: boolean;
+  fuso?: string;
+};
 
 /**
  * Quando UM episodio chega no Brasil, e de onde veio essa resposta.
@@ -90,8 +112,15 @@ export function quandoChega(
   ajuste: AjusteDeHorario | null,
 ): { airingAt: number | null; origem: OrigemDoHorario | null } {
   if (ajuste) {
-    const dia = ajuste.vespera ? diaAnterior(ep.data) : ep.data;
-    return { airingAt: instanteNoFuso(dia, ajuste.hora, FUSO_BRASILIA), origem: "manual" };
+    const dia = ajuste.vespera
+      ? diaAnterior(ep.data)
+      : ajuste.diaSeguinte
+        ? diaPosterior(ep.data)
+        : ep.data;
+    return {
+      airingAt: instanteNoFuso(dia, ajuste.hora, ajuste.fuso ?? FUSO_BRASILIA),
+      origem: "manual",
+    };
   }
   if (regra?.tipo === "regra") {
     const dia = regra.vespera ? diaAnterior(ep.data) : ep.data;

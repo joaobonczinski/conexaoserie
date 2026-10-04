@@ -90,10 +90,12 @@ export type Override = {
   /** Endereco da serie na plataforma. So vira link se o dominio abrir aqui. */
   link?: string;
   /**
-   * A hora EM BRASILIA em que a serie sai, quando ela foge da regra da
-   * plataforma (Marvel no Disney+, por exemplo, sai na vespera as 22h).
+   * A hora em que a serie sai, quando ela foge da regra da plataforma (Marvel
+   * no Disney+, por exemplo, sai na vespera as 22h). Em Brasilia, a menos que
+   * venha `fuso`; `diaSeguinte` quando chega aqui um dia depois da data
+   * oficial. O porque de cada um esta no `AjusteDeHorario` (regras.ts).
    */
-  horario?: { hora: string; vespera?: boolean };
+  horario?: { hora: string; vespera?: boolean; diaSeguinte?: boolean; fuso?: string };
 };
 
 /** De onde saiu o horario de um lancamento — a tela diz isso a quem olha. */
@@ -105,7 +107,7 @@ export type OrigemDoHorario = "exibicao" | "regra" | "manual";
  */
 export type HorarioDaSerie =
   | RegraDeHorario
-  | { tipo: "manual"; hora: string; vespera: boolean };
+  | { tipo: "manual"; hora: string; vespera: boolean; diaSeguinte: boolean; fuso: string };
 
 /**
  * Um LANCAMENTO: o que fica disponivel de uma vez.

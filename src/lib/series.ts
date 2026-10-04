@@ -2,7 +2,7 @@ import agendaJson from "@/data/agenda.json";
 import overridesJson from "@/data/overrides.json";
 import { canalPorChave, corDaPlataforma, linkQueAbre } from "./plataformas";
 import { fimDe, instanteDe } from "./proximo";
-import { montarLancamentos } from "./regras";
+import { FUSO_BRASILIA, montarLancamentos } from "./regras";
 import type {
   Agenda,
   Item,
@@ -99,7 +99,13 @@ function aplicar(bruta: SerieBruta): Serie | null {
     tvmazeUrl: bruta.tvmazeUrl,
     canal: bruta.canal,
     horario: ajuste.horario
-      ? { tipo: "manual", hora: ajuste.horario.hora, vespera: ajuste.horario.vespera === true }
+      ? {
+          tipo: "manual",
+          hora: ajuste.horario.hora,
+          vespera: ajuste.horario.vespera === true,
+          diaSeguinte: ajuste.horario.diaSeguinte === true,
+          fuso: ajuste.horario.fuso ?? FUSO_BRASILIA,
+        }
       : regra,
     estreou: bruta.estreou,
     status: bruta.status,

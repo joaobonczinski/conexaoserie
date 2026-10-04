@@ -41,8 +41,8 @@
       "id": 2,
       "plataforma": "Disney+",
       "horario": { "tipo": "regra", "hora": "00:00", "fuso": "America/Los_Angeles", "vespera": false },
-      "conferido": null,
-      "fonte": "Padrao da Hulu nos EUA. No Brasil o catalogo da Hulu vive dentro do Disney+"
+      "conferido": "2026-10-03",
+      "fonte": "Guia Disney+ Brasil (13/05/2026): Futurama T14 sai no Disney+ 'sempre às segundas-feiras', nas mesmas datas da Hulu, e a T13 'estreou no Brasil pelo Disney+ simultaneamente com os Estados Unidos'. A hora (meia-noite de Los Angeles, 4h aqui) e a da Hulu, que e tambem a padrao do Disney+ no Brasil"
     },
     {
       "canal": "FX",
@@ -59,8 +59,8 @@
       "id": 47,
       "plataforma": "Disney+",
       "horario": { "tipo": "exibicao" },
-      "conferido": null,
-      "fonte": "Mesmo grupo do FX; assumido igual a ele"
+      "conferido": "2026-10-03",
+      "fonte": "Guia Disney+ Brasil (15/07/2026): It's Always Sunny T18 'estreia no Disney+ na segunda-feira, dia 17 de agosto de 2026, às 22:00 no horário de Brasília' — o minuto da exibicao na FXX, 21h de Nova York"
     },
     {
       "canal": "HBO",
@@ -86,8 +86,8 @@
       "id": 310,
       "plataforma": "Apple TV",
       "horario": { "tipo": "regra", "hora": "21:00", "fuso": "America/New_York", "vespera": true },
-      "conferido": null,
-      "fonte": "Deadline e TVLine: episodios na noite ANTERIOR a data oficial, 21h de Nova York"
+      "conferido": "2026-10-03",
+      "fonte": "Series em Cena (30/06/2026) sobre Silo T3: estreia 'quinta-feira, 2 de julho', 'a partir das 22h (pelo horário de Brasília)'. O TVmaze marca 3 de julho: e a vespera, as 21h de Nova York (Deadline e TVLine dizem o mesmo nos EUA)"
     },
     {
       "canal": "Paramount+",
@@ -95,19 +95,19 @@
       "id": 107,
       "plataforma": "Paramount+",
       "horario": { "tipo": "regra", "hora": "00:00", "fuso": "America/Los_Angeles", "vespera": false },
-      "conferido": null,
-      "fonte": "Central de ajuda da Paramount+ nos EUA: meia-noite do Pacifico"
+      "conferido": "2026-10-03",
+      "fonte": "Terra (02/10/2026) sobre MobLand T2E4: 'sexta-feira, dia 9 de outubro, às 4h (pelo horário de Brasília)', a data do TVmaze — meia-noite de Los Angeles, como diz a central de ajuda da Paramount+ nos EUA"
     },
-    { "canal": "Adult Swim", "tipo": "net", "id": 10, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "Adult Swim", "tipo": "net", "id": 10, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": "Sem casa fixa: Presidente Curtis e Get Jiro aparecem na HBO Max daqui (Olhar Digital, 28/09/2026), The Terrors of Jordan Mendoza nao. Ver o README, 'Series da TV americana'" },
     { "canal": "AMC", "tipo": "net", "id": 20, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
-    { "canal": "STARZ", "tipo": "net", "id": 17, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "STARZ", "tipo": "net", "id": 17, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": "Sem casa fixa: Outlander: Blood of My Blood sai no Disney+ no dia seguinte (ajuste no overrides.json). Ver o README, 'Series da TV americana'" },
     { "canal": "MGM+", "tipo": "web", "id": 503, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
     { "canal": "Peacock", "tipo": "web", "id": 347, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
     { "canal": "National Geographic", "tipo": "net", "id": 42, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
-    { "canal": "ABC", "tipo": "net", "id": 3, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
-    { "canal": "CBS", "tipo": "net", "id": 2, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
-    { "canal": "NBC", "tipo": "net", "id": 1, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
-    { "canal": "FOX", "tipo": "net", "id": 4, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null },
+    { "canal": "ABC", "tipo": "net", "id": 3, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": "Sem casa fixa, e o Disney+ daqui recebe em lotes, meses depois: Grey's Anatomy, 9-1-1, Abbott Elementary, R.J. Decker. Ver o README, 'Series da TV americana'" },
+    { "canal": "CBS", "tipo": "net", "id": 2, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": "Sem casa fixa: Marshals sai na Paramount+ na mesma noite (ajuste no overrides.json), mas Tracker vai para o Disney+ em lotes, NCIS passa no AXN e Ghosts e Sheriff Country chegam a Paramount+ meses depois. Ver o README, 'Series da TV americana'" },
+    { "canal": "NBC", "tipo": "net", "id": 1, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": "Sem casa fixa: Chicago Fire, Med e P.D. passam no canal Universal TV meses depois. Ver o README, 'Series da TV americana'" },
+    { "canal": "FOX", "tipo": "net", "id": 4, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": "Sem casa fixa: Os Simpsons chegam ao Disney+ daqui em lotes, meses depois. Ver o README, 'Series da TV americana'" },
     { "canal": "The CW", "tipo": "net", "id": 5, "plataforma": null, "horario": { "tipo": "exibicao" }, "conferido": null, "fonte": null }
   ],
   "plataformas": {

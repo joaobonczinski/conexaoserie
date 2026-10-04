@@ -160,9 +160,21 @@ function comoSaiOHorario(serie: Serie): string {
   const Quem = quem.charAt(0).toUpperCase() + quem.slice(1);
 
   if (horario?.tipo === "manual") {
-    return `Esta série foge do horário de costume ${onde}: sai ${horaPorExtenso(horario.hora)} no horário de Brasília${
-      horario.vespera ? ", na noite anterior à data oficial" : ""
-    }. O horário foi conferido à mão.`;
+    // A hora pode morar nos EUA (Marshals: 23h de Nova York) e o dia pode ser
+    // o seguinte ao oficial (Outlander: Blood of My Blood) — ver o
+    // `AjusteDeHorario`. Fora de Brasilia, ela muda com o horario de verao de
+    // la, e a frase precisa avisar, como avisa a da regra.
+    const emBrasilia = horario.fuso === FUSO_PADRAO;
+    const cidade = emBrasilia ? "Brasília" : (CIDADES[horario.fuso] ?? nomeDoFuso(horario.fuso));
+    const quando = horario.vespera
+      ? ", na noite anterior à data oficial"
+      : horario.diaSeguinte
+        ? ", no dia seguinte ao da exibição original"
+        : "";
+    const conversao = emBrasilia
+      ? ""
+      : " A hora que aparece aqui já vem convertida para o seu fuso — e muda uma hora quando os Estados Unidos entram ou saem do horário de verão.";
+    return `Esta série foge do horário de costume ${onde}: sai ${horaPorExtenso(horario.hora)} no horário de ${cidade}${quando}.${conversao} O horário foi conferido à mão.`;
   }
   if (horario?.tipo === "regra") {
     const cidade = CIDADES[horario.fuso] ?? nomeDoFuso(horario.fuso);

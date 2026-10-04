@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BotaoDaLista from "./BotaoDaLista";
 import SeloDePlataforma from "./SeloDePlataforma";
 import type { Item } from "@/lib/tipos";
 import { LINK_QUE_COBRE, enderecoDaSerie } from "@/lib/enderecos";
@@ -63,7 +64,9 @@ export function LinhaDeEstreia({
       )}
 
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-semibold text-tinta">
+        {/* Duas linhas, e nao `truncate`: com o "+" no fim da linha, o nome
+            fica com pouco espaco no celular — o mesmo conserto da /proximos/. */}
+        <p className="line-clamp-2 text-sm font-semibold text-tinta">
           <Link href={enderecoDaSerie(serie.slug)} prefetch={false} className={LINK_QUE_COBRE}>
             {serie.nome}
           </Link>
@@ -100,6 +103,7 @@ export function LinhaDeEstreia({
             : "—"}
         </p>
       </div>
+      <BotaoDaLista tvmazeId={serie.id} titulo={serie.nome} variante="linha" />
     </li>
   );
 }

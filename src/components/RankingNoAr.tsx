@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import BotaoDaLista from "./BotaoDaLista";
 import SeloDePlataforma from "./SeloDePlataforma";
 import TituloDeSecao from "./TituloDeSecao";
 import { IconeSetaDireita, IconeSetaEsquerda } from "./Icones";
@@ -131,6 +132,12 @@ export default function RankingNoAr({ series: todas }: { series: SerieNaTela[] }
                       {posicao}
                     </span>
                   ) : null}
+
+                  {/* O "+" na quina, no mesmo lugar do card do calendario logo
+                      acima: a mesma acao nas duas filas da mesma tela. */}
+                  <div className="absolute right-2 top-2">
+                    <BotaoDaLista tvmazeId={serie.id} titulo={serie.nome} variante="card" />
+                  </div>
 
                   <span
                     aria-hidden="true"

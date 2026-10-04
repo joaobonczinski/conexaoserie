@@ -13,8 +13,9 @@ import {
 } from "@/lib/minha-lista";
 
 /* ===========================================================================
-   O BOTAO "+ MINHA LISTA" — na linha dos proximos e do ranking, e na pagina
-   de cada serie. Veio do Conexão Filme, com as decisoes de la:
+   O BOTAO "+ MINHA LISTA" — na linha dos proximos e do ranking, na pagina de
+   cada serie e, desde 03/10/2026, na capa dos cards da home. Veio do Conexão
+   Filme, com as decisoes de la:
 
    Um toque adiciona como "Quero ver" E JA ABRE O DIALOGO, para mudar a
    situacao, dar nota ou anotar na hora (pedido do Joao no Filme: "quando eu
@@ -39,15 +40,25 @@ export default function BotaoDaLista({
 }: {
   tvmazeId: number;
   titulo: string;
-  /** `linha`: ocupa o fim da linha. `pagina`: o botao com texto da pagina da serie. */
-  variante: "linha" | "pagina";
+  /**
+   * `linha`: ocupa o fim da linha. `pagina`: o botao com texto da pagina da
+   * serie. `card`: o adesivo sobre a capa; quem o posiciona e o card.
+   */
+  variante: "linha" | "pagina" | "card";
 }) {
   const conta = useMinhaLista();
   const caminho = usePathname();
   const [salvando, setSalvando] = useState(false);
   const [falhou, setFalhou] = useState(false);
 
-  const reserva = variante === "linha" ? <span className="h-9 w-9 shrink-0" aria-hidden /> : null;
+  // No CARD a reserva tambem conta: os selos de estreia moram embaixo do botao,
+  // e subiriam 32px quando a conta chegasse.
+  const reserva =
+    variante === "linha" ? (
+      <span className="h-9 w-9 shrink-0" aria-hidden />
+    ) : variante === "card" ? (
+      <span className="h-7 w-7" aria-hidden />
+    ) : null;
   if (conta.fase === "carregando" || conta.fase === "indisponivel") return reserva;
 
   const item = conta.fase === "pronto" ? itemDaSerie(conta, tvmazeId) : undefined;
@@ -96,6 +107,31 @@ export default function BotaoDaLista({
           : falhou
             ? "Tentar de novo"
             : "Minha lista"}
+      </button>
+    );
+  }
+
+  // NA CAPA DO CARD, o tamanho e o lugar da estrela do Conexão Anime: um
+  // adesivo de 28px na quina, o mesmo em todos os cards, para tocar sem
+  // procurar. O `before` estica a area de toque para 40px sem engordar o
+  // desenho — 28px e pouco para o dedo.
+  //
+  // A cor de erro vai por `style`: o `.adesivo` fica fora das camadas do
+  // Tailwind e venceria um `text-*` (a armadilha do AGENTS.md).
+  if (variante === "card") {
+    return (
+      <button
+        type="button"
+        onClick={tocar}
+        disabled={salvando}
+        aria-label={rotulo}
+        title={rotulo}
+        style={falhou && !item ? { color: "var(--color-arte-erro)" } : undefined}
+        className={`relative z-10 grid h-7 w-7 place-items-center rounded-lg transition-transform before:absolute before:-inset-1.5 before:content-[''] hover:scale-110 disabled:opacity-60 ${
+          item ? "bg-acento text-sobre-acento shadow-sm" : "adesivo"
+        }`}
+      >
+        {item ? <IconeVisto className="h-4 w-4" /> : <IconeMais className="h-4 w-4" />}
       </button>
     );
   }

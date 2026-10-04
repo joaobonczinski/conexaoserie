@@ -60,8 +60,17 @@ verdade (LGPD).
   `db/schema.sql` aplicado. O catálogo `series` é escrito PELO WORKER, lido do
   TVmaze, nunca pelo navegador.
 - **Quatro situações:** assistindo, quero ver, terminei, abandonei.
-- **O "+"** está nos próximos, no ranking e na página de cada série. Ele
-  adiciona como "Quero ver" e já abre a janela de editar.
+- **O "+"** está em todo lugar onde aparece uma série: na quina da capa dos
+  cards do calendário e do "Mais bem avaliadas" (o lugar da estrela do Anime),
+  no fim das linhas das estreias, dos próximos e do ranking, e na página de
+  cada série. Ele adiciona como "Quero ver" e já abre a janela de editar.
+- **Ligada ao calendário** (03/10/2026): "Suas séries de hoje" no topo da
+  home, só para quem está logado e fechado a cada visita (a decisão do Anime:
+  não mostrar o que a pessoa assiste sem ela pedir); a faixa "Você já
+  terminou" no topo da Minha lista; e o próximo episódio embaixo de cada
+  pôster ("T2 · E7 · qui 22:00", ou "saiu há 2h" em verde). Série abandonada
+  fica fora dos dois. A faixa conta séries, e não horas como a do Filme: a
+  lista não marca episódio, e somar horas seria inventar.
 - **O atalho da área de trabalho não tem servidor de conta:** as telas dizem
   "funciona no site publicado" e o "+" some.
 

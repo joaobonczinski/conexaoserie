@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BotaoDaLista from "./BotaoDaLista";
 import SeloDePlataforma from "./SeloDePlataforma";
 import { IconeRelogio } from "./Icones";
 import type { Item } from "@/lib/tipos";
@@ -80,23 +81,25 @@ export default function CardSerie({ item, fuso, agora }: Props) {
           {hora ?? "sem hora"}
         </span>
 
-        {/* Canto de cima a direita: os selos editoriais. A estreia vem ANTES do
-            destaque porque e dado (o episodio 1 esta ali); o destaque e
-            opiniao do Joao. */}
-        {estreia || serie.destaque ? (
-          <div className="absolute right-2 top-2 flex flex-col items-end gap-1">
-            {estreia ? (
-              <span className="rounded-md bg-arte-ouro px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-black">
-                {estreia}
-              </span>
-            ) : null}
-            {serie.destaque ? (
-              <span className="adesivo px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide">
-                Destaque
-              </span>
-            ) : null}
-          </div>
-        ) : null}
+        {/* Canto de cima a direita: o "+" da Minha lista NA QUINA, e os selos
+            editoriais embaixo dele. A acao vem primeiro porque e o que se
+            toca, e no mesmo lugar em todos os cards (a estrela do Conexão
+            Anime); em fila, ao lado do "Série nova", ela bateria no horario
+            num card de 168px. A estreia vem ANTES do destaque porque e dado (o
+            episodio 1 esta ali); o destaque e opiniao do Joao. */}
+        <div className="absolute right-2 top-2 flex flex-col items-end gap-1">
+          <BotaoDaLista tvmazeId={serie.id} titulo={serie.nome} variante="card" />
+          {estreia ? (
+            <span className="rounded-md bg-arte-ouro px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-black">
+              {estreia}
+            </span>
+          ) : null}
+          {serie.destaque ? (
+            <span className="adesivo px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide">
+              Destaque
+            </span>
+          ) : null}
+        </div>
 
         {/* A BARRA DE BAIXO: o que sai na esquerda, quanto falta na direita.
             Nas pontas, e nao centralizados, para um nunca cair por cima do

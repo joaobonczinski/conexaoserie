@@ -4,7 +4,17 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import BotaoDaLista from "./BotaoDaLista";
 import EstadoVazio from "./EstadoVazio";
-import { IconeLupa } from "./Icones";
+import FaixaEstatisticas from "./FaixaEstatisticas";
+import { IconeLupa, IconeRelogio } from "./Icones";
+import { contar, rotuloContagem } from "@/lib/contagem";
+import {
+  DIAS_CURTOS,
+  dataLocal,
+  diaDaSemanaDaData,
+  diaEMes,
+  formatarHora,
+  somarDias,
+} from "@/lib/horario";
 import {
   SITUACOES,
   abrirEdicao,
@@ -17,6 +27,10 @@ import {
   type SerieDaBusca,
   type Status,
 } from "@/lib/minha-lista";
+import { proximoLancamento, recemSaido } from "@/lib/proximo";
+import { useAgora, useFuso } from "@/lib/relogio";
+import { rotuloDoLancamento } from "@/lib/rotulos";
+import type { Lancamento } from "@/lib/tipos";
 
 /* ===========================================================================
    A MINHA LISTA — a busca para adicionar, os filtros por situacao e os
@@ -27,13 +41,27 @@ import {
    (o atalho da area de trabalho so serve as paginas), sem login, lista vazia,
    filtro vazio. Sao causas diferentes, e a pessoa so consegue reagir a cada
    uma se souber qual e.
+
+   LIGADA AO CALENDARIO desde 03/10/2026 (o item 2 da revisao): a faixa "Você
+   já terminou" no topo, como no Filme, e o proximo episodio embaixo de cada
+   poster — a lista deixou de ser so um arquivo de series e passou a dizer
+   quando sai a proxima.
    =========================================================================== */
 
 type Filtro = "todos" | Status;
 
-export default function MinhaLista() {
+type Props = {
+  /** Os proximos lancamentos de cada serie da agenda, por id do TVmaze. */
+  proximos: Record<number, Lancamento[]>;
+};
+
+export default function MinhaLista({ proximos }: Props) {
   const conta = useMinhaLista();
   const [filtro, setFiltro] = useState<Filtro>("todos");
+  // De minuto em minuto basta: a linha diz o dia e a hora do proximo, e o
+  // "saiu ha 2h" so muda de hora em hora.
+  const agora = useAgora(60_000);
+  const fuso = useFuso();
 
   if (conta.fase === "carregando") {
     return <p className="py-16 text-center text-sm text-fraco">Carregando…</p>;
@@ -53,8 +81,8 @@ export default function MinhaLista() {
       <EstadoVazio titulo="Entre para montar a sua lista">
         <p>
           Guarde as séries que você está assistindo e as que quer ver, marque as que terminou e dê
-          a sua nota. Dá para adicionar daqui ou pelo + dos próximos, do ranking e da página de
-          cada série.
+          a sua nota. Dá para adicionar daqui ou pelo + do calendário, dos próximos, do ranking e
+          da página de cada série.
         </p>
         <Link href={enderecoDeEntrar("/minha-lista/")} className="botao botao-cheio mt-5">
           Entrar
@@ -69,6 +97,10 @@ export default function MinhaLista() {
 
   return (
     <>
+      {/* Com a lista vazia, "voce ja terminou 0 series" so repetiria o aviso
+          de lista vazia la embaixo. */}
+      {conta.itens.length > 0 ? <FaixaEstatisticas itens={conta.itens} /> : null}
+
       <Busca />
 
       <div role="group" aria-label="Filtrar a lista" className="mt-10 flex flex-wrap gap-1.5">
@@ -90,8 +122,8 @@ export default function MinhaLista() {
       <div className="mt-6">
         {conta.itens.length === 0 ? (
           <EstadoVazio titulo="A sua lista está vazia">
-            Busque uma série acima, ou toque no + de qualquer série dos próximos, do ranking e da
-            página de cada série.
+            Busque uma série acima, ou toque no + de qualquer série do calendário, dos próximos, do
+            ranking e da página de cada série.
           </EstadoVazio>
         ) : itens.length === 0 ? (
           <p className="py-10 text-center text-sm text-suave">
@@ -100,7 +132,13 @@ export default function MinhaLista() {
         ) : (
           <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {itens.map((item) => (
-              <PosterDaLista key={item.id} item={item} />
+              <PosterDaLista
+                key={item.id}
+                item={item}
+                lancamentos={proximos[item.tvmazeId] ?? null}
+                agora={agora}
+                fuso={fuso}
+              />
             ))}
           </div>
         )}
@@ -109,8 +147,71 @@ export default function MinhaLista() {
   );
 }
 
-/** Uma serie da lista: o poster com a situacao, o nome e a nota. */
-function PosterDaLista({ item }: { item: ItemDaLista }) {
+/**
+ * Quando sai, no texto mais curto que ainda diz o dia: "hoje 22:00", "amanhã
+ * 04:00", "qui 22:00", "15/10 22:00". Dentro de uma semana o dia da semana
+ * basta — nao ha duas quintas possiveis.
+ */
+function quandoSai(l: Lancamento, agora: number, fuso: string): string {
+  const hoje = dataLocal(agora, fuso);
+  const dia = l.airingAt !== null ? dataLocal(l.airingAt, fuso) : l.data;
+  const hora = l.airingAt !== null ? ` ${formatarHora(l.airingAt, fuso)}` : "";
+  if (dia === hoje) return `hoje${hora}`;
+  if (dia === somarDias(hoje, 1)) return `amanhã${hora}`;
+  if (dia < somarDias(hoje, 7)) return `${DIAS_CURTOS[diaDaSemanaDaData(dia)].toLowerCase()}${hora}`;
+  return `${diaEMes(dia)}${hora}`;
+}
+
+/**
+ * A linha do proximo episodio, embaixo do poster.
+ *
+ * O QUE SAIU HA POUCO VEM ANTES DO QUE VEM: "saiu ha 2h", em verde, responde
+ * "ja da para assistir?", que e a pergunta de quem abre a lista a noite.
+ * Passada a janela do `recemSaido` (12 horas), a linha volta a dizer o
+ * proximo.
+ */
+function ProximoEpisodio({
+  lancamentos,
+  agora,
+  fuso,
+}: {
+  lancamentos: Lancamento[];
+  agora: number;
+  fuso: string;
+}) {
+  const saiu = recemSaido(lancamentos, agora);
+  if (saiu && saiu.airingAt !== null) {
+    return (
+      <p className="numero mt-1 text-[11px] text-ok">
+        {rotuloDoLancamento(saiu)} · {rotuloContagem(contar(saiu.airingAt, agora))}
+      </p>
+    );
+  }
+  const proximo = proximoLancamento(lancamentos, agora);
+  if (!proximo) return null;
+  return (
+    <p className="numero mt-1 flex items-center gap-1 text-[11px] text-suave">
+      <IconeRelogio className="h-3 w-3 shrink-0" />
+      <span>
+        {rotuloDoLancamento(proximo)} · {quandoSai(proximo, agora, fuso)}
+      </span>
+    </p>
+  );
+}
+
+/** Uma serie da lista: o poster com a situacao, o nome, a nota e o proximo episodio. */
+function PosterDaLista({
+  item,
+  lancamentos,
+  agora,
+  fuso,
+}: {
+  item: ItemDaLista;
+  /** `null` quando a serie nao esta na agenda (acabou, ou ninguem marcou data). */
+  lancamentos: Lancamento[] | null;
+  agora: number | null;
+  fuso: string;
+}) {
   const nome = nomeDaSerie(item.tvmazeId, item.serie);
   return (
     <button
@@ -147,6 +248,11 @@ function PosterDaLista({ item }: { item: ItemDaLista }) {
         {nome}
       </p>
       {item.serie.ano ? <p className="numero mt-0.5 text-xs text-fraco">{item.serie.ano}</p> : null}
+      {/* Abandonada nao ganha a linha: lembrar o episodio de uma serie que a
+          pessoa largou e insistir. */}
+      {lancamentos && agora !== null && item.status !== "abandonei" ? (
+        <ProximoEpisodio lancamentos={lancamentos} agora={agora} fuso={fuso} />
+      ) : null}
     </button>
   );
 }

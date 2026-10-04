@@ -3,6 +3,7 @@ import { INSTANTE_DO_BUILD } from "@/lib/build";
 import EstreiasNaHome from "@/components/EstreiasNaHome";
 import NovidadesNaHome from "@/components/NovidadesNaHome";
 import RankingNoAr from "@/components/RankingNoAr";
+import SuasSeriesDeHoje from "@/components/SuasSeriesDeHoje";
 import { FUSO_PADRAO, dataLocal } from "@/lib/horario";
 import { estreias, itensEntre, rankingNoAr } from "@/lib/series";
 
@@ -31,6 +32,10 @@ export default function Home() {
       <h1 className="mb-4 text-2xl font-bold tracking-tight text-tinta sm:text-3xl">
         Calendário de séries
       </h1>
+
+      {/* Logado, as series da lista que saem hoje sobem para cima do
+          calendario (o bloco do Conexão Anime). Deslogado, nao existe. */}
+      <SuasSeriesDeHoje itens={itens} />
 
       <Calendario itens={itens} hojeDoBuild={hojeDoBuild} />
 

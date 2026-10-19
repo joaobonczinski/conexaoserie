@@ -109,8 +109,56 @@ navegador do João: `CONEXAO_SEM_NAVEGADOR=1`.
 
 ## Como trabalhar aqui
 
-- Commitar e dar push (o João usa o GitHub como backup e para o deploy).
+- Commitar sempre (o João usa o GitHub como backup e para o deploy). O push
+  só com o ok dele quando muda o site: desde 29/09/2026 o push no `main`
+  publica sozinho, pelo Workers Builds.
 - Mensagem de commit explicando **por quê**, não só o quê.
 - Comentário em código explica a razão, não o óbvio — no tom dos arquivos que
   vieram do anime.
 - Relate o que falhou e o que não foi verificado.
+
+## Máquina nova
+
+- Node 22, `npm install`, `gh auth login` e `npx wrangler login` (conta
+  Cloudflare do João).
+- Em 18/10/2026 esta pasta não tinha `.dev.vars` nem `.env.local`: o TVmaze não
+  pede chave, e o segredo do login fica só na Cloudflare
+  (`npx wrangler secret put GOOGLE_CLIENT_SECRET`). Se um dia for preciso, eles
+  nunca vão para o git (o `.gitignore` já cuida).
+- O atalho "Conexão Série" da Área de Trabalho não vem no clone: ele roda
+  `wscript` com `scripts\conexao-serie.vbs` (ícone em
+  `scripts\conexao-serie.ico`; o lançador usa a porta 4330). Recriar apontando
+  para a pasta nova.
+- A produção não depende de máquina nenhuma: o Workers Builds publica a cada
+  push no `main`, o robô roda no GitHub Actions, o D1 e o segredo estão na
+  Cloudflare.
+
+## Como trabalhar com o João
+
+- Português do Brasil.
+- Opinião franca, com contrapeso quando a ideia for ruim. Ele decide rápido e
+  não gosta de reabrir decisão fechada.
+- Assunto novo aberto com uma frase curta é convite para conversar, não ordem.
+  Só criar arquivo depois de ele dizer algo como "pode começar".
+- Medir antes de afirmar. Ele pergunta se as coisas cabem no plano grátis da
+  Cloudflare: responder com número medido (o `GUARDA_DIAS` do robô é a
+  alavanca do tamanho do site).
+- Ao terminar algo, pedir para ele usar: é usando que ele acha os defeitos.
+
+## Estado em 18/10/2026
+
+- **No ar desde 28/09/2026**, com o robô da agenda verde todos os dias, login
+  com Google e Minha Lista funcionando (testados pelo João em 29/09), e o
+  Search Console verificado, com o sitemap enviado.
+- **Pendente:**
+  - Atualizar o Next: a 16.2.11 tem uma falha crítica (execução remota de
+    código) no servidor de desenvolvimento rodando no Windows. O site no ar,
+    estático, não é afetado; o `next dev` é. O Anime e o Filme já estão na
+    16.3. Fazer como no Anime: atualizar e pôr `-H 127.0.0.1` no `npm run dev`.
+  - LivePix (apoio) e Discord (o código está pronto, faltam as chaves).
+  - Novidades vazia: oferecido e não feito.
+  - Acompanhar a indexação no Search Console.
+- Série da TV americana só entra com fonte brasileira de lançamento semanal
+  quase junto com os EUA (a lista com as fontes está no README).
+- O histórico completo das decisões ficou com o João, na pasta da mudança de
+  notebook de 18/10/2026, e não neste repositório, que é público.

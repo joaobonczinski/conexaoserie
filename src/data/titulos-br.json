@@ -8447,6 +8447,10 @@
     "titulo": null,
     "conferidoEm": "2026-09-29"
   },
+  "80727": {
+    "titulo": null,
+    "conferidoEm": "2026-10-23"
+  },
   "80731": {
     "titulo": null,
     "conferidoEm": "2026-10-05"
@@ -9115,6 +9119,10 @@
     "titulo": null,
     "conferidoEm": "2026-10-11"
   },
+  "94942": {
+    "titulo": null,
+    "conferidoEm": "2026-10-23"
+  },
   "94943": {
     "titulo": null,
     "conferidoEm": "2026-10-11"
@@ -9134,5 +9142,9 @@
   "95086": {
     "titulo": null,
     "conferidoEm": "2026-10-20"
+  },
+  "95139": {
+    "titulo": null,
+    "conferidoEm": "2026-10-23"
   }
 }

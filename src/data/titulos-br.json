@@ -6127,6 +6127,10 @@
     "titulo": "Conversando com um Serial Killer: Ted Bundy",
     "conferidoEm": "2026-10-26"
   },
+  "40414": {
+    "titulo": null,
+    "conferidoEm": "2026-10-31"
+  },
   "40420": {
     "titulo": null,
     "conferidoEm": "2026-09-29"
@@ -7804,8 +7808,8 @@
     "conferidoEm": "2026-09-29"
   },
   "63873": {
-    "titulo": null,
-    "conferidoEm": "2026-09-30"
+    "titulo": "Fingida",
+    "conferidoEm": "2026-10-31"
   },
   "63900": {
     "titulo": null,
@@ -9121,7 +9125,7 @@
   },
   "92449": {
     "titulo": null,
-    "conferidoEm": "2026-09-30"
+    "conferidoEm": "2026-10-31"
   },
   "92751": {
     "titulo": null,
@@ -9301,7 +9305,7 @@
   },
   "94766": {
     "titulo": null,
-    "conferidoEm": "2026-09-30"
+    "conferidoEm": "2026-10-31"
   },
   "94774": {
     "titulo": null,
@@ -9386,5 +9390,9 @@
   "95182": {
     "titulo": null,
     "conferidoEm": "2026-10-27"
+  },
+  "95244": {
+    "titulo": null,
+    "conferidoEm": "2026-10-31"
   }
 }

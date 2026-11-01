@@ -7613,7 +7613,7 @@
   },
   "61324": {
     "titulo": "IT: Bem Vindos a Derry",
-    "conferidoEm": "2026-09-29"
+    "conferidoEm": "2026-11-01"
   },
   "61404": {
     "titulo": null,
@@ -9313,7 +9313,7 @@
   },
   "94797": {
     "titulo": null,
-    "conferidoEm": "2026-10-01"
+    "conferidoEm": "2026-11-01"
   },
   "94855": {
     "titulo": null,
@@ -9394,5 +9394,25 @@
   "95244": {
     "titulo": null,
     "conferidoEm": "2026-10-31"
+  },
+  "95272": {
+    "titulo": null,
+    "conferidoEm": "2026-11-01"
+  },
+  "95294": {
+    "titulo": null,
+    "conferidoEm": "2026-11-01"
+  },
+  "95295": {
+    "titulo": null,
+    "conferidoEm": "2026-11-01"
+  },
+  "95296": {
+    "titulo": null,
+    "conferidoEm": "2026-11-01"
+  },
+  "95299": {
+    "titulo": null,
+    "conferidoEm": "2026-11-01"
   }
 }

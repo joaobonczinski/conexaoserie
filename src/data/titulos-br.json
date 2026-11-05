@@ -4909,7 +4909,7 @@
   },
   "19678": {
     "titulo": null,
-    "conferidoEm": "2026-10-05"
+    "conferidoEm": "2026-11-05"
   },
   "19714": {
     "titulo": null,
@@ -7965,7 +7965,7 @@
   },
   "64087": {
     "titulo": null,
-    "conferidoEm": "2026-10-05"
+    "conferidoEm": "2026-11-05"
   },
   "64153": {
     "titulo": null,
@@ -8346,6 +8346,10 @@
   "70147": {
     "titulo": null,
     "conferidoEm": "2026-11-02"
+  },
+  "70700": {
+    "titulo": null,
+    "conferidoEm": "2026-11-05"
   },
   "70838": {
     "titulo": null,
@@ -9091,6 +9095,10 @@
     "titulo": null,
     "conferidoEm": "2026-10-26"
   },
+  "85583": {
+    "titulo": null,
+    "conferidoEm": "2026-11-05"
+  },
   "85770": {
     "titulo": null,
     "conferidoEm": "2026-11-02"
@@ -9598,5 +9606,13 @@
   "95389": {
     "titulo": null,
     "conferidoEm": "2026-11-04"
+  },
+  "95392": {
+    "titulo": null,
+    "conferidoEm": "2026-11-05"
+  },
+  "95404": {
+    "titulo": null,
+    "conferidoEm": "2026-11-05"
   }
 }

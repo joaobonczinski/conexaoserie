@@ -8527,6 +8527,14 @@
     "titulo": null,
     "conferidoEm": "2026-10-05"
   },
+  "75144": {
+    "titulo": null,
+    "conferidoEm": "2026-11-07"
+  },
+  "75183": {
+    "titulo": "Reparos em Família",
+    "conferidoEm": "2026-11-07"
+  },
   "75194": {
     "titulo": null,
     "conferidoEm": "2026-10-26"
@@ -9015,6 +9023,10 @@
     "titulo": "Um Trabalho do Inferno",
     "conferidoEm": "2026-11-02"
   },
+  "84521": {
+    "titulo": null,
+    "conferidoEm": "2026-11-07"
+  },
   "84526": {
     "titulo": null,
     "conferidoEm": "2026-10-26"
@@ -9106,6 +9118,10 @@
   "85583": {
     "titulo": null,
     "conferidoEm": "2026-11-05"
+  },
+  "85731": {
+    "titulo": null,
+    "conferidoEm": "2026-11-07"
   },
   "85770": {
     "titulo": null,
@@ -9230,6 +9246,10 @@
   "90233": {
     "titulo": null,
     "conferidoEm": "2026-11-02"
+  },
+  "90324": {
+    "titulo": null,
+    "conferidoEm": "2026-11-07"
   },
   "90425": {
     "titulo": null,
@@ -9622,5 +9642,13 @@
   "95404": {
     "titulo": null,
     "conferidoEm": "2026-11-05"
+  },
+  "95407": {
+    "titulo": null,
+    "conferidoEm": "2026-11-07"
+  },
+  "95410": {
+    "titulo": null,
+    "conferidoEm": "2026-11-07"
   }
 }
